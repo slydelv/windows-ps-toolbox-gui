@@ -597,10 +597,6 @@ $BtnBlockEpicBloat.Add_Click({ BlockEpicBloat })
 $BtnBlockAds.Add_Click({ BlockAds })
 
 #region Logic 
-ShowConsole
-MoveConsole
-HideConsole
-
 function BlockAds { 
     $adlist= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/BlockAds.cfg' 
     $adfile = "$env:windir\System32\drivers\etc\hosts"
@@ -889,6 +885,10 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	Exit
 }
+
+ShowConsole
+MoveConsole
+HideConsole
 #endregion
 
 #region Greetings

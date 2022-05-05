@@ -25,28 +25,28 @@ $WindowsGUIToolbox.text          = "Windows PS Toolbox with GUI"
 $WindowsGUIToolbox.TopMost       = $false
 $WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#323951")
 
+$LblTitle                        = New-Object system.Windows.Forms.Label
+$LblTitle.text                   = "Technical GUI Toolbox for Windows"
+$LblTitle.AutoSize               = $true
+$LblTitle.width                  = 335
+$LblTitle.height                 = 12
+$LblTitle.location               = New-Object System.Drawing.Point(155,15)
+$LblTitle.Font                   = New-Object System.Drawing.Font('Verdana',14)
+$LblTitle.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
 $Logo                            = New-Object system.Windows.Forms.PictureBox
 $Logo.width                      = 141
 $Logo.height                     = 110
 $Logo.location                   = New-Object System.Drawing.Point(3,8)
 $Logo.imageLocation              = "https://github.com/slydelv/windows-ps-toolbox-gui/blob/main/PCHH-Logo.png?raw=true"
 $Logo.SizeMode                   = [System.Windows.Forms.PictureBoxSizeMode]::zoom
-$LblTitle                        = New-Object system.Windows.Forms.Label
-$LblTitle.text                   = "Technical GUI Toolbox for Windows"
-$LblTitle.AutoSize               = $true
-$LblTitle.width                  = 25
-$LblTitle.height                 = 10
-$LblTitle.location               = New-Object System.Drawing.Point(155,15)
-$LblTitle.Font                   = New-Object System.Drawing.Font('Verdana',14)
-$LblTitle.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
-
 $7zip                            = New-Object system.Windows.Forms.Button
 $7zip.text                       = "7-Zip"
 $7zip.width                      = 120
 $7zip.height                     = 30
 $7zip.location                   = New-Object System.Drawing.Point(10,40)
 $7zip.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$7zip.ForeColor                  = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$7zip.ForeColor                  = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $7zip.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $GrpInstallUtils                 = New-Object system.Windows.Forms.Groupbox
@@ -70,7 +70,7 @@ $Everything.width                = 120
 $Everything.height               = 30
 $Everything.location             = New-Object System.Drawing.Point(140,40)
 $Everything.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Everything.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Everything.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $Everything.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $AdvIPScanner                    = New-Object system.Windows.Forms.Button
@@ -79,7 +79,7 @@ $AdvIPScanner.width              = 120
 $AdvIPScanner.height             = 30
 $AdvIPScanner.location           = New-Object System.Drawing.Point(10,80)
 $AdvIPScanner.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$AdvIPScanner.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$AdvIPScanner.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $AdvIPScanner.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $WinTerminal                     = New-Object system.Windows.Forms.Button
@@ -88,43 +88,43 @@ $WinTerminal.width               = 120
 $WinTerminal.height              = 30
 $WinTerminal.location            = New-Object System.Drawing.Point(140,80)
 $WinTerminal.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$WinTerminal.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$WinTerminal.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $WinTerminal.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button1                         = New-Object system.Windows.Forms.Button
-$Button1.text                    = "Win Terminal"
+$Button1.text                    = "Placeholder"
 $Button1.width                   = 120
 $Button1.height                  = 30
 $Button1.location                = New-Object System.Drawing.Point(10,120)
 $Button1.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button1.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button1.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button1.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button2                         = New-Object system.Windows.Forms.Button
-$Button2.text                    = "Win Terminal"
+$Button2.text                    = "Placeholder"
 $Button2.width                   = 120
 $Button2.height                  = 30
 $Button2.location                = New-Object System.Drawing.Point(140,120)
 $Button2.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button2.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button2.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button2.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button3                         = New-Object system.Windows.Forms.Button
-$Button3.text                    = "Win Terminal"
+$Button3.text                    = "Placeholder"
 $Button3.width                   = 120
 $Button3.height                  = 30
 $Button3.location                = New-Object System.Drawing.Point(10,160)
 $Button3.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button3.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button3.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button3.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button4                         = New-Object system.Windows.Forms.Button
-$Button4.text                    = "Win Terminal"
+$Button4.text                    = "Placeholder"
 $Button4.width                   = 120
 $Button4.height                  = 30
 $Button4.location                = New-Object System.Drawing.Point(140,160)
 $Button4.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button4.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button4.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button4.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $GrpRepairUtils                  = New-Object system.Windows.Forms.Groupbox
@@ -148,7 +148,7 @@ $BtnChkDsk.width                 = 120
 $BtnChkDsk.height                = 30
 $BtnChkDsk.location              = New-Object System.Drawing.Point(10,40)
 $BtnChkDsk.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnChkDsk.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ResultText                      = New-Object system.Windows.Forms.TextBox
@@ -165,7 +165,7 @@ $BtnChkDskR.width                = 120
 $BtnChkDskR.height               = 30
 $BtnChkDskR.location             = New-Object System.Drawing.Point(140,40)
 $BtnChkDskR.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDskR.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnChkDskR.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnChkDskR.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnChkDskChoice                 = New-Object system.Windows.Forms.Button
@@ -174,7 +174,7 @@ $BtnChkDskChoice.width           = 120
 $BtnChkDskChoice.height          = 30
 $BtnChkDskChoice.location        = New-Object System.Drawing.Point(10,80)
 $BtnChkDskChoice.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDskChoice.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnChkDskChoice.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnChkDskChoice.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $WinForm1                        = New-Object system.Windows.Forms.Form
@@ -189,7 +189,7 @@ $BtnChkDsScan.width              = 120
 $BtnChkDsScan.height             = 30
 $BtnChkDsScan.location           = New-Object System.Drawing.Point(140,80)
 $BtnChkDsScan.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDsScan.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnChkDsScan.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnChkDsScan.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnShowConsole                  = New-Object system.Windows.Forms.Button
@@ -214,7 +214,7 @@ $BtnSFC.width                    = 120
 $BtnSFC.height                   = 30
 $BtnSFC.location                 = New-Object System.Drawing.Point(10,120)
 $BtnSFC.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnSFC.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnSFC.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnSFC.BackColor                = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDISMSpace                    = New-Object system.Windows.Forms.Button
@@ -223,7 +223,7 @@ $BtnDISMSpace.width              = 120
 $BtnDISMSpace.height             = 30
 $BtnDISMSpace.location           = New-Object System.Drawing.Point(140,120)
 $BtnDISMSpace.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnDISMSpace.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnDISMSpace.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDISMSpace.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDISMHealth                   = New-Object system.Windows.Forms.Button
@@ -232,16 +232,16 @@ $BtnDISMHealth.width             = 120
 $BtnDISMHealth.height            = 30
 $BtnDISMHealth.location          = New-Object System.Drawing.Point(10,160)
 $BtnDISMHealth.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnDISMHealth.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnDISMHealth.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDISMHealth.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDeleteTemp                   = New-Object system.Windows.Forms.Button
 $BtnDeleteTemp.text              = "Clear Temp Files"
 $BtnDeleteTemp.width             = 120
 $BtnDeleteTemp.height            = 30
-$BtnDeleteTemp.location          = New-Object System.Drawing.Point(140,160)
+$BtnDeleteTemp.location          = New-Object System.Drawing.Point(140,159)
 $BtnDeleteTemp.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnDeleteTemp.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnDeleteTemp.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDeleteTemp.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Groupbox1                       = New-Object system.Windows.Forms.Groupbox
@@ -256,16 +256,16 @@ $BtnAppList.width                = 120
 $BtnAppList.height               = 30
 $BtnAppList.location             = New-Object System.Drawing.Point(10,40)
 $BtnAppList.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnAppList.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnAppList.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnAppList.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button6                         = New-Object system.Windows.Forms.Button
 $Button6.text                    = "Derp"
 $Button6.width                   = 120
 $Button6.height                  = 30
-$Button6.location                = New-Object System.Drawing.Point(608,428)
+$Button6.location                = New-Object System.Drawing.Point(10,120)
 $Button6.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button6.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button6.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button6.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDisableFastStartup           = New-Object system.Windows.Forms.Button
@@ -274,16 +274,16 @@ $BtnDisableFastStartup.width     = 120
 $BtnDisableFastStartup.height    = 30
 $BtnDisableFastStartup.location  = New-Object System.Drawing.Point(10,80)
 $BtnDisableFastStartup.Font      = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnDisableFastStartup.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnDisableFastStartup.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDisableFastStartup.BackColor  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button7                         = New-Object system.Windows.Forms.Button
-$Button7.text                    = "DISM Health"
+$Button7.text                    = "Placeholder"
 $Button7.width                   = 120
 $Button7.height                  = 30
 $Button7.location                = New-Object System.Drawing.Point(10,200)
 $Button7.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button7.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button7.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button7.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $LblStatus                       = New-Object system.Windows.Forms.Label
@@ -334,7 +334,7 @@ $BtnHwInfo.width                 = 120
 $BtnHwInfo.height                = 30
 $BtnHwInfo.location              = New-Object System.Drawing.Point(140,40)
 $BtnHwInfo.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnHwInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnHwInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnHwInfo.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnOsInfo                       = New-Object system.Windows.Forms.Button
@@ -343,7 +343,7 @@ $BtnOsInfo.width                 = 120
 $BtnOsInfo.height                = 30
 $BtnOsInfo.location              = New-Object System.Drawing.Point(10,80)
 $BtnOsInfo.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnOsInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnOsInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnOsInfo.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Groupbox3                       = New-Object system.Windows.Forms.Groupbox
@@ -367,7 +367,7 @@ $BtnInstallBrave.width           = 120
 $BtnInstallBrave.height          = 30
 $BtnInstallBrave.location        = New-Object System.Drawing.Point(10,40)
 $BtnInstallBrave.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallBrave.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnInstallBrave.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallBrave.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnInstallChrome                = New-Object system.Windows.Forms.Button
@@ -376,7 +376,7 @@ $BtnInstallChrome.width          = 120
 $BtnInstallChrome.height         = 30
 $BtnInstallChrome.location       = New-Object System.Drawing.Point(140,40)
 $BtnInstallChrome.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallChrome.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnInstallChrome.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallChrome.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnInstallFirefox               = New-Object system.Windows.Forms.Button
@@ -385,7 +385,7 @@ $BtnInstallFirefox.width         = 120
 $BtnInstallFirefox.height        = 30
 $BtnInstallFirefox.location      = New-Object System.Drawing.Point(10,80)
 $BtnInstallFirefox.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallFirefox.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnInstallFirefox.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallFirefox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnInstallVLC                   = New-Object system.Windows.Forms.Button
@@ -394,7 +394,7 @@ $BtnInstallVLC.width             = 120
 $BtnInstallVLC.height            = 30
 $BtnInstallVLC.location          = New-Object System.Drawing.Point(140,80)
 $BtnInstallVLC.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallVLC.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnInstallVLC.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallVLC.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnEssentialTweaks              = New-Object system.Windows.Forms.Button
@@ -403,7 +403,7 @@ $BtnEssentialTweaks.width        = 120
 $BtnEssentialTweaks.height       = 30
 $BtnEssentialTweaks.location     = New-Object System.Drawing.Point(10,40)
 $BtnEssentialTweaks.Font         = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnEssentialTweaks.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnEssentialTweaks.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnEssentialTweaks.BackColor    = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnUndoEssential                = New-Object system.Windows.Forms.Button
@@ -412,7 +412,7 @@ $BtnUndoEssential.width          = 120
 $BtnUndoEssential.height         = 30
 $BtnUndoEssential.location       = New-Object System.Drawing.Point(140,40)
 $BtnUndoEssential.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnUndoEssential.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnUndoEssential.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnUndoEssential.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnNotePadPP                    = New-Object system.Windows.Forms.Button
@@ -421,7 +421,7 @@ $BtnNotePadPP.width              = 120
 $BtnNotePadPP.height             = 30
 $BtnNotePadPP.location           = New-Object System.Drawing.Point(10,120)
 $BtnNotePadPP.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnNotePadPP.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnNotePadPP.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnNotePadPP.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button8                         = New-Object system.Windows.Forms.Button
@@ -430,7 +430,7 @@ $Button8.width                   = 120
 $Button8.height                  = 30
 $Button8.location                = New-Object System.Drawing.Point(140,80)
 $Button8.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button8.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button8.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button8.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button9                         = New-Object system.Windows.Forms.Button
@@ -439,7 +439,7 @@ $Button9.width                   = 120
 $Button9.height                  = 30
 $Button9.location                = New-Object System.Drawing.Point(10,120)
 $Button9.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button9.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button9.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button9.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button10                        = New-Object system.Windows.Forms.Button
@@ -448,7 +448,7 @@ $Button10.width                  = 120
 $Button10.height                 = 30
 $Button10.location               = New-Object System.Drawing.Point(140,120)
 $Button10.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button10.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button10.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button10.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnRunningServices              = New-Object system.Windows.Forms.Button
@@ -456,8 +456,8 @@ $BtnRunningServices.text         = "Running Services"
 $BtnRunningServices.width        = 120
 $BtnRunningServices.height       = 30
 $BtnRunningServices.location     = New-Object System.Drawing.Point(140,80)
-$BtnRunningServices.Font         = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnRunningServices.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnRunningServices.Font         = New-Object System.Drawing.Font('Microsoft Sans Serif',9)
+$BtnRunningServices.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnRunningServices.BackColor    = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button11                        = New-Object system.Windows.Forms.Button
@@ -466,7 +466,7 @@ $Button11.width                  = 120
 $Button11.height                 = 30
 $Button11.location               = New-Object System.Drawing.Point(10,160)
 $Button11.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button11.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button11.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button11.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button12                        = New-Object system.Windows.Forms.Button
@@ -475,7 +475,7 @@ $Button12.width                  = 120
 $Button12.height                 = 30
 $Button12.location               = New-Object System.Drawing.Point(140,160)
 $Button12.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button12.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button12.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button12.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button13                        = New-Object system.Windows.Forms.Button
@@ -484,7 +484,7 @@ $Button13.width                  = 120
 $Button13.height                 = 30
 $Button13.location               = New-Object System.Drawing.Point(10,200)
 $Button13.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button13.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button13.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button13.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button14                        = New-Object system.Windows.Forms.Button
@@ -493,7 +493,7 @@ $Button14.width                  = 120
 $Button14.height                 = 30
 $Button14.location               = New-Object System.Drawing.Point(140,200)
 $Button14.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button14.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Button14.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button14.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnInstallAdobe                 = New-Object system.Windows.Forms.Button
@@ -502,7 +502,7 @@ $BtnInstallAdobe.width           = 120
 $BtnInstallAdobe.height          = 30
 $BtnInstallAdobe.location        = New-Object System.Drawing.Point(140,120)
 $BtnInstallAdobe.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallAdobe.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnInstallAdobe.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallAdobe.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnBlockEpicBloat               = New-Object system.Windows.Forms.Button
@@ -511,24 +511,33 @@ $BtnBlockEpicBloat.width         = 120
 $BtnBlockEpicBloat.height        = 30
 $BtnBlockEpicBloat.location      = New-Object System.Drawing.Point(10,240)
 $BtnBlockEpicBloat.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnBlockEpicBloat.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$BtnBlockEpicBloat.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnBlockEpicBloat.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
+$BtnBlockAds                     = New-Object system.Windows.Forms.Button
+$BtnBlockAds.text                = "Block Ads"
+$BtnBlockAds.width               = 120
+$BtnBlockAds.height              = 30
+$BtnBlockAds.location            = New-Object System.Drawing.Point(140,240)
+$BtnBlockAds.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnBlockAds.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnBlockAds.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
 $Label4                          = New-Object system.Windows.Forms.Label
-$Label4.text                     = "Made for and in collaboration with the PC Help Hub Discord"
+$Label4.text                     = "Made in collaboration with the PC Help Hub Discord. Intended to be used by PCHH advisors."
 $Label4.AutoSize                 = $true
 $Label4.width                    = 25
 $Label4.height                   = 10
-$Label4.location                 = New-Object System.Drawing.Point(155,35)
+$Label4.location                 = New-Object System.Drawing.Point(155,50)
 $Label4.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label4.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#c6c6c6")
 
 $Label5                          = New-Object system.Windows.Forms.Label
 $Label5.text                     = "Official Discord Server ID: 571342175678234640"
 $Label5.AutoSize                 = $true
-$Label5.width                    = 25
+$Label5.width                    = 80
 $Label5.height                   = 10
-$Label5.location                 = New-Object System.Drawing.Point(155,50)
+$Label5.location                 = New-Object System.Drawing.Point(155,70)
 $Label5.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label5.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -537,7 +546,7 @@ $Label6.text                     = "Author: slydelv (sly#7558)"
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
-$Label6.location                 = New-Object System.Drawing.Point(155,65)
+$Label6.location                 = New-Object System.Drawing.Point(155,90)
 $Label6.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -546,23 +555,23 @@ $Label7.text                     = "Contributors: Chicken the April Fool (000000
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(155,80)
+$Label7.location                 = New-Object System.Drawing.Point(155,110)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label7.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
-$BtnBlockAds                     = New-Object system.Windows.Forms.Button
-$BtnBlockAds.text                = "Block Ads"
-$BtnBlockAds.width               = 120
-$BtnBlockAds.height              = 30
-$BtnBlockAds.location            = New-Object System.Drawing.Point(140,240)
-$BtnBlockAds.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnBlockAds.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
-$BtnBlockAds.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$Label8                          = New-Object system.Windows.Forms.Label
+$Label8.text                     = "Red = Unimplemented. Orange = Testing. Yellow = Should be working. Green = Tested, Working."
+$Label8.AutoSize                 = $true
+$Label8.width                    = 25
+$Label8.height                   = 10
+$Label8.location                 = New-Object System.Drawing.Point(315,810)
+$Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
-$WindowsGUIToolbox.controls.AddRange(@($Logo,$LblTitle,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$Button6,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7))
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
-$Groupbox1.controls.AddRange(@($BtnAppList,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
+$Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$Button9,$Button10,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
 
@@ -638,6 +647,7 @@ function RunningServices {
     Write-Host "Listing Running Services..."
     $Svcs = Get-Service | Where-Object {$_.Status -EQ "Running"}| Out-GridView -Title "List of running services" -PassThru| Select -ExpandProperty Name
     $ResultText.text = "`r`n" +"`r`n" + "Listing Running Services" + "`r`n" + $Svcs
+    Write-Host "Next step: Output to text file"
 }
 
 function RunUndoEssentialTweaks { EssentialTweaks }
@@ -670,6 +680,7 @@ function InstallBrave {
 function OSInfo { 
     ShowConsole
     $osinfo = (Get-ComputerInfo -Property BiosDescription, BiosFirmwareType, WindowsProductName, WindowsInstallDateFromRegistry, WindowsVersion, *SystemRoot, BiosName*, BiosReleaseDate, BiosStatus, BiosPrimaryBIOS, CsCaption, CsBootupState, CsDomainRole, CsDomain, CsInstallDate, CsEnableDaylightSavingsTime, CsManufacturer, CsModel, CsNetworkServerModeEnabled, CsProcessors, CsNumberOfLogicalProcessors, CsPartOfDomain, CsPowerManagementCapabilities, CsPowerState, CsPowerSupplyState, CsResetCapability, CsSystemType, CsThermalState, CsTotalPhysicallyInstalledMemory, CsUserName, CsWakeUpType, CsWorkgroup, OSName, OsVersion, OsBuildNumber, Os, HotFixes, OsBootDevice, OsSystemDevice, OsSystemDrive, OsWindowsDirectory, OsCountryCode, OsLocale, OsLocalDateTime, OsLastBootUpTime, OsUptime, OsLanguage, OsNumberOfProcesses, OsNumberOfUsers, OsArchitectire, OsPrimary, OsPortableOperatingSystem, OsStatus, TimeZone, PowerPlatformRole, HyperVisorPresent, HyperVRequirementVirtualizationFirmwareEnabled, HyperVRequirementVMMonitorModeExtensions | fl *) | Out-Host
+    Write-Host "Next step: Output to text file"
 }
 
 function HwDump { 
@@ -680,6 +691,8 @@ function HwDump {
     $networking = (Get-WmiObject -Class Win32_NetworkAdapter | select -property Name, ServiceName, AdapterType, Speed | ft * ) 
     $drives = ([System.IO.DriveInfo]::GetDrives() | select -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready  |Where-Object Drivetype -EQ Fixed | ft *)
     
+    Write-Host $cpu1 + $video + $memory + $networking + $drives
+    Write-Host "Next step: Output to text file"
 }
 
 function DisableFastStartup { 
@@ -743,11 +756,15 @@ function InstWinTerminal {
 function ChkDskC { 
     ShowConsole
     cmd /c "echo y|chkdsk C: /F /X" | Out-Host
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
 function ChkDskCR {
     ShowConsole
     cmd /c "echo y|chkdsk C: /F /X /R" | Out-Host
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
 function ChkDskChoice {
@@ -778,13 +795,16 @@ function ChkDskChoice {
     		}
     	}
     }
-    
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
     Write-Host `n
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
 function ChkDskScanOnly {
     ShowConsole
     cmd /c "echo y|chkdsk C: /scan" | Out-Host
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
 function SFCScan {
@@ -885,15 +905,12 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	Exit
 }
-
-ShowConsole
-MoveConsole
-HideConsole
 #endregion
 
 #region Greetings
 # Hello there, curious fellow
 Write-Host "You're welcome to learn from the code here but if you use the toolbox or any scripts from it, please ask permission and at the very least, give credit where credit is due."
+Write-Host "..."
 #endregion
 
 #region Winget

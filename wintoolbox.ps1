@@ -589,7 +589,7 @@ $ToolTipRepairUtils.SetToolTip($BtnSFC,'Uses SFC to check for corruption and rep
 $ToolTipRepairUtils.SetToolTip($BtnDISMSpace,'Uses DISM /online /Cleanup-Image /AnalyzeComponentStore then reads output and repairs if required')
 $ToolTipRepairUtils.SetToolTip($BtnDISMHealth,'Runs DISM /Online /Cleanup-Image /ScanHealth and repairs if required')
 $ToolTipInfo.SetToolTip($BtnAppList,'Dump list of installed applications')
-$ToolTipInfo.SetToolTip($Button6,'Don't click this. It runs dir /s c:\windows\system32 - so takes a while. It's a script performance test.')
+$ToolTipInfo.SetToolTip($Button6,'Do not click this. It runs dir /s c:\windows\system32 - so takes a while. Script performance test.')
 $ToolTipInfo.SetToolTip($BtnHwInfo,'Dump list of all hardware')
 $ToolTipInfo.SetToolTip($BtnOsInfo,'Dump all operating system information')
 $ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks')

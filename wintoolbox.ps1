@@ -570,7 +570,31 @@ $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#
 
 $ToolTipTweaks                   = New-Object system.Windows.Forms.ToolTip
 
+$ToolTipUntoTweaks               = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipUtils                    = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipRepairUtils              = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipInfo                     = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipInstallSoftware          = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
+$ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
+$ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
+$ToolTipRepairUtils.SetToolTip($BtnChkDskChoice,'Gives options in the console and then runs chkdsk')
+$ToolTipRepairUtils.SetToolTip($BtnChkDsScan,'Runs chkdsk c: /scan')
+$ToolTipRepairUtils.SetToolTip($BtnSFC,'Uses SFC to check for corruption and repairs if required')
+$ToolTipRepairUtils.SetToolTip($BtnDISMSpace,'Uses DISM /online /Cleanup-Image /AnalyzeComponentStore then reads output and repairs if required')
+$ToolTipRepairUtils.SetToolTip($BtnDISMHealth,'Runs DISM /Online /Cleanup-Image /ScanHealth and repairs if required')
+$ToolTipInfo.SetToolTip($BtnAppList,'Dump list of installed applications')
+$ToolTipInfo.SetToolTip($Button6,'Don't click this. It runs dir /s c:\windows\system32 - so takes a while. It's a script performance test.')
+$ToolTipInfo.SetToolTip($BtnHwInfo,'Dump list of all hardware')
+$ToolTipInfo.SetToolTip($BtnOsInfo,'Dump all operating system information')
 $ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks')
+$ToolTipUntoTweaks.SetToolTip($BtnUndoEssential,'Unto all the tweaks which were done by the essential tweaks')
+$ToolTipInfo.SetToolTip($BtnRunningServices,'List running services')
 $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))

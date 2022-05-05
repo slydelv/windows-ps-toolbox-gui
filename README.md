@@ -7,7 +7,7 @@ This toolbox was made for and in collaboration with the PC Help Hub Discord
 Official Discord Server ID: 571342175678234640
 
 ## How to Run (in Powershell)
-Paste this command into Powershell (admin):
+Copy and Paste this command into Powershell (admin):
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/wintoolbox.ps1'))
 ```
@@ -17,7 +17,8 @@ iwr -useb https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/
 ```
 
 ## How to Run (in CMD / Batch)
-Past this command into CMD / Command Prompt:
+Copy and Paste this command into CMD / Command Prompt:
 ```
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/wintoolbox.ps1'))"
 ```
+ - Note, this method might trigger an anti-malware alert and get blocked. It it not malware, but this method of launching scripts is used by malware.

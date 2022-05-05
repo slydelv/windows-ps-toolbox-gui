@@ -23,7 +23,7 @@ $WindowsGUIToolbox               = New-Object system.Windows.Forms.Form
 $WindowsGUIToolbox.ClientSize    = New-Object System.Drawing.Point(900,950)
 $WindowsGUIToolbox.text          = "Windows PS Toolbox with GUI"
 $WindowsGUIToolbox.TopMost       = $false
-$WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#323951")
+$WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#123764")
 
 $LblTitle                        = New-Object system.Windows.Forms.Label
 $LblTitle.text                   = "Technical GUI Toolbox for Windows"
@@ -53,7 +53,7 @@ $GrpInstallUtils                 = New-Object system.Windows.Forms.Groupbox
 $GrpInstallUtils.height          = 250
 $GrpInstallUtils.width           = 270
 $GrpInstallUtils.location        = New-Object System.Drawing.Point(15,140)
-$GrpInstallUtils.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#2a2b4a")
+$GrpInstallUtils.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $LblInstallUtils                 = New-Object system.Windows.Forms.Label
 $LblInstallUtils.text            = "Install Utilities"
@@ -131,7 +131,7 @@ $GrpRepairUtils                  = New-Object system.Windows.Forms.Groupbox
 $GrpRepairUtils.height           = 250
 $GrpRepairUtils.width            = 270
 $GrpRepairUtils.location         = New-Object System.Drawing.Point(315,140)
-$GrpRepairUtils.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#2a2b4a")
+$GrpRepairUtils.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $LblRepairUtils                  = New-Object system.Windows.Forms.Label
 $LblRepairUtils.text             = "Repair Utilities"
@@ -248,7 +248,7 @@ $Groupbox1                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox1.height                = 250
 $Groupbox1.width                 = 270
 $Groupbox1.location              = New-Object System.Drawing.Point(617,140)
-$Groupbox1.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#2a2b4a")
+$Groupbox1.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $BtnAppList                      = New-Object system.Windows.Forms.Button
 $BtnAppList.text                 = "AppList"
@@ -299,7 +299,7 @@ $Groupbox2                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox2.height                = 400
 $Groupbox2.width                 = 270
 $Groupbox2.location              = New-Object System.Drawing.Point(15,400)
-$Groupbox2.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#2a2b4a")
+$Groupbox2.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $Label1                          = New-Object system.Windows.Forms.Label
 $Label1.text                     = "Tweaks"
@@ -350,7 +350,7 @@ $Groupbox3                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox3.height                = 250
 $Groupbox3.width                 = 270
 $Groupbox3.location              = New-Object System.Drawing.Point(315,400)
-$Groupbox3.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#2a2b4a")
+$Groupbox3.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $Label3                          = New-Object system.Windows.Forms.Label
 $Label3.text                     = "Install Software"
@@ -433,23 +433,23 @@ $Button8.Font                    = New-Object System.Drawing.Font('Microsoft San
 $Button8.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $Button8.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button9                         = New-Object system.Windows.Forms.Button
-$Button9.text                    = "Disable Cortana"
-$Button9.width                   = 120
-$Button9.height                  = 30
-$Button9.location                = New-Object System.Drawing.Point(10,120)
-$Button9.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button9.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button9.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnDisableCortana               = New-Object system.Windows.Forms.Button
+$BtnDisableCortana.text          = "Disable Cortana"
+$BtnDisableCortana.width         = 120
+$BtnDisableCortana.height        = 30
+$BtnDisableCortana.location      = New-Object System.Drawing.Point(10,120)
+$BtnDisableCortana.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnDisableCortana.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnDisableCortana.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button10                        = New-Object system.Windows.Forms.Button
-$Button10.text                   = "Enable Cortana"
-$Button10.width                  = 120
-$Button10.height                 = 30
-$Button10.location               = New-Object System.Drawing.Point(140,120)
-$Button10.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button10.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button10.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnEnableCortana                = New-Object system.Windows.Forms.Button
+$BtnEnableCortana.text           = "Enable Cortana"
+$BtnEnableCortana.width          = 120
+$BtnEnableCortana.height         = 30
+$BtnEnableCortana.location       = New-Object System.Drawing.Point(140,120)
+$BtnEnableCortana.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnEnableCortana.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnEnableCortana.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnRunningServices              = New-Object system.Windows.Forms.Button
 $BtnRunningServices.text         = "Running Services"
@@ -568,11 +568,16 @@ $Label8.location                 = New-Object System.Drawing.Point(315,810)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
+$ToolTipTweaks                   = New-Object system.Windows.Forms.ToolTip
+
+$ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks')
+$ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
+$ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
-$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$Button9,$Button10,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds))
+$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -604,8 +609,56 @@ $BtnNotePadPP.Add_Click({ InstallNotepad })
 $BtnInstallVLC.Add_Click({ InstallVLC })
 $BtnBlockEpicBloat.Add_Click({ BlockEpicBloat })
 $BtnBlockAds.Add_Click({ BlockAds })
+$BtnDisableCortana.Add_Click({ DisableCortana })
+$BtnEnableCortana.Add_Click({ EnableCortana })
 
 #region Logic 
+function EnableCortana { 
+    Write-Host "Enabling Cortana..."
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue
+	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+		New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 0
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 0
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -ErrorAction SilentlyContinue
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -ErrorAction SilentlyContinue
+	Write-Host "Restoring Windows Search..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Type DWord -Value "1"
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "CortanaConsent" -ErrorAction SilentlyContinue
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "DisableWebSearch" -ErrorAction SilentlyContinue
+	Write-Host "Restore and Starting Windows Search Service..."
+    Set-Service "WSearch" -StartupType Automatic
+    Start-Service "WSearch" -WarningAction SilentlyContinue
+    Write-Host "Restore Windows Search Icon..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
+	Write-Host "Done - Reverted to Stock Settings"
+    $ResultText.text = "`r`n" + "Enabled Cortana and Restored Search" + "`r`n" + "`r`n" + "Ready for Next Task"
+}
+
+function DisableCortana { 
+    Write-Host "Disabling Cortana..."
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -Type DWord -Value 0
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 1
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 1
+    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0
+    If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
+        New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
+    Write-Host "Disabled Cortana"
+    $ResultText.text = "`r`n" + "Disabled Cortana" + "`r`n" + "`r`n" + "Ready for Next Task"
+}
+
 function BlockAds { 
     $adlist= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/BlockAds.cfg' 
     $adfile = "$env:windir\System32\drivers\etc\hosts"

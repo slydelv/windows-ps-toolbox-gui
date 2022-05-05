@@ -26,7 +26,7 @@ $WindowsGUIToolbox.TopMost       = $false
 $WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#323951")
 
 $Logo                            = New-Object system.Windows.Forms.PictureBox
-$Logo.width                      = 347
+$Logo.width                      = 141
 $Logo.height                     = 110
 $Logo.location                   = New-Object System.Drawing.Point(3,8)
 $Logo.imageLocation              = "https://github.com/slydelv/windows-ps-toolbox-gui/blob/main/PCHH-Logo.png?raw=true"
@@ -36,7 +36,7 @@ $LblTitle.text                   = "Technical GUI Toolbox for Windows"
 $LblTitle.AutoSize               = $true
 $LblTitle.width                  = 25
 $LblTitle.height                 = 10
-$LblTitle.location               = New-Object System.Drawing.Point(388,17)
+$LblTitle.location               = New-Object System.Drawing.Point(155,15)
 $LblTitle.Font                   = New-Object System.Drawing.Font('Verdana',14)
 $LblTitle.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -519,7 +519,7 @@ $Label4.text                     = "Made for and in collaboration with the PC He
 $Label4.AutoSize                 = $true
 $Label4.width                    = 25
 $Label4.height                   = 10
-$Label4.location                 = New-Object System.Drawing.Point(390,41)
+$Label4.location                 = New-Object System.Drawing.Point(155,35)
 $Label4.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label4.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#c6c6c6")
 
@@ -528,7 +528,7 @@ $Label5.text                     = "Official Discord Server ID: 5713421756782346
 $Label5.AutoSize                 = $true
 $Label5.width                    = 25
 $Label5.height                   = 10
-$Label5.location                 = New-Object System.Drawing.Point(390,58)
+$Label5.location                 = New-Object System.Drawing.Point(155,50)
 $Label5.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label5.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -537,7 +537,7 @@ $Label6.text                     = "Author: slydelv (sly#7558)"
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
-$Label6.location                 = New-Object System.Drawing.Point(390,75)
+$Label6.location                 = New-Object System.Drawing.Point(155,65)
 $Label6.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -546,7 +546,7 @@ $Label7.text                     = "Contributors: Chicken the April Fool (000000
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(390,91)
+$Label7.location                 = New-Object System.Drawing.Point(155,80)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label7.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 

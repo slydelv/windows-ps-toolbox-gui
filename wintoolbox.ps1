@@ -667,7 +667,7 @@ function StartSearchOff {
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     
     if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
-        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+        New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     Write-Host "Okay, it's disabled."
@@ -682,7 +682,7 @@ function StartSearchOn {
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
     
     if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
-        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+        New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
     

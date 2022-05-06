@@ -665,6 +665,11 @@ function StartSearchOff {
         New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
+    
+    if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     Write-Host "Okay, it's disabled."
     $ResultText.text = "`r`n" + "Disabled searching Bing from Start" + "`r`n" + "`r`n" + "Ready for Next Task"
 }
@@ -675,6 +680,12 @@ function StartSearchOn {
         New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
+    
+    if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
+    
     Write-Host "Okay, it's enabled."
     $ResultText.text = "`r`n" + "Enabled searching Bing from Start (WHY?)" + "`r`n" + "`r`n" + "Ready for Next Task"
 }

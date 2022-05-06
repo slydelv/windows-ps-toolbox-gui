@@ -580,6 +580,24 @@ $ToolTipInfo                     = New-Object system.Windows.Forms.ToolTip
 
 $ToolTipInstallSoftware          = New-Object system.Windows.Forms.ToolTip
 
+$BtnStartSearchOff               = New-Object system.Windows.Forms.Button
+$BtnStartSearchOff.text          = "Start Search Off"
+$BtnStartSearchOff.width         = 120
+$BtnStartSearchOff.height        = 30
+$BtnStartSearchOff.location      = New-Object System.Drawing.Point(10,280)
+$BtnStartSearchOff.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',9)
+$BtnStartSearchOff.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnStartSearchOff.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnStartSearchOn                = New-Object system.Windows.Forms.Button
+$BtnStartSearchOn.text           = "Start Search On"
+$BtnStartSearchOn.width          = 120
+$BtnStartSearchOn.height         = 30
+$BtnStartSearchOn.location       = New-Object System.Drawing.Point(140,280)
+$BtnStartSearchOn.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',9)
+$BtnStartSearchOn.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnStartSearchOn.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
@@ -597,11 +615,13 @@ $ToolTipUntoTweaks.SetToolTip($BtnUndoEssential,'Unto all the tweaks which were 
 $ToolTipInfo.SetToolTip($BtnRunningServices,'List running services')
 $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
+$ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above.')
+$ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
-$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds))
+$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -635,8 +655,30 @@ $BtnBlockEpicBloat.Add_Click({ BlockEpicBloat })
 $BtnBlockAds.Add_Click({ BlockAds })
 $BtnDisableCortana.Add_Click({ DisableCortana })
 $BtnEnableCortana.Add_Click({ EnableCortana })
+$BtnStartSearchOn.Add_Click({ StartSearchOn })
+$BtnStartSearchOff.Add_Click({ StartSearchOff })
 
 #region Logic 
+function StartSearchOff { 
+    Write-Host "Disabling search suggestions, searching Bing from the Start menu. Good riddance."
+    if( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
+    Write-Host "Okay, it's disabled."
+    $ResultText.text = "`r`n" + "Disabled searching Bing from Start" + "`r`n" + "`r`n" + "Ready for Next Task"
+}
+
+function StartSearchOn { 
+    Write-Host "Enabling search suggestions, searching Bing from the Start menu. You maniac."
+    if( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
+    Write-Host "Okay, it's enabled."
+    $ResultText.text = "`r`n" + "Enabled searching Bing from Start (WHY?)" + "`r`n" + "`r`n" + "Ready for Next Task"
+}
+
 function EnableCortana { 
     Write-Host "Enabling Cortana..."
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue

@@ -20,7 +20,7 @@ Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 $WindowsGUIToolbox               = New-Object system.Windows.Forms.Form
-$WindowsGUIToolbox.ClientSize    = New-Object System.Drawing.Point(900,950)
+$WindowsGUIToolbox.ClientSize    = New-Object System.Drawing.Point(1100,810)
 $WindowsGUIToolbox.text          = "Windows PS Toolbox with GUI"
 $WindowsGUIToolbox.TopMost       = $false
 $WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#123764")
@@ -153,10 +153,10 @@ $BtnChkDsk.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#
 
 $ResultText                      = New-Object system.Windows.Forms.TextBox
 $ResultText.multiline            = $true
-$ResultText.width                = 880
-$ResultText.height               = 110
+$ResultText.width                = 250
+$ResultText.height               = 117
 $ResultText.enabled              = $false
-$ResultText.location             = New-Object System.Drawing.Point(9,831)
+$ResultText.location             = New-Object System.Drawing.Point(845,6)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 
 $BtnChkDskR                      = New-Object system.Windows.Forms.Button
@@ -194,17 +194,17 @@ $BtnChkDsScan.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#
 
 $BtnShowConsole                  = New-Object system.Windows.Forms.Button
 $BtnShowConsole.text             = "Show Console"
-$BtnShowConsole.width            = 121
+$BtnShowConsole.width            = 110
 $BtnShowConsole.height           = 30
-$BtnShowConsole.location         = New-Object System.Drawing.Point(776,4)
+$BtnShowConsole.location         = New-Object System.Drawing.Point(731,53)
 $BtnShowConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnShowConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
 $BtnHideConsole                  = New-Object system.Windows.Forms.Button
 $BtnHideConsole.text             = "Hide Console"
-$BtnHideConsole.width            = 121
+$BtnHideConsole.width            = 110
 $BtnHideConsole.height           = 30
-$BtnHideConsole.location         = New-Object System.Drawing.Point(776,37)
+$BtnHideConsole.location         = New-Object System.Drawing.Point(731,89)
 $BtnHideConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnHideConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
@@ -287,11 +287,11 @@ $Button7.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#
 $Button7.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $LblStatus                       = New-Object system.Windows.Forms.Label
-$LblStatus.text                  = "Status"
+$LblStatus.text                  = "Status: "
 $LblStatus.AutoSize              = $true
 $LblStatus.width                 = 25
 $LblStatus.height                = 10
-$LblStatus.location              = New-Object System.Drawing.Point(14,807)
+$LblStatus.location              = New-Object System.Drawing.Point(763,12)
 $LblStatus.Font                  = New-Object System.Drawing.Font('Verdana',16)
 $LblStatus.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -424,14 +424,14 @@ $BtnNotePadPP.Font               = New-Object System.Drawing.Font('Microsoft San
 $BtnNotePadPP.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnNotePadPP.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button8                         = New-Object system.Windows.Forms.Button
-$Button8.text                    = "Enable FastStart"
-$Button8.width                   = 120
-$Button8.height                  = 30
-$Button8.location                = New-Object System.Drawing.Point(140,80)
-$Button8.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button8.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button8.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnEnableFastStart              = New-Object system.Windows.Forms.Button
+$BtnEnableFastStart.text         = "Enable FastStart"
+$BtnEnableFastStart.width        = 120
+$BtnEnableFastStart.height       = 30
+$BtnEnableFastStart.location     = New-Object System.Drawing.Point(140,80)
+$BtnEnableFastStart.Font         = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnEnableFastStart.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnEnableFastStart.BackColor    = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDisableCortana               = New-Object system.Windows.Forms.Button
 $BtnDisableCortana.text          = "Disable Cortana"
@@ -439,16 +439,16 @@ $BtnDisableCortana.width         = 120
 $BtnDisableCortana.height        = 30
 $BtnDisableCortana.location      = New-Object System.Drawing.Point(10,120)
 $BtnDisableCortana.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnDisableCortana.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnDisableCortana.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnDisableCortana.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnEnableCortana                = New-Object system.Windows.Forms.Button
 $BtnEnableCortana.text           = "Enable Cortana"
 $BtnEnableCortana.width          = 120
 $BtnEnableCortana.height         = 30
-$BtnEnableCortana.location       = New-Object System.Drawing.Point(140,120)
+$BtnEnableCortana.location       = New-Object System.Drawing.Point(140,121)
 $BtnEnableCortana.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnEnableCortana.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnEnableCortana.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnEnableCortana.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnRunningServices              = New-Object system.Windows.Forms.Button
@@ -564,7 +564,7 @@ $Label8.text                     = "Red = Unimplemented. Orange = Testing. Yello
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(315,810)
+$Label8.location                 = New-Object System.Drawing.Point(510,773)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
@@ -615,13 +615,13 @@ $ToolTipUntoTweaks.SetToolTip($BtnUndoEssential,'Unto all the tweaks which were 
 $ToolTipInfo.SetToolTip($BtnRunningServices,'List running services')
 $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
-$ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above.')
+$ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
-$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$Button8,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
+$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -657,6 +657,7 @@ $BtnDisableCortana.Add_Click({ DisableCortana })
 $BtnEnableCortana.Add_Click({ EnableCortana })
 $BtnStartSearchOn.Add_Click({ StartSearchOn })
 $BtnStartSearchOff.Add_Click({ StartSearchOff })
+$BtnEnableFastStart.Add_Click({ EnableFastStart })
 
 #region Logic 
 function StartSearchOff { 
@@ -671,7 +672,7 @@ function StartSearchOff {
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     Write-Host "Okay, it's disabled."
-    $ResultText.text = "`r`n" + "Disabled searching Bing from Start" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Disabled searching Bing from Start. Restart to take effect." + "`r`n" + "Ready for Next Task"
 }
 
 function StartSearchOn { 
@@ -687,10 +688,11 @@ function StartSearchOn {
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
     
     Write-Host "Okay, it's enabled."
-    $ResultText.text = "`r`n" + "Enabled searching Bing from Start (WHY?)" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Enabled searching Bing from Start (WHY?). Restart to take effect." + "`r`n" + "Ready for Next Task"
 }
 
 function EnableCortana { 
+    ShowConsole
     Write-Host "Enabling Cortana..."
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue
 	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
@@ -710,10 +712,12 @@ function EnableCortana {
     Write-Host "Restore Windows Search Icon..."
 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
 	Write-Host "Done - Reverted to Stock Settings"
-    $ResultText.text = "`r`n" + "Enabled Cortana and Restored Search" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Enabled Cortana and Restored Search" + "`r`n" + "Ready for Next Task"
+    HideConsole
 }
 
 function DisableCortana { 
+    ShowConsole
     Write-Host "Disabling Cortana..."
     If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
@@ -733,19 +737,22 @@ function DisableCortana {
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
     Write-Host "Disabled Cortana"
-    $ResultText.text = "`r`n" + "Disabled Cortana" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Disabled Cortana" + "`r`n" + "Ready for Next Task"
+    HideConsole
 }
 
 function BlockAds { 
     $adlist= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/BlockAds.cfg' 
     $adfile = "$env:windir\System32\drivers\etc\hosts"
     $adlist | Add-Content -PassThru $adfile
+    $ResultText.text = "`r`n" + "Blocked common ad servers" + "`r`n" + "Ready for Next Task"
 }
 
 function BlockEpicBloat { 
     $content= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/EpicGamesBlocklist.cfg' 
     $file = "$env:windir\System32\drivers\etc\hosts"
     $content | Add-Content -PassThru $file
+    $ResultText.text = "`r`n" + "Blocked Epic Bloatware servers" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallVLC { 
@@ -753,7 +760,7 @@ function InstallVLC {
     $ResultText.text = "`r`n" +"`r`n" + "Installing VLC Media Player... Please Wait" 
     winget install -e VideoLAN.VLC | Out-Host
     if($?) { Write-Host "Installed VLC Media Player" }
-    $ResultText.text = "`r`n" + "Finished Installing VLC Media Player" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing VLC Media Player" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallNotepad { 
@@ -761,7 +768,7 @@ function InstallNotepad {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Notepad++... Please Wait" 
     winget install -e Notepad++.Notepad++ | Out-Host
     if($?) { Write-Host "Installed Notepad++" }
-    $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallAdobe { 
@@ -769,7 +776,7 @@ function InstallAdobe {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Adobe Reader DC... Please Wait" 
     winget install -e --id Adobe.Acrobat.Reader.64-bit | Out-Host
     if($?) { Write-Host "Installed Adobe Reader DC" }
-    $ResultText.text = "`r`n" + "Finished Installing Adobe Reader DC" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing Adobe Reader DC" + "`r`n" + "Ready for Next Task"
 }
 
 function RunningServices { 
@@ -780,15 +787,24 @@ function RunningServices {
     Write-Host "Next step: Output to text file"
 }
 
-function RunUndoEssentialTweaks { EssentialTweaks }
-function RunEssentialTweaks { EssentialUndo }
+function RunUndoEssentialTweaks { 
+    ShowConsole
+    EssentialTweaks 
+    HideConsole
+}
+
+function RunEssentialTweaks { 
+    ShowConsole
+    EssentialUndo 
+    HideConsole
+}
 
 function InstallFirefox { 
     Write-Host "Installing Firefox"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
     winget install -e Mozilla.Firefox | Out-Host
     if($?) { Write-Host "Installed Firefox" }
-    $ResultText.text = "`r`n" + "Finished Installing Firefox" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing Firefox" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallChrome { 
@@ -796,7 +812,7 @@ function InstallChrome {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
     winget install -e Google.Chrome | Out-Host
     if($?) { Write-Host "Installed Google Chrome" }
-    $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallBrave { 
@@ -804,16 +820,20 @@ function InstallBrave {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
     winget install -e BraveSoftware.BraveBrowser | Out-Host
     if($?) { Write-Host "Installed Brave Browser" }
-    $ResultText.text = "`r`n" + "Finished Installing Brave" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing Brave" + "`r`n" + "Ready for Next Task"
 }
 
 function OSInfo { 
+    Write-Host '-------------------------------------------------------------------'
+    Write-Host 'Getting OS Info...'
     ShowConsole
     $osinfo = (Get-ComputerInfo -Property BiosDescription, BiosFirmwareType, WindowsProductName, WindowsInstallDateFromRegistry, WindowsVersion, *SystemRoot, BiosName*, BiosReleaseDate, BiosStatus, BiosPrimaryBIOS, CsCaption, CsBootupState, CsDomainRole, CsDomain, CsInstallDate, CsEnableDaylightSavingsTime, CsManufacturer, CsModel, CsNetworkServerModeEnabled, CsProcessors, CsNumberOfLogicalProcessors, CsPartOfDomain, CsPowerManagementCapabilities, CsPowerState, CsPowerSupplyState, CsResetCapability, CsSystemType, CsThermalState, CsTotalPhysicallyInstalledMemory, CsUserName, CsWakeUpType, CsWorkgroup, OSName, OsVersion, OsBuildNumber, Os, HotFixes, OsBootDevice, OsSystemDevice, OsSystemDrive, OsWindowsDirectory, OsCountryCode, OsLocale, OsLocalDateTime, OsLastBootUpTime, OsUptime, OsLanguage, OsNumberOfProcesses, OsNumberOfUsers, OsArchitectire, OsPrimary, OsPortableOperatingSystem, OsStatus, TimeZone, PowerPlatformRole, HyperVisorPresent, HyperVRequirementVirtualizationFirmwareEnabled, HyperVRequirementVMMonitorModeExtensions | fl *) | Out-Host
-    Write-Host "Next step: Output to text file"
+    Write-Host 'Dev ToDo: Output to text file'
 }
 
 function HwDump { 
+    Write-Host '-------------------------------------------------------------------'
+    Write-Host 'Getting OS Info...'
     ShowConsole
     $cpu1 = (get-wmiobject win32_processor)
     $video = (Get-WmiObject win32_videocontroller |select -property '__GENUS', Caption, Description, VideoProcessor, DeviceID, PowerManagementCapabilities, PowerManagementSupported, ProtocolSupported, AcceleratorCapabilities, DriverDate, DriverVersion, MaxRefreshRate, CurrentRefreshRate, Monochrome, VideoModeDescription, CurrentBitsPerPixel, Status, ConfigManagerUserConfig, ConfigManagerErrorCode, InstalledDisplayDrivers | fl *)
@@ -822,20 +842,26 @@ function HwDump {
     $drives = ([System.IO.DriveInfo]::GetDrives() | select -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready  |Where-Object Drivetype -EQ Fixed | ft *)
     
     Write-Host $cpu1 + $video + $memory + $networking + $drives
-    Write-Host "Next step: Output to text file"
+    Write-Host 'Dev ToDo: Output to text file'
 }
 
 function DisableFastStartup { 
     REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "0" /f
     powercfg -h off
-    $ResultText.text = "Fast Startup Disabled" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Fast Startup Disabled" + "`r`n" + "Ready for Next Task"
+}
+
+function EnableFastStartup { 
+    REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "1" /f
+    powercfg -h on
+    $ResultText.text = "Fast Startup Enabled" + "`r`n" + "Ready for Next Task"
 }
 
 function Derp { 
     ShowConsole
     $ResultText.text = "`r`n" + "Starting to derp, please wait"
     cmd /c "dir /s c:\windows\system32\" | Out-Host
-    $ResultText.text = "`r`n" + "Finished derping" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished derping" + "`r`n" + "Ready for Next Task"
 }
 
 function GetAppList { 
@@ -856,7 +882,7 @@ function InstEverything {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Voidtools Everything Search... Please Wait" 
     winget install -e voidtools.Everything --source winget | Out-Host
     if($?) { Write-Host "Installed Everything Search" }
-    $ResultText.text = "`r`n" + "Finished Installing Voidtools Everything Search" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 
@@ -866,7 +892,7 @@ function Inst7Zip {
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     winget install -e 7zip.7zip | Out-Host
     if($?) { Write-Host "Installed 7-Zip Compression Tool" }
-    $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 
@@ -886,14 +912,14 @@ function InstWinTerminal {
 function ChkDskC { 
     ShowConsole
     cmd /c "echo y|chkdsk C: /F /X" | Out-Host
-    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
     #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
 function ChkDskCR {
     ShowConsole
     cmd /c "echo y|chkdsk C: /F /X /R" | Out-Host
-    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
     #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
@@ -925,7 +951,7 @@ function ChkDskChoice {
     		}
     	}
     }
-    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
     Write-Host `n
     #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
@@ -933,7 +959,7 @@ function ChkDskChoice {
 function ChkDskScanOnly {
     ShowConsole
     cmd /c "echo y|chkdsk C: /scan" | Out-Host
-    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
     #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
 }
 
@@ -948,14 +974,14 @@ function SFCScan {
         $sfcfix = ($(sfc /scannow) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
         if($sfcfix -like "*unable to fix*"){
             Write-Host("SFC was unable to fix the issues.")
-            $ResultText.text = "Error - SFC tried but was UNABLE to fix the issues. Recommend a DISM Health Check." + "`r`n" + "`r`n" + "Ready for Next Task"
+            $ResultText.text = "Error - SFC tried but was UNABLE to fix the issues. Recommend a DISM Health Check." + "`r`n" + "Ready for Next Task"
         } else {
             Write-Host("SFC repair successful.")
-            $ResultText.text = "SFC Fixes were successful" + "`r`n" + "`r`n" + "Ready for Next Task"
+            $ResultText.text = "SFC Fixes were successful" + "`r`n" + "Ready for Next Task"
         }
     } else {
         Write-Host("SFC is all good")
-        $ResultText.text = "SFC is okay" + "`r`n" + "`r`n" + "Ready for Next Task"
+        $ResultText.text = "SFC is okay" + "`r`n" + "Ready for Next Task"
     }
 }
 
@@ -971,15 +997,15 @@ function DISMSpace {
                 Write-Host("Cleanup needed. Doing it. ")
                 $ResultText.text = "DISM Cleanup is needed" + "`r`n" + "`r`n" + "Starting cleanup now"
                 DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
-                $ResultText.text = "DISM Cleanup has finished" + "`r`n" + "`r`n" + "Ready for Next Task"
+                $ResultText.text = "DISM Cleanup has finished" + "`r`n" + "Ready for Next Task"
             } else {
                 Write-Host("Cleanup recommended but not needed.")
-                $ResultText.text = "DISM Cleanup recommended but not needed" + "`r`n" + "`r`n" + "Ready for Next Task"
+                $ResultText.text = "DISM Cleanup recommended but not needed" + "`r`n" + "Ready for Next Task"
             }
         }
     } else {
         Write-Host("Cleanup not needed.")
-        $ResultText.text = "DISM Cleanup is not needed" + "`r`n" + "`r`n" + "Ready for Next Task"
+        $ResultText.text = "DISM Cleanup is not needed" + "`r`n" + "Ready for Next Task"
     }
 }
 
@@ -991,12 +1017,12 @@ function DISMHealth {
     $dismhealthfix = DISM /Online /Cleanup-Image /RestoreHealth | Out-Host
     if($dismhealthfix -like "*The restore operation completed successfully.*"){
         Write-Host("DISM Fixes Performed.")
-        $ResultText.text = "DISM Fixes have been performed" + "`r`n" + "`r`n" + "Ready for Next Task"
+        $ResultText.text = "DISM Fixes have been performed" + "`r`n" + "Ready for Next Task"
     }
     
     } elseif ($dismhealth -like "*No component store corruption detected.*") {
         Write-Host("DISM Health is good.")
-        $ResultText.text = "DISM Health is good" + "`r`n" + "`r`n" + "Ready for Next Task"
+        $ResultText.text = "DISM Health is good" + "`r`n" + "Ready for Next Task"
     }
 }
 
@@ -1012,7 +1038,8 @@ function ClearTempFiles {
     {
         Get-ChildItem $TempFolder -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { ($_.CreationTime -lt $(Get-Date).AddDays(-$DaysToDelete)) } | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
     }
-    $ResultText.text = "Cleared temp files" + "`r`n" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Cleared temp files" + "`r`n" + "Ready for Next Task"
+    HideConsole
 }
 
 function ShowConsole {

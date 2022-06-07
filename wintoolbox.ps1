@@ -324,7 +324,7 @@ $ChkSaveTxt.text                 = "Save to txt file?"
 $ChkSaveTxt.AutoSize             = $false
 $ChkSaveTxt.width                = 123
 $ChkSaveTxt.height               = 20
-$ChkSaveTxt.location             = New-Object System.Drawing.Point(128,10)
+$ChkSaveTxt.location             = New-Object System.Drawing.Point(143,14)
 $ChkSaveTxt.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkSaveTxt.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -524,16 +524,16 @@ $BtnBlockAds.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnBlockAds.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Label4                          = New-Object system.Windows.Forms.Label
-$Label4.text                     = "Made in collaboration with the PC Help Hub Discord. Intended to be used by PCHH advisors."
+$Label4.text                     = "Made for the PC Help Hub Discord. "
 $Label4.AutoSize                 = $true
 $Label4.width                    = 25
 $Label4.height                   = 10
-$Label4.location                 = New-Object System.Drawing.Point(155,50)
+$Label4.location                 = New-Object System.Drawing.Point(155,45)
 $Label4.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label4.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#c6c6c6")
 
 $Label5                          = New-Object system.Windows.Forms.Label
-$Label5.text                     = "Official Discord Server ID: 571342175678234640"
+$Label5.text                     = "Official Discord: https://discord.com/invite/NB3BzPNQyW"
 $Label5.AutoSize                 = $true
 $Label5.width                    = 80
 $Label5.height                   = 10
@@ -542,7 +542,7 @@ $Label5.Font                     = New-Object System.Drawing.Font('Microsoft San
 $Label5.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
 $Label6                          = New-Object system.Windows.Forms.Label
-$Label6.text                     = "Author: slydelv (sly#7558)"
+$Label6.text                     = "Author: slydelv (sly#7558), with credit to: ChrisTitusTech (for some functions)"
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
@@ -598,6 +598,15 @@ $BtnStartSearchOn.Font           = New-Object System.Drawing.Font('Microsoft San
 $BtnStartSearchOn.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnStartSearchOn.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
+$Label9                          = New-Object system.Windows.Forms.Label
+$Label9.text                     = "  (Server ID: 571342175678234640)"
+$Label9.AutoSize                 = $true
+$Label9.width                    = 25
+$Label9.height                   = 10
+$Label9.location                 = New-Object System.Drawing.Point(534,70)
+$Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
+$Label9.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
@@ -608,6 +617,7 @@ $ToolTipRepairUtils.SetToolTip($BtnDISMSpace,'Uses DISM /online /Cleanup-Image /
 $ToolTipRepairUtils.SetToolTip($BtnDISMHealth,'Runs DISM /Online /Cleanup-Image /ScanHealth and repairs if required')
 $ToolTipInfo.SetToolTip($BtnAppList,'Dump list of installed applications')
 $ToolTipInfo.SetToolTip($Button6,'Do not click this. It runs dir /s c:\windows\system32 - so takes a while. Script performance test.')
+$ToolTipInfo.SetToolTip($ChkSaveTxt,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($BtnHwInfo,'Dump list of all hardware')
 $ToolTipInfo.SetToolTip($BtnOsInfo,'Dump all operating system information')
 $ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks')
@@ -617,7 +627,7 @@ $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which ru
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8))
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))

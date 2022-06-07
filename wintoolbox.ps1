@@ -20,7 +20,7 @@ Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 $WindowsGUIToolbox               = New-Object system.Windows.Forms.Form
-$WindowsGUIToolbox.ClientSize    = New-Object System.Drawing.Point(1100,810)
+$WindowsGUIToolbox.ClientSize    = New-Object System.Drawing.Point(1100,780)
 $WindowsGUIToolbox.text          = "Windows PS Toolbox with GUI"
 $WindowsGUIToolbox.TopMost       = $false
 $WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#123764")
@@ -296,7 +296,7 @@ $LblStatus.Font                  = New-Object System.Drawing.Font('Verdana',16)
 $LblStatus.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
 $Groupbox2                       = New-Object system.Windows.Forms.Groupbox
-$Groupbox2.height                = 400
+$Groupbox2.height                = 350
 $Groupbox2.width                 = 270
 $Groupbox2.location              = New-Object System.Drawing.Point(15,400)
 $Groupbox2.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
@@ -460,41 +460,41 @@ $BtnRunningServices.Font         = New-Object System.Drawing.Font('Microsoft San
 $BtnRunningServices.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnRunningServices.BackColor    = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button11                        = New-Object system.Windows.Forms.Button
-$Button11.text                   = "Disable BG Apps"
-$Button11.width                  = 120
-$Button11.height                 = 30
-$Button11.location               = New-Object System.Drawing.Point(10,160)
-$Button11.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button11.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button11.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnDisableBGApps                = New-Object system.Windows.Forms.Button
+$BtnDisableBGApps.text           = "Disable BG Apps"
+$BtnDisableBGApps.width          = 120
+$BtnDisableBGApps.height         = 30
+$BtnDisableBGApps.location       = New-Object System.Drawing.Point(10,160)
+$BtnDisableBGApps.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnDisableBGApps.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnDisableBGApps.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button12                        = New-Object system.Windows.Forms.Button
-$Button12.text                   = "Enable BG Apps"
-$Button12.width                  = 120
-$Button12.height                 = 30
-$Button12.location               = New-Object System.Drawing.Point(140,160)
-$Button12.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button12.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button12.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnEnableBGApps                 = New-Object system.Windows.Forms.Button
+$BtnEnableBGApps.text            = "Enable BG Apps"
+$BtnEnableBGApps.width           = 120
+$BtnEnableBGApps.height          = 30
+$BtnEnableBGApps.location        = New-Object System.Drawing.Point(140,160)
+$BtnEnableBGApps.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnEnableBGApps.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnEnableBGApps.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button13                        = New-Object system.Windows.Forms.Button
-$Button13.text                   = "Perf FX"
-$Button13.width                  = 120
-$Button13.height                 = 30
-$Button13.location               = New-Object System.Drawing.Point(10,200)
-$Button13.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button13.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button13.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnPerfFX                       = New-Object system.Windows.Forms.Button
+$BtnPerfFX.text                  = "Perf FX"
+$BtnPerfFX.width                 = 120
+$BtnPerfFX.height                = 30
+$BtnPerfFX.location              = New-Object System.Drawing.Point(10,200)
+$BtnPerfFX.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnPerfFX.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
+$BtnPerfFX.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button14                        = New-Object system.Windows.Forms.Button
-$Button14.text                   = "Visual FX"
-$Button14.width                  = 120
-$Button14.height                 = 30
-$Button14.location               = New-Object System.Drawing.Point(140,200)
-$Button14.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button14.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button14.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnVisualFX                     = New-Object system.Windows.Forms.Button
+$BtnVisualFX.text                = "Visual FX"
+$BtnVisualFX.width               = 120
+$BtnVisualFX.height              = 30
+$BtnVisualFX.location            = New-Object System.Drawing.Point(140,200)
+$BtnVisualFX.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnVisualFX.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
+$BtnVisualFX.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnInstallAdobe                 = New-Object system.Windows.Forms.Button
 $BtnInstallAdobe.text            = "Adobe Reader"
@@ -564,7 +564,7 @@ $Label8.text                     = "Red = Unimplemented. Orange = Testing. Yello
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(510,773)
+$Label8.location                 = New-Object System.Drawing.Point(516,755)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
@@ -621,7 +621,7 @@ $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepa
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$Button1,$Button2,$Button3,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
-$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$Button11,$Button12,$Button13,$Button14,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
+$Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -658,8 +658,30 @@ $BtnEnableCortana.Add_Click({ EnableCortana })
 $BtnStartSearchOn.Add_Click({ StartSearchOn })
 $BtnStartSearchOff.Add_Click({ StartSearchOff })
 $BtnEnableFastStart.Add_Click({ EnableFastStart })
+$BtnDisableBGApps.Add_Click({ DisableBGApps })
+$BtnEnableBGApps.Add_Click({ EnableBGApps })
 
 #region Logic 
+function EnableBGApps { 
+    Write-Host "Allowing Background Apps..."
+	Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
+		Remove-ItemProperty -Path $_.PsPath -Name "Disabled" -ErrorAction SilentlyContinue
+		Remove-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -ErrorAction SilentlyContinue
+	}
+	Write-Host "Done - Reverted to Stock Settings"
+    $ResultText.text = "`r`n" + "Enabled Background Apps." + "`r`n" + "Ready for Next Task"
+}
+
+function DisableBGApps { 
+    Write-Host "Disabling Background application access..."
+    Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
+        Set-ItemProperty -Path $_.PsPath -Name "Disabled" -Type DWord -Value 1
+        Set-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -Type DWord -Value 1
+    }
+    Write-Host "Disabled Background application access"
+    $ResultText.text = "`r`n" + "Disabled Background application access." + "`r`n" + "Ready for Next Task"
+}
+
 function StartSearchOff { 
     Write-Host "Disabling search suggestions, searching Bing from the Start menu. Good riddance."
     if( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
@@ -866,13 +888,32 @@ function Derp {
 
 function GetAppList { 
     ShowConsole
-
+    
+    Write-Host 'Getting installed applications...'
+    Write-Host ''
+    
     $applist1 += Get-ItemProperty -Name * -Path @(
         'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
         'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
         'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
         'HKCU:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
     ) -ErrorAction SilentlyContinue | Where-Object {$_.DisplayName.Length -ge 1 } | Select-Object -Property DisplayName | Out-Host 
+
+    if ($ChkSaveTxt.Checked) {
+        Write-Output $applist1 > $env:USERPROFILE\Desktop\Applist.txt
+        Write-Host ''
+        Write-Host '------------------'
+        Write-Host 'I have saved this applist on your desktop. I will open the file in Notepad for you too.'
+        Start notepad $env:USERPROFILE\Desktop\Applist.txt
+        Write-Host 'Finished'
+        Write-Host '------------------'
+        
+    } else {
+        Write-Output $applist1
+        Write-Host '------------------'
+        Write-Host 'Finished'
+        Write-Host '------------------'
+    }
 
 }
 

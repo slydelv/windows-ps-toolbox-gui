@@ -907,7 +907,7 @@ function GetAppList {
         'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
         'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
         'HKCU:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
-    ) -ErrorAction SilentlyContinue | Where-Object {$_.DisplayName.Length -ge 1 } | Select-Object -Property DisplayName | Out-Host 
+    ) -ErrorAction SilentlyContinue | Where-Object {$_.DisplayName.Length -ge 1 } | Select-Object -Property DisplayName
 
     if ($ChkSaveTxt.Checked) {
         Write-Output $applist1 > $env:USERPROFILE\Desktop\Applist.txt

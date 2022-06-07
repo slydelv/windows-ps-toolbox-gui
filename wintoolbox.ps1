@@ -1,6 +1,6 @@
 function InstallHWiNFO { 
     Write-Host "Installing HWiNFO"
-    $ResultText.text = "`r`n" + "Installing HWiNFO... Please Wait" 
+    $ResultText.text = "Installing HWiNFO... Please Wait" 
     winget install -e REALiX.HWiNFO | Out-Host
     if($?) { Write-Host "Installed HWiNFO" }
     $ResultText.text = "`r`n" + "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"

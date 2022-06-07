@@ -7,7 +7,7 @@ This toolbox was made for and in collaboration with the PC Help Hub Discord
 Official Discord Server ID: 571342175678234640
 
 ## How to Run (in Powershell)
-Copy and Paste this command into Powershell (admin):
+Copy and Paste this command into Powershell (Admin) - E.g. Right click Start (or Winkey + X) and click PowerShell (Admin):
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/wintoolbox.ps1'))
 ```
@@ -15,6 +15,8 @@ Or, shorter:
 ```
 iwr -useb https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/wintoolbox.ps1 | iex
 ```
+
+
 
 ## How to Run (in CMD / Batch)
 Copy and Paste this command into CMD / Command Prompt:

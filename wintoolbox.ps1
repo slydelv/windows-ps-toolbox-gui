@@ -1,4 +1,6 @@
 
+
+
 Add-Type -Name Window -Namespace Console -MemberDefinition '
 [DllImport("Kernel32.dll")]
 public static extern IntPtr GetConsoleWindow();
@@ -97,15 +99,6 @@ $BtnInstallHwInfo.location       = New-Object System.Drawing.Point(10,120)
 $BtnInstallHwInfo.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnInstallHwInfo.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnInstallHwInfo.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$Button2                         = New-Object system.Windows.Forms.Button
-$Button2.text                    = "Placeholder"
-$Button2.width                   = 120
-$Button2.height                  = 30
-$Button2.location                = New-Object System.Drawing.Point(140,120)
-$Button2.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button2.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button2.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button3                         = New-Object system.Windows.Forms.Button
 $Button3.text                    = "Placeholder"
@@ -605,6 +598,24 @@ $Label9.location                 = New-Object System.Drawing.Point(534,70)
 $Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
 $Label9.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
+$BtnInstallKeepass               = New-Object system.Windows.Forms.Button
+$BtnInstallKeepass.text          = "KeePass"
+$BtnInstallKeepass.width         = 120
+$BtnInstallKeepass.height        = 30
+$BtnInstallKeepass.location      = New-Object System.Drawing.Point(10,160)
+$BtnInstallKeepass.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnInstallKeepass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnInstallKeepass.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnInstallUeli                  = New-Object system.Windows.Forms.Button
+$BtnInstallUeli.text             = "UELI"
+$BtnInstallUeli.width            = 120
+$BtnInstallUeli.height           = 30
+$BtnInstallUeli.location         = New-Object System.Drawing.Point(140,120)
+$BtnInstallUeli.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnInstallUeli.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnInstallUeli.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
@@ -625,12 +636,14 @@ $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which ru
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
+$ToolTipInstallSoftware.SetToolTip($BtnInstallKeepass,'Install KeePass password manager')
+$ToolTipUtils.SetToolTip($BtnInstallUeli,'Install UELI Keystroke Launcher')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9))
-$GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$Button2,$Button3,$Button4))
+$GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$Button3,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
-$Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe))
+$Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe,$BtnInstallKeepass))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
 $BtnChkDskR.Add_Click({ ChkDskCR })
@@ -669,8 +682,18 @@ $BtnEnableFastStart.Add_Click({ EnableFastStart })
 $BtnDisableBGApps.Add_Click({ DisableBGApps })
 $BtnEnableBGApps.Add_Click({ EnableBGApps })
 $BtnInstallHwInfo.Add_Click({ InstallHWiNFO })
+$BtnInstallKeepass.Add_Click({ InstallKeePass })
 
 #region Logic 
+function InstallKeePass {
+    Write-Host "Installing KeePass"
+    $ResultText.text = "Installing KeePass... Please Wait" 
+    winget install -e DominikReichl.KeePass | Out-Host
+    if($?) { Write-Host "Installed KeePass" }
+    $ResultText.text = "`r`n" + "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
+    
+}
+
 function InstallHWiNFO { 
     Write-Host "Installing HWiNFO"
     $ResultText.text = "Installing HWiNFO... Please Wait" 

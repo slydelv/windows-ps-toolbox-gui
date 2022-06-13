@@ -100,14 +100,14 @@ $BtnInstallHwInfo.Font           = New-Object System.Drawing.Font('Microsoft San
 $BtnInstallHwInfo.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnInstallHwInfo.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button3                         = New-Object system.Windows.Forms.Button
-$Button3.text                    = "Placeholder"
-$Button3.width                   = 120
-$Button3.height                  = 30
-$Button3.location                = New-Object System.Drawing.Point(10,160)
-$Button3.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button3.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button3.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnDownloadSophiaApp            = New-Object system.Windows.Forms.Button
+$BtnDownloadSophiaApp.text       = "SophiaApp"
+$BtnDownloadSophiaApp.width      = 120
+$BtnDownloadSophiaApp.height     = 30
+$BtnDownloadSophiaApp.location   = New-Object System.Drawing.Point(10,160)
+$BtnDownloadSophiaApp.Font       = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnDownloadSophiaApp.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnDownloadSophiaApp.BackColor  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Button4                         = New-Object system.Windows.Forms.Button
 $Button4.text                    = "Placeholder"
@@ -338,7 +338,7 @@ $BtnOsInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnOsInfo.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Groupbox3                       = New-Object system.Windows.Forms.Groupbox
-$Groupbox3.height                = 250
+$Groupbox3.height                = 350
 $Groupbox3.width                 = 270
 $Groupbox3.location              = New-Object System.Drawing.Point(315,400)
 $Groupbox3.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
@@ -487,14 +487,14 @@ $BtnVisualFX.Font                = New-Object System.Drawing.Font('Microsoft San
 $BtnVisualFX.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $BtnVisualFX.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$BtnInstallAdobe                 = New-Object system.Windows.Forms.Button
-$BtnInstallAdobe.text            = "Adobe Reader"
-$BtnInstallAdobe.width           = 120
-$BtnInstallAdobe.height          = 30
-$BtnInstallAdobe.location        = New-Object System.Drawing.Point(140,120)
-$BtnInstallAdobe.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallAdobe.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallAdobe.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnInstallSumatra               = New-Object system.Windows.Forms.Button
+$BtnInstallSumatra.text          = "SumatraPDF"
+$BtnInstallSumatra.width         = 120
+$BtnInstallSumatra.height        = 30
+$BtnInstallSumatra.location      = New-Object System.Drawing.Point(140,120)
+$BtnInstallSumatra.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnInstallSumatra.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnInstallSumatra.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnBlockEpicBloat               = New-Object system.Windows.Forms.Button
 $BtnBlockEpicBloat.text          = "Block EpicBloat"
@@ -616,7 +616,89 @@ $BtnInstallUeli.Font             = New-Object System.Drawing.Font('Microsoft San
 $BtnInstallUeli.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallUeli.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
+$ChkInstallBrave                 = New-Object system.Windows.Forms.CheckBox
+$ChkInstallBrave.text            = "Brave"
+$ChkInstallBrave.AutoSize        = $false
+$ChkInstallBrave.width           = 100
+$ChkInstallBrave.height          = 20
+$ChkInstallBrave.location        = New-Object System.Drawing.Point(14,198)
+$ChkInstallBrave.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallBrave.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallChrome                = New-Object system.Windows.Forms.CheckBox
+$ChkInstallChrome.text           = "Chrome"
+$ChkInstallChrome.AutoSize       = $false
+$ChkInstallChrome.width          = 100
+$ChkInstallChrome.height         = 20
+$ChkInstallChrome.location       = New-Object System.Drawing.Point(134,198)
+$ChkInstallChrome.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallChrome.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstall7zip                  = New-Object system.Windows.Forms.CheckBox
+$ChkInstall7zip.text             = "7-Zip"
+$ChkInstall7zip.AutoSize         = $false
+$ChkInstall7zip.width            = 100
+$ChkInstall7zip.height           = 20
+$ChkInstall7zip.location         = New-Object System.Drawing.Point(14,218)
+$ChkInstall7zip.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstall7zip.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$BtnInstallChecked               = New-Object system.Windows.Forms.Button
+$BtnInstallChecked.text          = "Install Checked"
+$BtnInstallChecked.width         = 120
+$BtnInstallChecked.height        = 30
+$BtnInstallChecked.location      = New-Object System.Drawing.Point(146,316)
+$BtnInstallChecked.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnInstallChecked.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnInstallChecked.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$ChkInstallFirefox               = New-Object system.Windows.Forms.CheckBox
+$ChkInstallFirefox.text          = "Firefox"
+$ChkInstallFirefox.AutoSize      = $false
+$ChkInstallFirefox.width         = 100
+$ChkInstallFirefox.height        = 20
+$ChkInstallFirefox.location      = New-Object System.Drawing.Point(134,218)
+$ChkInstallFirefox.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallFirefox.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallVLC                   = New-Object system.Windows.Forms.CheckBox
+$ChkInstallVLC.text              = "VLC"
+$ChkInstallVLC.AutoSize          = $false
+$ChkInstallVLC.width             = 100
+$ChkInstallVLC.height            = 20
+$ChkInstallVLC.location          = New-Object System.Drawing.Point(14,239)
+$ChkInstallVLC.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallVLC.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallNotepadpp             = New-Object system.Windows.Forms.CheckBox
+$ChkInstallNotepadpp.text        = "Notepad++"
+$ChkInstallNotepadpp.AutoSize    = $false
+$ChkInstallNotepadpp.width       = 100
+$ChkInstallNotepadpp.height      = 20
+$ChkInstallNotepadpp.location    = New-Object System.Drawing.Point(134,239)
+$ChkInstallNotepadpp.Font        = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallNotepadpp.ForeColor   = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallSumatra               = New-Object system.Windows.Forms.CheckBox
+$ChkInstallSumatra.text          = "SumatraPDF"
+$ChkInstallSumatra.AutoSize      = $false
+$ChkInstallSumatra.width         = 100
+$ChkInstallSumatra.height        = 20
+$ChkInstallSumatra.location      = New-Object System.Drawing.Point(14,259)
+$ChkInstallSumatra.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallSumatra.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallKeePass               = New-Object system.Windows.Forms.CheckBox
+$ChkInstallKeePass.text          = "KeePass"
+$ChkInstallKeePass.AutoSize      = $false
+$ChkInstallKeePass.width         = 100
+$ChkInstallKeePass.height        = 20
+$ChkInstallKeePass.location      = New-Object System.Drawing.Point(134,259)
+$ChkInstallKeePass.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallKeePass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
+$ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskChoice,'Gives options in the console and then runs chkdsk')
@@ -629,7 +711,7 @@ $ToolTipInfo.SetToolTip($Button6,'Do not click this. It runs dir /s c:\windows\s
 $ToolTipInfo.SetToolTip($ChkSaveTxt,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($BtnHwInfo,'Dump list of all hardware')
 $ToolTipInfo.SetToolTip($BtnOsInfo,'Dump all operating system information')
-$ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks')
+$ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks, including O&O config import')
 $ToolTipUntoTweaks.SetToolTip($BtnUndoEssential,'Unto all the tweaks which were done by the essential tweaks')
 $ToolTipInfo.SetToolTip($BtnRunningServices,'List running services')
 $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
@@ -638,12 +720,20 @@ $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bin
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
 $ToolTipInstallSoftware.SetToolTip($BtnInstallKeepass,'Install KeePass password manager')
 $ToolTipUtils.SetToolTip($BtnInstallUeli,'Install UELI Keystroke Launcher')
+$ToolTipInfo.SetToolTip($ChkInstallBrave,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallChrome,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstall7zip,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallFirefox,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallVLC,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallNotepadpp,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallSumatra,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallKeePass,'Tick this to save the App List as a text file to your desktop')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9))
-$GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$Button3,$Button4,$BtnInstallUeli))
+$GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
-$Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallAdobe,$BtnInstallKeepass))
+$Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallSumatra,$BtnInstallKeepass,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
 $BtnChkDskR.Add_Click({ ChkDskCR })
@@ -669,7 +759,7 @@ $BtnInstallFirefox.Add_Click({ InstallFirefox })
 $BtnEssentialTweaks.Add_Click({ RunEssentialTweaks })
 $BtnUndoEssential.Add_Click({ RunUndoEssentialTweaks })
 $BtnRunningServices.Add_Click({ RunningServices })
-$BtnInstallAdobe.Add_Click({ InstallAdobe })
+$BtnInstallSumatra.Add_Click({ InstallAdobe })
 $BtnNotePadPP.Add_Click({ InstallNotepad })
 $BtnInstallVLC.Add_Click({ InstallVLC })
 $BtnBlockEpicBloat.Add_Click({ BlockEpicBloat })
@@ -683,14 +773,46 @@ $BtnDisableBGApps.Add_Click({ DisableBGApps })
 $BtnEnableBGApps.Add_Click({ EnableBGApps })
 $BtnInstallHwInfo.Add_Click({ InstallHWiNFO })
 $BtnInstallKeepass.Add_Click({ InstallKeePass })
+$BtnDownloadSophiaApp.Add_Click({ SophiaApp })
+$BtnInstallChecked.Add_Click({ InstallChecked })
 
 #region Logic 
+function InstallChecked { 
+    Write-Host 'Installing checked software'
+    
+    $selectableItems = @(
+		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'install -e --id BraveSoftware.BraveBrowser'}, 
+		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'install -e --id Google.Chrome'}, 
+		[pscustomobject]@{Value = $ChkInstall7Zip.Checked; Title = '7Zip'; Command = 'install -e --id 7zip.7zip'}, 
+		[pscustomobject]@{Value = $ChkInstallFirefox; Title = 'Firefox'; Command = 'install -e --id Mozilla.Firefox'}, 
+		[pscustomobject]@{Value = $ChkInstallVLC; Title = 'VLC'; Command = 'install -e --id VideoLAN.VLC'}, 
+		[pscustomobject]@{Value = $ChkInstallNotepadpp; Title = 'Notepad++'; Command = 'install -e --id Notepad++.Notepad++'}, 
+		[pscustomobject]@{Value = $ChkInstallSumatra; Title = 'SumatraPDF'; Command = 'install -e --id SumatraPDF.SumatraPDF'}, 
+		[pscustomobject]@{Value = $ChkInstallKeePass; Title = 'KeePass'; Command = 'install -e --id DominikReichl.KeePass'}
+	)
+    
+	$selectedItems = $selectableItems | where {$_.Value -eq $true}
+	
+	$command = $selectedItems.Command -Join " "
+	
+	$ResultText.text = "Installing selected items: $selectedItems.Title - Please Wait"
+	
+	winget $command
+	
+	$ResultText.text= "Completed, Ready for Next Task"
+}
+
+function SophiaApp { 
+    irm app.sophi.app -useb | iex
+    $ResultText.text = "Downloaded SophiaApp, enjoy." + "`r`n" + "Ready for Next Task"
+}
+
 function InstallKeePass {
     Write-Host "Installing KeePass"
     $ResultText.text = "Installing KeePass... Please Wait" 
     winget install -e DominikReichl.KeePass | Out-Host
     if($?) { Write-Host "Installed KeePass" }
-    $ResultText.text = "`r`n" + "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
     
 }
 
@@ -699,7 +821,7 @@ function InstallHWiNFO {
     $ResultText.text = "Installing HWiNFO... Please Wait" 
     winget install -e REALiX.HWiNFO | Out-Host
     if($?) { Write-Host "Installed HWiNFO" }
-    $ResultText.text = "`r`n" + "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"
 }
 
 function EnableBGApps { 
@@ -709,7 +831,7 @@ function EnableBGApps {
 		Remove-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -ErrorAction SilentlyContinue
 	}
 	Write-Host "Done - Reverted to Stock Settings"
-    $ResultText.text = "`r`n" + "Enabled Background Apps." + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Enabled Background Apps." + "`r`n" + "Ready for Next Task"
 }
 
 function DisableBGApps { 
@@ -719,7 +841,7 @@ function DisableBGApps {
         Set-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -Type DWord -Value 1
     }
     Write-Host "Disabled Background application access"
-    $ResultText.text = "`r`n" + "Disabled Background application access." + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Disabled Background application access." + "`r`n" + "Ready for Next Task"
 }
 
 function StartSearchOff { 
@@ -734,7 +856,7 @@ function StartSearchOff {
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     Write-Host "Okay, it's disabled."
-    $ResultText.text = "`r`n" + "Disabled searching Bing from Start. Restart to take effect." + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Disabled searching Bing from Start. Restart to take effect." + "`r`n" + "Ready for Next Task"
 }
 
 function StartSearchOn { 
@@ -750,7 +872,7 @@ function StartSearchOn {
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
     
     Write-Host "Okay, it's enabled."
-    $ResultText.text = "`r`n" + "Enabled searching Bing from Start (WHY?). Restart to take effect." + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Enabled searching Bing from Start (WHY?). Restart to take effect." + "`r`n" + "Ready for Next Task"
 }
 
 function EnableCortana { 
@@ -774,7 +896,7 @@ function EnableCortana {
     Write-Host "Restore Windows Search Icon..."
 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
 	Write-Host "Done - Reverted to Stock Settings"
-    $ResultText.text = "`r`n" + "Enabled Cortana and Restored Search" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Enabled Cortana and Restored Search" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 
@@ -799,7 +921,7 @@ function DisableCortana {
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
     Write-Host "Disabled Cortana"
-    $ResultText.text = "`r`n" + "Disabled Cortana" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Disabled Cortana" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 
@@ -807,14 +929,14 @@ function BlockAds {
     $adlist= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/BlockAds.cfg' 
     $adfile = "$env:windir\System32\drivers\etc\hosts"
     $adlist | Add-Content -PassThru $adfile
-    $ResultText.text = "`r`n" + "Blocked common ad servers" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Blocked common ad servers" + "`r`n" + "Ready for Next Task"
 }
 
 function BlockEpicBloat { 
     $content= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/EpicGamesBlocklist.cfg' 
     $file = "$env:windir\System32\drivers\etc\hosts"
     $content | Add-Content -PassThru $file
-    $ResultText.text = "`r`n" + "Blocked Epic Bloatware servers" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Blocked Epic Bloatware servers" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallVLC { 
@@ -822,7 +944,7 @@ function InstallVLC {
     $ResultText.text = "`r`n" + "Installing VLC Media Player... Please Wait" 
     winget install -e VideoLAN.VLC | Out-Host
     if($?) { Write-Host "Installed VLC Media Player" }
-    $ResultText.text = "`r`n" + "Finished Installing VLC Media Player" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing VLC Media Player" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallNotepad { 
@@ -830,22 +952,22 @@ function InstallNotepad {
     $ResultText.text = "Installing Notepad++... Please Wait" 
     winget install -e Notepad++.Notepad++ | Out-Host
     if($?) { Write-Host "Installed Notepad++" }
-    $ResultText.text = "`r`n" + "Finished Installing NotePad++" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing NotePad++" + "`r`n" + "Ready for Next Task"
 }
 
-function InstallAdobe { 
-    Write-Host "Installing Adobe Reader DC"
-    $ResultText.text = "`r`n" + "Installing Adobe Reader DC... Please Wait" 
-    winget install -e --id Adobe.Acrobat.Reader.64-bit | Out-Host
-    if($?) { Write-Host "Installed Adobe Reader DC" }
-    $ResultText.text = "`r`n" + "Finished Installing Adobe Reader DC" + "`r`n" + "Ready for Next Task"
+function InstallSumatra { 
+    Write-Host "Installing SumatraPDF"
+    $ResultText.text = "`r`n" + "Installing SumatraPDF... Please Wait" 
+    winget install -e --id SumatraPDF.SumatraPDF | Out-Host
+    if($?) { Write-Host "Installed SumatraPDF" }
+    $ResultText.text = "Finished Installing SumatraPDF" + "`r`n" + "Ready for Next Task"
 }
 
 function RunningServices { 
     Show-Console
     Write-Host "Listing Running Services..."
     $Svcs = Get-Service | Where-Object {$_.Status -EQ "Running"}| Out-GridView -Title "List of running services" -PassThru| Select -ExpandProperty Name
-    $ResultText.text = "`r`n" +"`r`n" + "Listing Running Services" + "`r`n" + $Svcs
+    $ResultText.text = "Listing Running Services" + "`r`n" + $Svcs
     Write-Host "Next step: Output to text file"
 }
 
@@ -866,7 +988,7 @@ function InstallFirefox {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
     winget install -e Mozilla.Firefox | Out-Host
     if($?) { Write-Host "Installed Firefox" }
-    $ResultText.text = "`r`n" + "Finished Installing Firefox" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing Firefox" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallChrome { 
@@ -874,7 +996,7 @@ function InstallChrome {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
     winget install -e Google.Chrome | Out-Host
     if($?) { Write-Host "Installed Google Chrome" }
-    $ResultText.text = "`r`n" + "Finished Installing Google Chrome" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing Google Chrome" + "`r`n" + "Ready for Next Task"
 }
 
 function InstallBrave { 
@@ -882,7 +1004,7 @@ function InstallBrave {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
     winget install -e BraveSoftware.BraveBrowser | Out-Host
     if($?) { Write-Host "Installed Brave Browser" }
-    $ResultText.text = "`r`n" + "Finished Installing Brave" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing Brave" + "`r`n" + "Ready for Next Task"
 }
 
 function OSInfo { 
@@ -923,7 +1045,7 @@ function Derp {
     ShowConsole
     $ResultText.text = "`r`n" + "Starting to derp, please wait"
     cmd /c "dir /s c:\windows\system32\" | Out-Host
-    $ResultText.text = "`r`n" + "Finished derping" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished derping" + "`r`n" + "Ready for Next Task"
 }
 
 function GetAppList { 
@@ -963,7 +1085,7 @@ function InstEverything {
     $ResultText.text = "`r`n" +"`r`n" + "Installing Voidtools Everything Search... Please Wait" 
     winget install -e voidtools.Everything --source winget | Out-Host
     if($?) { Write-Host "Installed Everything Search" }
-    $ResultText.text = "`r`n" + "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 
@@ -973,7 +1095,7 @@ function Inst7Zip {
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     winget install -e 7zip.7zip | Out-Host
     if($?) { Write-Host "Installed 7-Zip Compression Tool" }
-    $ResultText.text = "`r`n" + "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
 

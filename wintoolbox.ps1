@@ -777,7 +777,7 @@ $BtnDownloadSophiaApp.Add_Click({ SophiaApp })
 $BtnInstallChecked.Add_Click({ InstallChecked })
 
 #region Logic 
-function InstallChecked { 
+function InstallChecked {
     Write-Host 'Installing checked software'
     
     $selectableItems = @(
@@ -812,7 +812,7 @@ function InstallKeePass {
     $ResultText.text = "Installing KeePass... Please Wait" 
     winget install -e DominikReichl.KeePass | Out-Host
     if($?) { Write-Host "Installed KeePass" }
-    $ResultText.text = Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
+    $ResultText.text = "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
     
 }
 

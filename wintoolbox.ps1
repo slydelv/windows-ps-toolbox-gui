@@ -682,7 +682,7 @@ $ChkInstallNotepadpp.ForeColor   = [System.Drawing.ColorTranslator]::FromHtml("#
 $ChkInstallSumatra               = New-Object system.Windows.Forms.CheckBox
 $ChkInstallSumatra.text          = "SumatraPDF"
 $ChkInstallSumatra.AutoSize      = $false
-$ChkInstallSumatra.width         = 100
+$ChkInstallSumatra.width         = 110
 $ChkInstallSumatra.height        = 20
 $ChkInstallSumatra.location      = New-Object System.Drawing.Point(14,259)
 $ChkInstallSumatra.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
@@ -778,27 +778,30 @@ $BtnInstallChecked.Add_Click({ InstallChecked })
 
 #region Logic 
 function InstallChecked {
-    Write-Host 'Installing checked software'
-    
     $selectableItems = @(
-		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'install -e --id BraveSoftware.BraveBrowser'}, 
-		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'install -e --id Google.Chrome'}, 
-		[pscustomobject]@{Value = $ChkInstall7Zip.Checked; Title = '7Zip'; Command = 'install -e --id 7zip.7zip'}, 
-		[pscustomobject]@{Value = $ChkInstallFirefox; Title = 'Firefox'; Command = 'install -e --id Mozilla.Firefox'}, 
-		[pscustomobject]@{Value = $ChkInstallVLC; Title = 'VLC'; Command = 'install -e --id VideoLAN.VLC'}, 
-		[pscustomobject]@{Value = $ChkInstallNotepadpp; Title = 'Notepad++'; Command = 'install -e --id Notepad++.Notepad++'}, 
-		[pscustomobject]@{Value = $ChkInstallSumatra; Title = 'SumatraPDF'; Command = 'install -e --id SumatraPDF.SumatraPDF'}, 
-		[pscustomobject]@{Value = $ChkInstallKeePass; Title = 'KeePass'; Command = 'install -e --id DominikReichl.KeePass'}
+		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'winget install -e --id BraveSoftware.BraveBrowser;'}, 
+		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'winget install -e --id Google.Chrome;'}, 
+		[pscustomobject]@{Value = $ChkInstall7Zip.Checked; Title = '7Zip'; Command = 'winget install -e --id 7zip.7zip;'}, 
+		[pscustomobject]@{Value = $ChkInstallFirefox.Checked; Title = ' Firefox'; Command = 'winget install -e --id Mozilla.Firefox;'}, 
+		[pscustomobject]@{Value = $ChkInstallVLC.Checked; Title = 'VLC'; Command = 'winget install -e --id VideoLAN.VLC;'}, 
+		[pscustomobject]@{Value = $ChkInstallNotepadpp.Checked; Title = 'Notepad++'; Command = 'winget install -e --id Notepad++.Notepad++;'}, 
+		[pscustomobject]@{Value = $ChkInstallSumatra.Checked; Title = 'SumatraPDF'; Command = 'winget install -e --id SumatraPDF.SumatraPDF;'}, 
+		[pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'KeePass'; Command = 'winget install -e --id DominikReichl.KeePass;'}
 	)
     
 	$selectedItems = $selectableItems | where {$_.Value -eq $true}
 	
 	$command = $selectedItems.Command -Join " "
 	
-	$ResultText.text = "Installing selected items: $selectedItems.Title - Please Wait"
+	$titles = $selectedItems.Title -Join " "
 	
-	winget $command
+	Write-Host "Installing selected items: $titles - Please Wait"
 	
+	$ResultText.text = "Installing selected items: $titles - Please Wait"
+	
+	Invoke-Expression $command | Out-Host
+	
+	Write-Host "Completed, Ready for Next Task"
 	$ResultText.text= "Completed, Ready for Next Task"
 }
 

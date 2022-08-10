@@ -134,7 +134,7 @@ $LblRepairUtils.Font             = New-Object System.Drawing.Font('Verdana',16)
 $LblRepairUtils.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
 $BtnChkDsk                       = New-Object system.Windows.Forms.Button
-$BtnChkDsk.text                  = "Chkdsk C: "
+$BtnChkDsk.text                  = "Chkdsk C: (Auto)"
 $BtnChkDsk.width                 = 120
 $BtnChkDsk.height                = 30
 $BtnChkDsk.location              = New-Object System.Drawing.Point(10,40)
@@ -542,7 +542,7 @@ $Label6.Font                     = New-Object System.Drawing.Font('Microsoft San
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
 $Label7                          = New-Object system.Windows.Forms.Label
-$Label7.text                     = "Contributors: Chicken the April Fool (000000000000000000#8134)"
+$Label7.text                     = "Contributors: 000000000000000000#8134"
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
@@ -555,7 +555,7 @@ $Label8.text                     = "Red = Unimplemented. Orange = Testing. Yello
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(516,755)
+$Label8.location                 = New-Object System.Drawing.Point(520,759)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
@@ -697,9 +697,45 @@ $ChkInstallKeePass.location      = New-Object System.Drawing.Point(134,259)
 $ChkInstallKeePass.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallKeePass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
+$Groupbox4                       = New-Object system.Windows.Forms.Groupbox
+$Groupbox4.height                = 350
+$Groupbox4.width                 = 270
+$Groupbox4.location              = New-Object System.Drawing.Point(617,400)
+$Groupbox4.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
+
+$Label10                         = New-Object system.Windows.Forms.Label
+$Label10.text                    = "Cyber Security"
+$Label10.AutoSize                = $true
+$Label10.width                   = 25
+$Label10.height                  = 10
+$Label10.location                = New-Object System.Drawing.Point(10,10)
+$Label10.Font                    = New-Object System.Drawing.Font('Verdana',16)
+$Label10.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$BtnFarbar                       = New-Object system.Windows.Forms.Button
+$BtnFarbar.text                  = "Farbar FRST"
+$BtnFarbar.width                 = 120
+$BtnFarbar.height                = 30
+$BtnFarbar.location              = New-Object System.Drawing.Point(10,40)
+$BtnFarbar.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnFarbar.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnFarbar.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$ToolTipCyberSec                 = New-Object system.Windows.Forms.ToolTip
+$ToolTipCyberSec.ToolTipTitle    = "CyberSec Help"
+
+$BtnAdwCleaner                   = New-Object system.Windows.Forms.Button
+$BtnAdwCleaner.text              = "AdwCleaner"
+$BtnAdwCleaner.width             = 120
+$BtnAdwCleaner.height            = 30
+$BtnAdwCleaner.location          = New-Object System.Drawing.Point(140,40)
+$BtnAdwCleaner.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnAdwCleaner.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnAdwCleaner.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
-$ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk with /x /f')
+$ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk and if errors are found then run with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskChoice,'Gives options in the console and then runs chkdsk')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsScan,'Runs chkdsk c: /scan')
@@ -728,12 +764,15 @@ $ToolTipInfo.SetToolTip($ChkInstallVLC,'Tick this to save the App List as a text
 $ToolTipInfo.SetToolTip($ChkInstallNotepadpp,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstallSumatra,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstallKeePass,'Tick this to save the App List as a text file to your desktop')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9))
+$ToolTipCyberSec.SetToolTip($BtnFarbar,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnAdwCleaner,'Download Farbar FRST')
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9,$Groupbox4))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallSumatra,$BtnInstallKeepass,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
+$Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
 $BtnChkDskR.Add_Click({ ChkDskCR })
@@ -775,8 +814,30 @@ $BtnInstallHwInfo.Add_Click({ InstallHWiNFO })
 $BtnInstallKeepass.Add_Click({ InstallKeePass })
 $BtnDownloadSophiaApp.Add_Click({ SophiaApp })
 $BtnInstallChecked.Add_Click({ InstallChecked })
+$BtnFarbar.Add_Click({ FRST })
+$BtnAdwCleaner.Add_Click({ AdwCleaner })
 
 #region Logic 
+function AdwCleaner { 
+    Write-Host 'Downloading AdwCleaner from MalwareBytes, please wait...'
+    $ResultText.text = "Downloading AdwCleaner from MalwareBytes, please wait..." 
+    curl -o 'C:\Tools\adwcleaner.exe' 'https://adwcleaner.malwarebytes.com/adwcleaner?channel=release'
+    
+    Write-Host 'AdwCleaner downloaded, now launching it'
+    $ResultText.text = "AdwCleaner downloaded, now launching it" + "`r`n" + "Ready for Next Task"
+    Start-Process 'C:\Tools\adwcleaner.exe' 
+}
+
+function FRST { 
+    Write-Host 'Downloading SlyDelvs FRST Downloader Updater, please wait...'
+    $ResultText.text = 'Downloading SlyDelvs FRST Downloader Updater, please wait...'
+    Invoke-WebRequest -Uri 'https://github.com/slydelv/FRST-Download-Update/releases/download/Release/FRST-Download-Update.exe' -OutFile 'C:\FRST\FRST-Download-Update.exe'
+
+    Write-Host 'FRST Downloader Updater has been downloaded, it will now launch and download FRST for you'
+    $ResultText.text = "FRST Downloader Updater has been downloaded, it will now launch and download FRST for you" + "`r`n" + "Ready for Next Task"
+	Start-Process 'C:\FRST\FRST-Download-Update.exe'
+}
+
 function InstallChecked {
     $selectableItems = @(
 		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'winget install -e --id BraveSoftware.BraveBrowser;'}, 
@@ -1117,9 +1178,35 @@ function InstWinTerminal {
 
 function ChkDskC { 
     ShowConsole
-    cmd /c "echo y|chkdsk C: /F /X" | Out-Host
-    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
-    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
+    $ResultText.text = "Checking the file system. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
+    
+    $chkdsk1 = ($(chkdsk c: /scan) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
+    
+    if($chkdsk1 -like "*Windows has made corrections to the file system*"){
+        #Windows found errors and corrected them. 
+    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*"){
+        Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
+        $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
+        ChkDskCFX
+    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*"){
+        Write-Host "Chkdsk found no problems"
+        $ResultText.text = "Chkdsk found no problems." + "`r`n" + "Ready for Next Task"
+    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*"){
+        Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
+        $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
+        ChkDskCFX
+    }
+}
+
+function ChkDskCFX {
+    ShowConsole
+    Write-Host "Now scheduling chkdsk with the fix parameter and scheduling it for your next computer restart. Please restart your computer as soon as possible."
+    Write-Host "I am also setting your computer to restart in 5 minutes. Please save and close your work immediately. Ideally restart your computer before the 5 minutes"
+    Write-Host " - Ensure you DO NOT TURN OFF YOUR COMPUTER during the scan which runs on the next boot/reboot."
+    
+    Write-Output Y > chkdsk C: /f /x
+    
+    shutdown /r /t 300 /f /c "Your PC will be restarted in 5 minutes. Make sure all your work is saved. (This process can be aborted by using the shutdown /a command)"
 }
 
 function ChkDskCR {
@@ -1283,8 +1370,7 @@ Write-Host "Checking winget..."
 # Check if winget is installed
 if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
     'Winget Already Installed'
-}  
-else{
+}  else {
     # Installing winget from the Microsoft Store
 	Write-Host "Winget not found, installing it now."
     $ResultText.text = "`r`n" +"`r`n" + "Installing Winget... Please Wait"
@@ -1293,6 +1379,11 @@ else{
 	Wait-Process -Id $nid
 	Write-Host Winget Installed
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
+}
+
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path 'C:\Tools' -ItemType Directory    
+    Write-Host "Folder Created successfully"
 }
 #endregion
 

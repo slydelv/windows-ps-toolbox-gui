@@ -352,42 +352,6 @@ $Label3.location                 = New-Object System.Drawing.Point(10,10)
 $Label3.Font                     = New-Object System.Drawing.Font('Verdana',16)
 $Label3.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
-$BtnInstallBrave                 = New-Object system.Windows.Forms.Button
-$BtnInstallBrave.text            = "Brave"
-$BtnInstallBrave.width           = 120
-$BtnInstallBrave.height          = 30
-$BtnInstallBrave.location        = New-Object System.Drawing.Point(10,40)
-$BtnInstallBrave.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallBrave.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallBrave.BackColor       = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnInstallChrome                = New-Object system.Windows.Forms.Button
-$BtnInstallChrome.text           = "Chrome"
-$BtnInstallChrome.width          = 120
-$BtnInstallChrome.height         = 30
-$BtnInstallChrome.location       = New-Object System.Drawing.Point(140,40)
-$BtnInstallChrome.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallChrome.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallChrome.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnInstallFirefox               = New-Object system.Windows.Forms.Button
-$BtnInstallFirefox.text          = "Firefox"
-$BtnInstallFirefox.width         = 120
-$BtnInstallFirefox.height        = 30
-$BtnInstallFirefox.location      = New-Object System.Drawing.Point(10,80)
-$BtnInstallFirefox.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallFirefox.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallFirefox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnInstallVLC                   = New-Object system.Windows.Forms.Button
-$BtnInstallVLC.text              = "VLC"
-$BtnInstallVLC.width             = 120
-$BtnInstallVLC.height            = 30
-$BtnInstallVLC.location          = New-Object System.Drawing.Point(140,80)
-$BtnInstallVLC.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallVLC.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallVLC.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
 $BtnEssentialTweaks              = New-Object system.Windows.Forms.Button
 $BtnEssentialTweaks.text         = "Essential Tweaks"
 $BtnEssentialTweaks.width        = 120
@@ -405,15 +369,6 @@ $BtnUndoEssential.location       = New-Object System.Drawing.Point(140,40)
 $BtnUndoEssential.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnUndoEssential.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
 $BtnUndoEssential.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnNotePadPP                    = New-Object system.Windows.Forms.Button
-$BtnNotePadPP.text               = "Notepad++"
-$BtnNotePadPP.width              = 120
-$BtnNotePadPP.height             = 30
-$BtnNotePadPP.location           = New-Object System.Drawing.Point(10,120)
-$BtnNotePadPP.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnNotePadPP.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnNotePadPP.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnEnableFastStart              = New-Object system.Windows.Forms.Button
 $BtnEnableFastStart.text         = "Enable FastStart"
@@ -486,15 +441,6 @@ $BtnVisualFX.location            = New-Object System.Drawing.Point(140,200)
 $BtnVisualFX.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnVisualFX.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $BtnVisualFX.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnInstallSumatra               = New-Object system.Windows.Forms.Button
-$BtnInstallSumatra.text          = "SumatraPDF"
-$BtnInstallSumatra.width         = 120
-$BtnInstallSumatra.height        = 30
-$BtnInstallSumatra.location      = New-Object System.Drawing.Point(140,120)
-$BtnInstallSumatra.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallSumatra.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallSumatra.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnBlockEpicBloat               = New-Object system.Windows.Forms.Button
 $BtnBlockEpicBloat.text          = "Block EpicBloat"
@@ -598,15 +544,6 @@ $Label9.location                 = New-Object System.Drawing.Point(534,70)
 $Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
 $Label9.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
-$BtnInstallKeepass               = New-Object system.Windows.Forms.Button
-$BtnInstallKeepass.text          = "KeePass"
-$BtnInstallKeepass.width         = 120
-$BtnInstallKeepass.height        = 30
-$BtnInstallKeepass.location      = New-Object System.Drawing.Point(10,160)
-$BtnInstallKeepass.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallKeepass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallKeepass.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
 $BtnInstallUeli                  = New-Object system.Windows.Forms.Button
 $BtnInstallUeli.text             = "UELI"
 $BtnInstallUeli.width            = 120
@@ -621,7 +558,7 @@ $ChkInstallBrave.text            = "Brave"
 $ChkInstallBrave.AutoSize        = $false
 $ChkInstallBrave.width           = 100
 $ChkInstallBrave.height          = 20
-$ChkInstallBrave.location        = New-Object System.Drawing.Point(14,198)
+$ChkInstallBrave.location        = New-Object System.Drawing.Point(13,40)
 $ChkInstallBrave.Font            = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallBrave.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -630,7 +567,7 @@ $ChkInstallChrome.text           = "Chrome"
 $ChkInstallChrome.AutoSize       = $false
 $ChkInstallChrome.width          = 100
 $ChkInstallChrome.height         = 20
-$ChkInstallChrome.location       = New-Object System.Drawing.Point(134,198)
+$ChkInstallChrome.location       = New-Object System.Drawing.Point(133,40)
 $ChkInstallChrome.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallChrome.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -639,7 +576,7 @@ $ChkInstall7zip.text             = "7-Zip"
 $ChkInstall7zip.AutoSize         = $false
 $ChkInstall7zip.width            = 100
 $ChkInstall7zip.height           = 20
-$ChkInstall7zip.location         = New-Object System.Drawing.Point(14,218)
+$ChkInstall7zip.location         = New-Object System.Drawing.Point(13,60)
 $ChkInstall7zip.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstall7zip.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -647,7 +584,7 @@ $BtnInstallChecked               = New-Object system.Windows.Forms.Button
 $BtnInstallChecked.text          = "Install Checked"
 $BtnInstallChecked.width         = 120
 $BtnInstallChecked.height        = 30
-$BtnInstallChecked.location      = New-Object System.Drawing.Point(146,316)
+$BtnInstallChecked.location      = New-Object System.Drawing.Point(141,310)
 $BtnInstallChecked.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnInstallChecked.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallChecked.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -657,7 +594,7 @@ $ChkInstallFirefox.text          = "Firefox"
 $ChkInstallFirefox.AutoSize      = $false
 $ChkInstallFirefox.width         = 100
 $ChkInstallFirefox.height        = 20
-$ChkInstallFirefox.location      = New-Object System.Drawing.Point(134,218)
+$ChkInstallFirefox.location      = New-Object System.Drawing.Point(133,60)
 $ChkInstallFirefox.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallFirefox.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -666,7 +603,7 @@ $ChkInstallVLC.text              = "VLC"
 $ChkInstallVLC.AutoSize          = $false
 $ChkInstallVLC.width             = 100
 $ChkInstallVLC.height            = 20
-$ChkInstallVLC.location          = New-Object System.Drawing.Point(14,239)
+$ChkInstallVLC.location          = New-Object System.Drawing.Point(13,80)
 $ChkInstallVLC.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallVLC.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -675,7 +612,7 @@ $ChkInstallNotepadpp.text        = "Notepad++"
 $ChkInstallNotepadpp.AutoSize    = $false
 $ChkInstallNotepadpp.width       = 100
 $ChkInstallNotepadpp.height      = 20
-$ChkInstallNotepadpp.location    = New-Object System.Drawing.Point(134,239)
+$ChkInstallNotepadpp.location    = New-Object System.Drawing.Point(133,80)
 $ChkInstallNotepadpp.Font        = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallNotepadpp.ForeColor   = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -684,7 +621,7 @@ $ChkInstallSumatra.text          = "SumatraPDF"
 $ChkInstallSumatra.AutoSize      = $false
 $ChkInstallSumatra.width         = 110
 $ChkInstallSumatra.height        = 20
-$ChkInstallSumatra.location      = New-Object System.Drawing.Point(14,259)
+$ChkInstallSumatra.location      = New-Object System.Drawing.Point(13,100)
 $ChkInstallSumatra.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallSumatra.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -693,7 +630,7 @@ $ChkInstallKeePass.text          = "KeePass"
 $ChkInstallKeePass.AutoSize      = $false
 $ChkInstallKeePass.width         = 100
 $ChkInstallKeePass.height        = 20
-$ChkInstallKeePass.location      = New-Object System.Drawing.Point(134,259)
+$ChkInstallKeePass.location      = New-Object System.Drawing.Point(133,100)
 $ChkInstallKeePass.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $ChkInstallKeePass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -754,7 +691,6 @@ $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which ru
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
-$ToolTipInstallSoftware.SetToolTip($BtnInstallKeepass,'Install KeePass password manager')
 $ToolTipUtils.SetToolTip($BtnInstallUeli,'Install UELI Keystroke Launcher')
 $ToolTipInfo.SetToolTip($ChkInstallBrave,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstallChrome,'Tick this to save the App List as a text file to your desktop')
@@ -771,7 +707,7 @@ $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPSc
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
-$Groupbox3.controls.AddRange(@($Label3,$BtnInstallBrave,$BtnInstallChrome,$BtnInstallFirefox,$BtnInstallVLC,$BtnNotePadPP,$BtnInstallSumatra,$BtnInstallKeepass,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
+$Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
 $Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -792,15 +728,9 @@ $Button6.Add_Click({ Derp })
 $BtnDisableFastStartup.Add_Click({ DisableFastStartup })
 $BtnHwInfo.Add_Click({ HwDump })
 $BtnOsInfo.Add_Click({ OSInfo })
-$BtnInstallBrave.Add_Click({ InstallBrave })
-$BtnInstallChrome.Add_Click({ InstallChrome })
-$BtnInstallFirefox.Add_Click({ InstallFirefox })
 $BtnEssentialTweaks.Add_Click({ RunEssentialTweaks })
 $BtnUndoEssential.Add_Click({ RunUndoEssentialTweaks })
 $BtnRunningServices.Add_Click({ RunningServices })
-$BtnInstallSumatra.Add_Click({ InstallAdobe })
-$BtnNotePadPP.Add_Click({ InstallNotepad })
-$BtnInstallVLC.Add_Click({ InstallVLC })
 $BtnBlockEpicBloat.Add_Click({ BlockEpicBloat })
 $BtnBlockAds.Add_Click({ BlockAds })
 $BtnDisableCortana.Add_Click({ DisableCortana })
@@ -811,7 +741,6 @@ $BtnEnableFastStart.Add_Click({ EnableFastStart })
 $BtnDisableBGApps.Add_Click({ DisableBGApps })
 $BtnEnableBGApps.Add_Click({ EnableBGApps })
 $BtnInstallHwInfo.Add_Click({ InstallHWiNFO })
-$BtnInstallKeepass.Add_Click({ InstallKeePass })
 $BtnDownloadSophiaApp.Add_Click({ SophiaApp })
 $BtnInstallChecked.Add_Click({ InstallChecked })
 $BtnFarbar.Add_Click({ FRST })

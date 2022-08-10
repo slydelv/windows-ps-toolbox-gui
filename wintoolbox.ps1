@@ -768,6 +768,7 @@ function FRST {
 }
 
 function InstallChecked {
+    Show-Console
     $selectableItems = @(
 		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'winget install -e --id BraveSoftware.BraveBrowser;'}, 
 		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'winget install -e --id Google.Chrome;'}, 
@@ -793,6 +794,7 @@ function InstallChecked {
 	
 	Write-Host "Completed, Ready for Next Task"
 	$ResultText.text= "Completed, Ready for Next Task"
+	Hide-Console
 }
 
 function SophiaApp { 

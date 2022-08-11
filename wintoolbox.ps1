@@ -1,14 +1,4 @@
 
-
-
-Add-Type -Name Window -Namespace Console -MemberDefinition '
-[DllImport("Kernel32.dll")]
-public static extern IntPtr GetConsoleWindow();
-
-[DllImport("user32.dll")]
-public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);'
-
-[Console.Window]::ShowWindow([Console.Window]::GetConsoleWindow(), 0)
 <# 
 .NAME
     WindowsGUIToolbox
@@ -392,7 +382,7 @@ $BtnEnableCortana                = New-Object system.Windows.Forms.Button
 $BtnEnableCortana.text           = "Enable Cortana"
 $BtnEnableCortana.width          = 120
 $BtnEnableCortana.height         = 30
-$BtnEnableCortana.location       = New-Object System.Drawing.Point(140,121)
+$BtnEnableCortana.location       = New-Object System.Drawing.Point(140,120)
 $BtnEnableCortana.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnEnableCortana.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnEnableCortana.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -655,7 +645,7 @@ $BtnFarbar.width                 = 120
 $BtnFarbar.height                = 30
 $BtnFarbar.location              = New-Object System.Drawing.Point(10,40)
 $BtnFarbar.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnFarbar.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnFarbar.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnFarbar.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ToolTipCyberSec                 = New-Object system.Windows.Forms.ToolTip
@@ -667,8 +657,59 @@ $BtnAdwCleaner.width             = 120
 $BtnAdwCleaner.height            = 30
 $BtnAdwCleaner.location          = New-Object System.Drawing.Point(140,40)
 $BtnAdwCleaner.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnAdwCleaner.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnAdwCleaner.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnAdwCleaner.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$ProgressBar1                    = New-Object system.Windows.Forms.ProgressBar
+$ProgressBar1.width              = 250
+$ProgressBar1.height             = 16
+$ProgressBar1.value              = 0
+$ProgressBar1.location           = New-Object System.Drawing.Point(845,123)
+
+$BtnHitmanPro64                  = New-Object system.Windows.Forms.Button
+$BtnHitmanPro64.text             = "HitmanPro x64"
+$BtnHitmanPro64.width            = 120
+$BtnHitmanPro64.height           = 30
+$BtnHitmanPro64.location         = New-Object System.Drawing.Point(10,80)
+$BtnHitmanPro64.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnHitmanPro64.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnHitmanPro64.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnHitmanPro32                  = New-Object system.Windows.Forms.Button
+$BtnHitmanPro32.text             = "HitmanPro x32"
+$BtnHitmanPro32.width            = 120
+$BtnHitmanPro32.height           = 30
+$BtnHitmanPro32.location         = New-Object System.Drawing.Point(140,80)
+$BtnHitmanPro32.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnHitmanPro32.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnHitmanPro32.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnRKill                        = New-Object system.Windows.Forms.Button
+$BtnRKill.text                   = "RKill"
+$BtnRKill.width                  = 120
+$BtnRKill.height                 = 30
+$BtnRKill.location               = New-Object System.Drawing.Point(10,120)
+$BtnRKill.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnRKill.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnRKill.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnMBAMSetup                    = New-Object system.Windows.Forms.Button
+$BtnMBAMSetup.text               = "MalwareBytes"
+$BtnMBAMSetup.width              = 120
+$BtnMBAMSetup.height             = 30
+$BtnMBAMSetup.location           = New-Object System.Drawing.Point(140,120)
+$BtnMBAMSetup.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnMBAMSetup.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
+$BtnMBAMSetup.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$BtnNod32                        = New-Object system.Windows.Forms.Button
+$BtnNod32.text                   = "ESET Nod32"
+$BtnNod32.width                  = 120
+$BtnNod32.height                 = 30
+$BtnNod32.location               = New-Object System.Drawing.Point(10,160)
+$BtnNod32.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnNod32.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
+$BtnNod32.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
@@ -702,13 +743,18 @@ $ToolTipInfo.SetToolTip($ChkInstallSumatra,'Tick this to save the App List as a 
 $ToolTipInfo.SetToolTip($ChkInstallKeePass,'Tick this to save the App List as a text file to your desktop')
 $ToolTipCyberSec.SetToolTip($BtnFarbar,'Download Farbar FRST')
 $ToolTipCyberSec.SetToolTip($BtnAdwCleaner,'Download Farbar FRST')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9,$Groupbox4))
+$ToolTipCyberSec.SetToolTip($BtnHitmanPro64,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnHitmanPro32,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnRKill,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnNod32,'Download Farbar FRST')
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
-$Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner))
+$Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner,$BtnHitmanPro64,$BtnHitmanPro32,$BtnRKill,$BtnMBAMSetup,$BtnNod32))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
 $BtnChkDskR.Add_Click({ ChkDskCR })
@@ -745,16 +791,97 @@ $BtnDownloadSophiaApp.Add_Click({ SophiaApp })
 $BtnInstallChecked.Add_Click({ InstallChecked })
 $BtnFarbar.Add_Click({ FRST })
 $BtnAdwCleaner.Add_Click({ AdwCleaner })
+$BtnHitmanPro64.Add_Click({ HitmanPro64 })
+$BtnRKill.Add_Click({ RKill })
+$BtnMBAMSetup.Add_Click({ MBAMSetup })
+$BtnNod32.Add_Click({ ESETNod32 })
 
 #region Logic 
+function ESETNod32 { 
+    Write-Host "Installing ESET.Nod32"
+    $ResultText.text = "Installing ESET.Nod32... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e ESET.Nod32 | Out-Host
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed ESET.Nod32" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing ESET.Nod32" + "`r`n" + "Ready for Next Task"
+}
+
+function MBAMSetup { 
+    Write-Host "Installing MalwareBytes"
+    $ResultText.text = "Installing MalwareBytes... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e Malwarebytes.Malwarebytes | Out-Host
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed MalwareBytes" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing MalwareBytes" + "`r`n" + "Ready for Next Task"
+}
+
+function RKill { 
+    ShowConsole
+    Remove-Item -Path 'C:\Tools\rkill.exe' -Force -ErrorAction SilentlyContinue
+    $ProgressBar1.value = 10
+    Write-Host 'Downloading RKill from Bleeping Computer, please wait...'
+    $ResultText.text = "Downloading RKill from Bleeping Computer, please wait..." 
+    
+    $destination = "C:\Tools\rkill.exe"
+    $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/rkill/dl/10/" -MaximumRedirection 0
+    $ProgressBar1.value = 30
+    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    $ProgressBar1.value = 70
+    Invoke-WebRequest $source2 -OutFile $destination 
+    
+    Write-Host 'RKill downloaded, now launching it'
+    $ResultText.text = "RKill downloaded, now launching it" + "`r`n" + "Ready for Next Task"
+    
+    $ProgressBar1.value = 100
+    Start-Process 'C:\Tools\rkill.exe'
+    #Start-Sleep -s 5
+    $ProgressBar1.value = 0
+    HideConsole
+}
+
+function HitmanPro64 { 
+    ShowConsole
+    Remove-Item -Path 'C:\Tools\HitmanPro_x64.exe' -Force -ErrorAction SilentlyContinue
+    $ProgressBar1.value = 10
+    Write-Host 'Downloading HitmanPro_x64 from Bleeping Computer, please wait...'
+    $ResultText.text = "Downloading HitmanPro_x64 from Bleeping Computer, please wait..." 
+    
+    $destination = "C:\Tools\HitmanPro_x64.exe"
+    $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/hitmanpro/dl/176" -MaximumRedirection 0
+    $ProgressBar1.value = 30
+    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    $ProgressBar1.value = 70
+    Invoke-WebRequest $source2 -OutFile $destination 
+    
+    Write-Host 'HitmanPro_x64 downloaded, now launching it'
+    $ResultText.text = "HitmanPro_x64 downloaded, now launching it" + "`r`n" + "Ready for Next Task"
+    
+    $ProgressBar1.value = 100
+    Start-Process 'C:\Tools\HitmanPro_x64.exe'
+    #Start-Sleep -s 5
+    $ProgressBar1.value = 0
+    HideConsole
+}
+
 function AdwCleaner { 
+    ShowConsole
+    $ProgressBar1.value = 10
     Write-Host 'Downloading AdwCleaner from MalwareBytes, please wait...'
     $ResultText.text = "Downloading AdwCleaner from MalwareBytes, please wait..." 
     curl -o 'C:\Tools\adwcleaner.exe' 'https://adwcleaner.malwarebytes.com/adwcleaner?channel=release'
+    $ProgressBar1.value = 60
     
     Write-Host 'AdwCleaner downloaded, now launching it'
     $ResultText.text = "AdwCleaner downloaded, now launching it" + "`r`n" + "Ready for Next Task"
+    $ProgressBar1.value = 100
     Start-Process 'C:\Tools\adwcleaner.exe' 
+    Start-Sleep -s 5
+    $ProgressBar1.value = 0
+    HideConsole
 }
 
 function FRST { 
@@ -768,7 +895,7 @@ function FRST {
 }
 
 function InstallChecked {
-    Show-Console
+    ShowConsole
     $selectableItems = @(
 		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'winget install -e --id BraveSoftware.BraveBrowser;'}, 
 		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'winget install -e --id Google.Chrome;'}, 
@@ -794,7 +921,7 @@ function InstallChecked {
 	
 	Write-Host "Completed, Ready for Next Task"
 	$ResultText.text= "Completed, Ready for Next Task"
-	Hide-Console
+	HideConsole
 }
 
 function SophiaApp { 
@@ -1297,18 +1424,19 @@ Write-Host "..."
 #region Winget
  # GUI Specs
 Write-Host "Checking winget..."
+Write-Host "----------------------"
 
 # Check if winget is installed
 if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
-    'Winget Already Installed'
+    Write-Host 'Winget already installed.'
 }  else {
     # Installing winget from the Microsoft Store
-	Write-Host "Winget not found, installing it now."
+	Write-Host 'Winget not found, installing it now.'
     $ResultText.text = "`r`n" +"`r`n" + "Installing Winget... Please Wait"
 	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
 	$nid = (Get-Process AppInstaller).Id
 	Wait-Process -Id $nid
-	Write-Host Winget Installed
+	Write-Host 'Winget Installed'
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
 }
 
@@ -1644,7 +1772,6 @@ if (-not (Test-Path 'C:\Tools')) {
 
 #region EssentialUndo
 function EssentialUndo {
-    
     Write-Host "Creating Restore Point incase something bad happens"
     $ResultText.text = "`r`n" +"`r`n" + "Creating Restore Point and Reverting Settings... Please Wait"
     Enable-ComputerRestore -Drive "C:\"

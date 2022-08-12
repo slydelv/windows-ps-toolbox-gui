@@ -478,7 +478,7 @@ $Label6.Font                     = New-Object System.Drawing.Font('Microsoft San
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
 $Label7                          = New-Object system.Windows.Forms.Label
-$Label7.text                     = "Contributors: 000000000000000000#8134"
+$Label7.text                     = "Contributors: 000000000000000000#8134, Silence#1332"
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
@@ -711,6 +711,15 @@ $BtnNod32.Font                   = New-Object System.Drawing.Font('Microsoft San
 $BtnNod32.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnNod32.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
+$BtnKIS                          = New-Object system.Windows.Forms.Button
+$BtnKIS.text                     = "Kaspersky - KIS"
+$BtnKIS.width                    = 120
+$BtnKIS.height                   = 30
+$BtnKIS.location                 = New-Object System.Drawing.Point(140,160)
+$BtnKIS.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnKIS.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
+$BtnKIS.BackColor                = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk and if errors are found then run with /x /f')
@@ -742,19 +751,20 @@ $ToolTipInfo.SetToolTip($ChkInstallNotepadpp,'Tick this to save the App List as 
 $ToolTipInfo.SetToolTip($ChkInstallSumatra,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstallKeePass,'Tick this to save the App List as a text file to your desktop')
 $ToolTipCyberSec.SetToolTip($BtnFarbar,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnAdwCleaner,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnHitmanPro64,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnHitmanPro32,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnRKill,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download Farbar FRST')
-$ToolTipCyberSec.SetToolTip($BtnNod32,'Download Farbar FRST')
+$ToolTipCyberSec.SetToolTip($BtnAdwCleaner,'Download and run AdwCleaner')
+$ToolTipCyberSec.SetToolTip($BtnHitmanPro64,'Download and run HitmanPro x64')
+$ToolTipCyberSec.SetToolTip($BtnHitmanPro32,'Download and run HitmanPro x32')
+$ToolTipCyberSec.SetToolTip($BtnRKill,'Download and run RKill')
+$ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download and install MalwareBytes')
+$ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
+$ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
-$Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner,$BtnHitmanPro64,$BtnHitmanPro32,$BtnRKill,$BtnMBAMSetup,$BtnNod32))
+$Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner,$BtnHitmanPro64,$BtnHitmanPro32,$BtnRKill,$BtnMBAMSetup,$BtnNod32,$BtnKIS))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
 $BtnChkDskR.Add_Click({ ChkDskCR })
@@ -795,8 +805,16 @@ $BtnHitmanPro64.Add_Click({ HitmanPro64 })
 $BtnRKill.Add_Click({ RKill })
 $BtnMBAMSetup.Add_Click({ MBAMSetup })
 $BtnNod32.Add_Click({ ESETNod32 })
+$BtnKIS.Add_Click({ InstallKIS })
 
 #region Logic 
+function InstallKIS { 
+    $packageFullName = "Kaspersky Internet Security (KIS)"
+    $package = "kis"
+    
+    InstallChocoPackage($package, $packageFullName)
+}
+
 function ESETNod32 { 
     Write-Host "Installing ESET.Nod32"
     $ResultText.text = "Installing ESET.Nod32... Please Wait" 
@@ -925,8 +943,11 @@ function InstallChecked {
 }
 
 function SophiaApp { 
+    Write-Host "Downloading SophiaApp, please wait"
+    $ResultText.text = "Downloading SophiaApp, please wait"
     irm app.sophi.app -useb | iex
     $ResultText.text = "Downloaded SophiaApp, enjoy." + "`r`n" + "Ready for Next Task"
+    Write-Host "Downloaded SophiaApp, enjoy."
 }
 
 function InstallKeePass {
@@ -1422,9 +1443,11 @@ Write-Host "..."
 #endregion
 
 #region Winget
- # GUI Specs
-Write-Host "Checking winget..."
+Write-Host ""
 Write-Host "----------------------"
+Write-Host "Checking to see if WinGet is installed..."
+Write-Host "----------------------"
+Write-Host ""
 
 # Check if winget is installed
 if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
@@ -1440,10 +1463,8 @@ if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
     $ResultText.text = "`r`n" +"`r`n" + "Winget Installed - Ready for Next Task"
 }
 
-if (-not (Test-Path 'C:\Tools')) {
-    New-Item -Path 'C:\Tools' -ItemType Directory    
-    Write-Host "Folder Created successfully"
-}
+Write-Host "----------------------"
+Write-Host ""
 #endregion
 
 #region ChkDsk
@@ -1884,6 +1905,52 @@ function EssentialUndo {
 
     Write-Host "Essential Undo Completed"
     $ResultText.text = "`r`n" +"`r`n" + "Essential Undo Completed - Ready for next task"
+}
+#endregion
+
+#region Startup
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path 'C:\Tools' -ItemType Directory    
+    Write-Host "Tools Folder Created successfully"
+}
+#endregion
+
+#region Choco
+Write-Host ""
+Write-Host "----------------------"
+Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
+Write-Host "----------------------"
+Write-Host ""
+
+$testchoco = powershell choco -v
+if(-not($testchoco)){
+    Write-Output "Seems Chocolatey is not installed, installing now"
+    InstallChoco
+    Write-Output "Chocolately installing, double checking..."
+    if(Test-Path "C:\ProgramData\chocolatey\choco.exe"){
+        Write-Output "It looks like there was an error installing Chocolatey"
+    }
+
+} else {
+    Write-Output "Chocolatey Version $testchoco is already installed"
+}
+
+Write-Host "----------------------"
+Write-Host ""
+
+function InstallChoco {
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+}
+
+function InstallChocoPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    $ResultText.text = "Installing $packageFullName ... Please Wait" 
+    $ProgressBar1.value = 10
+    choco install $package /y
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
 }
 #endregion
 

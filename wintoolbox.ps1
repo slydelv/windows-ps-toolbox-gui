@@ -16,7 +16,7 @@ $WindowsGUIToolbox.TopMost       = $false
 $WindowsGUIToolbox.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#123764")
 
 $LblTitle                        = New-Object system.Windows.Forms.Label
-$LblTitle.text                   = "Technical GUI Toolbox for Windows"
+$LblTitle.text                   = "Windows PowerShell Toolbox with GUI"
 $LblTitle.AutoSize               = $true
 $LblTitle.width                  = 335
 $LblTitle.height                 = 12
@@ -111,7 +111,7 @@ $Button4.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#
 $GrpRepairUtils                  = New-Object system.Windows.Forms.Groupbox
 $GrpRepairUtils.height           = 250
 $GrpRepairUtils.width            = 270
-$GrpRepairUtils.location         = New-Object System.Drawing.Point(315,140)
+$GrpRepairUtils.location         = New-Object System.Drawing.Point(300,140)
 $GrpRepairUtils.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $LblRepairUtils                  = New-Object system.Windows.Forms.Label
@@ -134,10 +134,10 @@ $BtnChkDsk.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#
 
 $ResultText                      = New-Object system.Windows.Forms.TextBox
 $ResultText.multiline            = $true
-$ResultText.width                = 250
-$ResultText.height               = 117
+$ResultText.width                = 240
+$ResultText.height               = 116
 $ResultText.enabled              = $false
-$ResultText.location             = New-Object System.Drawing.Point(845,6)
+$ResultText.location             = New-Object System.Drawing.Point(858,614)
 $ResultText.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 
 $BtnChkDskR                      = New-Object system.Windows.Forms.Button
@@ -177,7 +177,7 @@ $BtnShowConsole                  = New-Object system.Windows.Forms.Button
 $BtnShowConsole.text             = "Show Console"
 $BtnShowConsole.width            = 110
 $BtnShowConsole.height           = 30
-$BtnShowConsole.location         = New-Object System.Drawing.Point(731,53)
+$BtnShowConsole.location         = New-Object System.Drawing.Point(864,552)
 $BtnShowConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnShowConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
@@ -185,7 +185,7 @@ $BtnHideConsole                  = New-Object system.Windows.Forms.Button
 $BtnHideConsole.text             = "Hide Console"
 $BtnHideConsole.width            = 110
 $BtnHideConsole.height           = 30
-$BtnHideConsole.location         = New-Object System.Drawing.Point(731,89)
+$BtnHideConsole.location         = New-Object System.Drawing.Point(981,552)
 $BtnHideConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnHideConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
@@ -202,7 +202,7 @@ $BtnDISMSpace                    = New-Object system.Windows.Forms.Button
 $BtnDISMSpace.text               = "DISM Space"
 $BtnDISMSpace.width              = 120
 $BtnDISMSpace.height             = 30
-$BtnDISMSpace.location           = New-Object System.Drawing.Point(140,120)
+$BtnDISMSpace.location           = New-Object System.Drawing.Point(140,160)
 $BtnDISMSpace.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnDISMSpace.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDISMSpace.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -211,7 +211,7 @@ $BtnDISMHealth                   = New-Object system.Windows.Forms.Button
 $BtnDISMHealth.text              = "DISM Health"
 $BtnDISMHealth.width             = 120
 $BtnDISMHealth.height            = 30
-$BtnDISMHealth.location          = New-Object System.Drawing.Point(10,160)
+$BtnDISMHealth.location          = New-Object System.Drawing.Point(10,159)
 $BtnDISMHealth.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnDISMHealth.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDISMHealth.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -220,7 +220,7 @@ $BtnDeleteTemp                   = New-Object system.Windows.Forms.Button
 $BtnDeleteTemp.text              = "Clear Temp Files"
 $BtnDeleteTemp.width             = 120
 $BtnDeleteTemp.height            = 30
-$BtnDeleteTemp.location          = New-Object System.Drawing.Point(140,159)
+$BtnDeleteTemp.location          = New-Object System.Drawing.Point(140,120)
 $BtnDeleteTemp.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnDeleteTemp.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDeleteTemp.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -228,7 +228,7 @@ $BtnDeleteTemp.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#
 $Groupbox1                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox1.height                = 250
 $Groupbox1.width                 = 270
-$Groupbox1.location              = New-Object System.Drawing.Point(617,140)
+$Groupbox1.location              = New-Object System.Drawing.Point(585,140)
 $Groupbox1.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $BtnAppList                      = New-Object system.Windows.Forms.Button
@@ -272,7 +272,7 @@ $LblStatus.text                  = "Status: "
 $LblStatus.AutoSize              = $true
 $LblStatus.width                 = 25
 $LblStatus.height                = 10
-$LblStatus.location              = New-Object System.Drawing.Point(763,12)
+$LblStatus.location              = New-Object System.Drawing.Point(862,589)
 $LblStatus.Font                  = New-Object System.Drawing.Font('Verdana',16)
 $LblStatus.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
@@ -330,7 +330,7 @@ $BtnOsInfo.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#
 $Groupbox3                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox3.height                = 350
 $Groupbox3.width                 = 270
-$Groupbox3.location              = New-Object System.Drawing.Point(315,400)
+$Groupbox3.location              = New-Object System.Drawing.Point(300,400)
 $Groupbox3.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $Label3                          = New-Object system.Windows.Forms.Label
@@ -450,30 +450,12 @@ $BtnBlockAds.Font                = New-Object System.Drawing.Font('Microsoft San
 $BtnBlockAds.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnBlockAds.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Label4                          = New-Object system.Windows.Forms.Label
-$Label4.text                     = "Made for the PC Help Hub Discord. "
-$Label4.AutoSize                 = $true
-$Label4.width                    = 25
-$Label4.height                   = 10
-$Label4.location                 = New-Object System.Drawing.Point(155,45)
-$Label4.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Label4.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#c6c6c6")
-
-$Label5                          = New-Object system.Windows.Forms.Label
-$Label5.text                     = "Official Discord: https://discord.com/invite/NB3BzPNQyW"
-$Label5.AutoSize                 = $true
-$Label5.width                    = 80
-$Label5.height                   = 10
-$Label5.location                 = New-Object System.Drawing.Point(155,70)
-$Label5.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Label5.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
-
 $Label6                          = New-Object system.Windows.Forms.Label
 $Label6.text                     = "Author: slydelv (sly#7558), with credit to: ChrisTitusTech (for some functions)"
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
-$Label6.location                 = New-Object System.Drawing.Point(155,90)
+$Label6.location                 = New-Object System.Drawing.Point(155,40)
 $Label6.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -482,7 +464,7 @@ $Label7.text                     = "Contributors: 000000000000000000#8134, Silen
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(155,110)
+$Label7.location                 = New-Object System.Drawing.Point(155,60)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label7.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -491,7 +473,7 @@ $Label8.text                     = "Red = Unimplemented. Orange = Testing. Yello
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
-$Label8.location                 = New-Object System.Drawing.Point(520,759)
+$Label8.location                 = New-Object System.Drawing.Point(5,760)
 $Label8.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label8.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#aeaeae")
 
@@ -526,11 +508,11 @@ $BtnStartSearchOn.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnStartSearchOn.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Label9                          = New-Object system.Windows.Forms.Label
-$Label9.text                     = "  (Server ID: 571342175678234640)"
+$Label9.text                     = "ID: 571342175678234640"
 $Label9.AutoSize                 = $true
 $Label9.width                    = 25
 $Label9.height                   = 10
-$Label9.location                 = New-Object System.Drawing.Point(534,70)
+$Label9.location                 = New-Object System.Drawing.Point(16,126)
 $Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
 $Label9.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -627,7 +609,7 @@ $ChkInstallKeePass.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#
 $Groupbox4                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox4.height                = 350
 $Groupbox4.width                 = 270
-$Groupbox4.location              = New-Object System.Drawing.Point(617,400)
+$Groupbox4.location              = New-Object System.Drawing.Point(585,400)
 $Groupbox4.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#0d2d55")
 
 $Label10                         = New-Object system.Windows.Forms.Label
@@ -661,10 +643,10 @@ $BtnAdwCleaner.ForeColor         = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnAdwCleaner.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ProgressBar1                    = New-Object system.Windows.Forms.ProgressBar
-$ProgressBar1.width              = 250
+$ProgressBar1.width              = 240
 $ProgressBar1.height             = 16
 $ProgressBar1.value              = 0
-$ProgressBar1.location           = New-Object System.Drawing.Point(845,123)
+$ProgressBar1.location           = New-Object System.Drawing.Point(858,734)
 
 $BtnHitmanPro64                  = New-Object system.Windows.Forms.Button
 $BtnHitmanPro64.text             = "HitmanPro x64"
@@ -721,6 +703,10 @@ $BtnKIS.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnKIS.BackColor                = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
+$ToolTipUtils.SetToolTip($Everything,'Install VoidTools Everything (Ultimate Windows search tool)')
+$ToolTipUtils.SetToolTip($AdvIPScanner,'Install Advanced IP Scanner')
+$ToolTipUtils.SetToolTip($WinTerminal,'Install Windows Terminal')
+$ToolTipUtils.SetToolTip($BtnInstallHwInfo,'Install HWiNFO64')
 $ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk and if errors are found then run with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
@@ -729,14 +715,23 @@ $ToolTipRepairUtils.SetToolTip($BtnChkDsScan,'Runs chkdsk c: /scan')
 $ToolTipRepairUtils.SetToolTip($BtnSFC,'Uses SFC to check for corruption and repairs if required')
 $ToolTipRepairUtils.SetToolTip($BtnDISMSpace,'Uses DISM /online /Cleanup-Image /AnalyzeComponentStore then reads output and repairs if required')
 $ToolTipRepairUtils.SetToolTip($BtnDISMHealth,'Runs DISM /Online /Cleanup-Image /ScanHealth and repairs if required')
+$ToolTipRepairUtils.SetToolTip($BtnDeleteTemp,'Clear Temporary Files')
 $ToolTipInfo.SetToolTip($BtnAppList,'Dump list of installed applications')
 $ToolTipInfo.SetToolTip($Button6,'Do not click this. It runs dir /s c:\windows\system32 - so takes a while. Script performance test.')
+$ToolTipTweaks.SetToolTip($BtnDisableFastStartup,'Disables Windows FastStart - which causes a lot of problems')
 $ToolTipInfo.SetToolTip($ChkSaveTxt,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($BtnHwInfo,'Dump list of all hardware')
 $ToolTipInfo.SetToolTip($BtnOsInfo,'Dump all operating system information')
 $ToolTipTweaks.SetToolTip($BtnEssentialTweaks,'Massive bunch of tweaks, including O&O config import')
 $ToolTipUntoTweaks.SetToolTip($BtnUndoEssential,'Unto all the tweaks which were done by the essential tweaks')
+$ToolTipTweaks.SetToolTip($BtnEnableFastStart,'Enables Windows FastStart')
+$ToolTipTweaks.SetToolTip($BtnDisableCortana,'Disable Cortana')
+$ToolTipTweaks.SetToolTip($BtnEnableCortana,'Enable Cortana (Why?)')
 $ToolTipInfo.SetToolTip($BtnRunningServices,'List running services')
+$ToolTipTweaks.SetToolTip($BtnDisableBGApps,'Disable Useless Background Apps')
+$ToolTipTweaks.SetToolTip($BtnEnableBGApps,'Enable Useless Background Apps')
+$ToolTipTweaks.SetToolTip($BtnPerfFX,'Set Windows Visual Effects for Performance')
+$ToolTipTweaks.SetToolTip($BtnVisualFX,'Set Windows Visual Effects for Visibility')
 $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which run Epic bloatware')
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
@@ -758,7 +753,7 @@ $ToolTipCyberSec.SetToolTip($BtnRKill,'Download and run RKill')
 $ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download and install MalwareBytes')
 $ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
 $ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label4,$Label5,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1))
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
@@ -806,8 +801,13 @@ $BtnRKill.Add_Click({ RKill })
 $BtnMBAMSetup.Add_Click({ MBAMSetup })
 $BtnNod32.Add_Click({ ESETNod32 })
 $BtnKIS.Add_Click({ InstallKIS })
+$Button4.Add_Click({ Placeholder })
 
 #region Logic 
+function Placeholder { 
+    feedback("This is a test", $true, $false)
+}
+
 function InstallKIS { 
     $packageFullName = "Kaspersky Internet Security (KIS)"
     $package = "kis"
@@ -821,7 +821,7 @@ function ESETNod32 {
     $ProgressBar1.value = 10
     winget install -e ESET.Nod32 | Out-Host
     $ProgressBar1.value = 50
-    if($?) { Write-Host "Installed ESET.Nod32" }
+    if ($?) { Write-Host "Installed ESET.Nod32" }
     $ProgressBar1.value = 100
     $ResultText.text = "Finished Installing ESET.Nod32" + "`r`n" + "Ready for Next Task"
 }
@@ -832,7 +832,7 @@ function MBAMSetup {
     $ProgressBar1.value = 10
     winget install -e Malwarebytes.Malwarebytes | Out-Host
     $ProgressBar1.value = 50
-    if($?) { Write-Host "Installed MalwareBytes" }
+    if ($?) { Write-Host "Installed MalwareBytes" }
     $ProgressBar1.value = 100
     $ResultText.text = "Finished Installing MalwareBytes" + "`r`n" + "Ready for Next Task"
 }
@@ -954,7 +954,7 @@ function InstallKeePass {
     Write-Host "Installing KeePass"
     $ResultText.text = "Installing KeePass... Please Wait" 
     winget install -e DominikReichl.KeePass | Out-Host
-    if($?) { Write-Host "Installed KeePass" }
+    if ($?) { Write-Host "Installed KeePass" }
     $ResultText.text = "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
     
 }
@@ -963,7 +963,7 @@ function InstallHWiNFO {
     Write-Host "Installing HWiNFO"
     $ResultText.text = "Installing HWiNFO... Please Wait" 
     winget install -e REALiX.HWiNFO | Out-Host
-    if($?) { Write-Host "Installed HWiNFO" }
+    if ($?) { Write-Host "Installed HWiNFO" }
     $ResultText.text = "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"
 }
 
@@ -989,12 +989,12 @@ function DisableBGApps {
 
 function StartSearchOff { 
     Write-Host "Disabling search suggestions, searching Bing from the Start menu. Good riddance."
-    if( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+    if ( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
         New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
     
-    if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+    if ( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
         New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
@@ -1004,12 +1004,12 @@ function StartSearchOff {
 
 function StartSearchOn { 
     Write-Host "Enabling search suggestions, searching Bing from the Start menu. You maniac."
-    if( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+    if ( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
         New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
     
-    if( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)){
+    if ( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
         New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
     }
     Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
@@ -1022,7 +1022,7 @@ function EnableCortana {
     ShowConsole
     Write-Host "Enabling Cortana..."
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue
-	If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+	if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
 		New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
 	}
 	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 0
@@ -1046,20 +1046,20 @@ function EnableCortana {
 function DisableCortana { 
     ShowConsole
     Write-Host "Disabling Cortana..."
-    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -Type DWord -Value 0
-    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization")) {
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 1
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 1
-    If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
         New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0
-    If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
+    if (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
         New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Force | Out-Null
     }
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
@@ -1086,7 +1086,7 @@ function InstallVLC {
     Write-Host "Installing VLC Media Player"
     $ResultText.text = "`r`n" + "Installing VLC Media Player... Please Wait" 
     winget install -e VideoLAN.VLC | Out-Host
-    if($?) { Write-Host "Installed VLC Media Player" }
+    if ($?) { Write-Host "Installed VLC Media Player" }
     $ResultText.text = "Finished Installing VLC Media Player" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1094,7 +1094,7 @@ function InstallNotepad {
     Write-Host "Installing Notepad++"
     $ResultText.text = "Installing Notepad++... Please Wait" 
     winget install -e Notepad++.Notepad++ | Out-Host
-    if($?) { Write-Host "Installed Notepad++" }
+    if ($?) { Write-Host "Installed Notepad++" }
     $ResultText.text = "Finished Installing NotePad++" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1102,7 +1102,7 @@ function InstallSumatra {
     Write-Host "Installing SumatraPDF"
     $ResultText.text = "`r`n" + "Installing SumatraPDF... Please Wait" 
     winget install -e --id SumatraPDF.SumatraPDF | Out-Host
-    if($?) { Write-Host "Installed SumatraPDF" }
+    if ($?) { Write-Host "Installed SumatraPDF" }
     $ResultText.text = "Finished Installing SumatraPDF" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1130,7 +1130,7 @@ function InstallFirefox {
     Write-Host "Installing Firefox"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
     winget install -e Mozilla.Firefox | Out-Host
-    if($?) { Write-Host "Installed Firefox" }
+    if ($?) { Write-Host "Installed Firefox" }
     $ResultText.text = "Finished Installing Firefox" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1138,7 +1138,7 @@ function InstallChrome {
     Write-Host "Installing Google Chrome"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
     winget install -e Google.Chrome | Out-Host
-    if($?) { Write-Host "Installed Google Chrome" }
+    if ($?) { Write-Host "Installed Google Chrome" }
     $ResultText.text = "Finished Installing Google Chrome" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1146,7 +1146,7 @@ function InstallBrave {
     Write-Host "Installing Brave Browser"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
     winget install -e BraveSoftware.BraveBrowser | Out-Host
-    if($?) { Write-Host "Installed Brave Browser" }
+    if ($?) { Write-Host "Installed Brave Browser" }
     $ResultText.text = "Finished Installing Brave" + "`r`n" + "Ready for Next Task"
 }
 
@@ -1176,12 +1176,14 @@ function DisableFastStartup {
     REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "0" /f
     powercfg -h off
     $ResultText.text = "Fast Startup Disabled" + "`r`n" + "Ready for Next Task"
+    Write-Host "Fast Startup Disabled" + "`r`n" + "Ready for Next Task"
 }
 
 function EnableFastStartup { 
     REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "1" /f
     powercfg -h on
     $ResultText.text = "Fast Startup Enabled" + "`r`n" + "Ready for Next Task"
+    Write-Host "Fast Startup Enabled" + "`r`n" + "Ready for Next Task"
 }
 
 function Derp { 
@@ -1227,7 +1229,7 @@ function InstEverything {
     Write-Host "Installing Voidtools Everything Search"
     $ResultText.text = "`r`n" +"`r`n" + "Installing Voidtools Everything Search... Please Wait" 
     winget install -e voidtools.Everything --source winget | Out-Host
-    if($?) { Write-Host "Installed Everything Search" }
+    if ($?) { Write-Host "Installed Everything Search" }
     $ResultText.text = "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
@@ -1237,7 +1239,7 @@ function Inst7Zip {
     Write-Host "Installing 7-Zip Compression Tool"
     $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
     winget install -e 7zip.7zip | Out-Host
-    if($?) { Write-Host "Installed 7-Zip Compression Tool" }
+    if ($?) { Write-Host "Installed 7-Zip Compression Tool" }
     $ResultText.text = "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
     HideConsole
 }
@@ -1248,7 +1250,7 @@ function InstWinTerminal {
     $wshell = New-Object -ComObject Wscript.Shell
     $Button = [System.Windows.MessageBoxButton]::YesNoCancel
     $ErrorIco = [System.Windows.MessageBoxImage]::Error
-    If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
     	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     	Exit
     }
@@ -1261,16 +1263,16 @@ function ChkDskC {
     
     $chkdsk1 = ($(chkdsk c: /scan) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
     
-    if($chkdsk1 -like "*Windows has made corrections to the file system*"){
+    if ($chkdsk1 -like "*Windows has made corrections to the file system*") {
         #Windows found errors and corrected them. 
-    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*"){
+    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*") {
         Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
         $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
         ChkDskCFX
-    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*"){
+    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*") {
         Write-Host "Chkdsk found no problems"
         $ResultText.text = "Chkdsk found no problems." + "`r`n" + "Ready for Next Task"
-    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*"){
+    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*") {
         Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
         $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
         ChkDskCFX
@@ -1339,12 +1341,16 @@ function SFCScan {
     ShowConsole
     Write-Host("Checking SFC Now")
     $ResultText.text = "Checking for system file corruption. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
+    
     $sfcverify = ($(sfc /verifyonly) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
-    if($sfcverify -like "*found integrity violations*"){
+    
+    if ($sfcverify -like "*found integrity violations*") {
         Write-Host("SFC found corrupt files. Fixing.")
         $ResultText.text = "SFC has found corrupt files and will attempt to fix them now" + "`r`n" + "`r`n" + "Fixing corrupt files..."
+        
         $sfcfix = ($(sfc /scannow) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
-        if($sfcfix -like "*unable to fix*"){
+        
+        if ($sfcfix -like "*unable to fix*") {
             Write-Host("SFC was unable to fix the issues.")
             $ResultText.text = "Error - SFC tried but was UNABLE to fix the issues. Recommend a DISM Health Check." + "`r`n" + "Ready for Next Task"
         } else {
@@ -1361,18 +1367,22 @@ function DISMSpace {
     ShowConsole
     $ResultText.text = "Checking the DISM component store. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
     $dismspacecheck = DISM /online /Cleanup-Image /AnalyzeComponentStore | Out-Host
-    if($dismspacecheck -like "*Component Store Cleanup Recommended : Yes*")
+    if ($dismspacecheck -like "*Component Store Cleanup Recommended : Yes*")
     {
         $dismmatch = [string]$dismspacecheck -match "Reclaimable Packages : (\d*)"
-        if($dismmatch){
-            if($Matches.2 -gt 4){
+        if ($dismmatch) {
+            if ($Matches.2 -gt 4) {
                 Write-Host("Cleanup needed. Doing it. ")
                 $ResultText.text = "DISM Cleanup is needed" + "`r`n" + "`r`n" + "Starting cleanup now"
                 DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
                 $ResultText.text = "DISM Cleanup has finished" + "`r`n" + "Ready for Next Task"
+                Write-Host("Cleanup complete")
             } else {
                 Write-Host("Cleanup recommended but not needed.")
-                $ResultText.text = "DISM Cleanup recommended but not needed" + "`r`n" + "Ready for Next Task"
+                Write-Host("Cleaning up anyway...")
+                DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
+                Write-Host("Cleanup complete")
+                $ResultText.text = "DISM Cleanup was recommended but not needed - did it anyway" + "`r`n" + "Ready for Next Task"
             }
         }
     } else {
@@ -1383,35 +1393,45 @@ function DISMSpace {
 
 function DISMHealth {
     ShowConsole
-    $ResultText.text = "Checking the DISM system health. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
-    $dismhealth = DISM /Online /Cleanup-Image /ScanHealth | Out-Host
-    if($dismhealth -like "*The component store is repairable.*"){
-    $dismhealthfix = DISM /Online /Cleanup-Image /RestoreHealth | Out-Host
-    if($dismhealthfix -like "*The restore operation completed successfully.*"){
-        Write-Host("DISM Fixes Performed.")
-        $ResultText.text = "DISM Fixes have been performed" + "`r`n" + "Ready for Next Task"
-    }
+    $ResultText.text = "Scanning the DISM system health. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
+    Write-Host 'Scanning System Health with DISM /Online /Cleanup-Image /ScanHealth, please wait...'
     
+    $dismhealth = DISM /Online /Cleanup-Image /ScanHealth | Out-Host
+    
+    if ($dismhealth -like "*The component store is repairable.*") {
+        Write-Host 'The component store is repairable, running the DISM /Online /Cleanup-Image /RestoreHealth now, please wait...'
+        ResultText.text = "The component store is repairable, running the DISM /Online /Cleanup-Image /RestoreHealth now." + "`r`n" + "`r`n" + "Please wait..."
+        
+        $dismhealthfix = DISM /Online /Cleanup-Image /RestoreHealth | Out-Host
+        
+        if ($dismhealthfix -like "*The restore operation completed successfully.*") {
+            Write-Host("DISM has made repairs to the system")
+            $ResultText.text = "DISM has made repairs to the system" + "`r`n" + "Ready for Next Task"
+        }
     } elseif ($dismhealth -like "*No component store corruption detected.*") {
-        Write-Host("DISM Health is good.")
-        $ResultText.text = "DISM Health is good" + "`r`n" + "Ready for Next Task"
+        Write-Host("DISM Health is good and doesn't report that RestoreHealth is required")
+        $ResultText.text = "DISM Health is good and doesn't report that RestoreHealth is required" + "`r`n" + "`r`n" + "Ready for Next Task"
     }
 }
 
 function ClearTempFiles {
     ShowConsole
+    
     $DaysToDelete = 30
     $TempFolders = @()
     $TempFolders += "C:\Windows\Temp"
     $TempFolders += "C:\users\*\AppData\Local\Temp"
     $TempFolders += "C:\Windows\SoftwareDistribution\Download"
+
+    Write-Host("Clearing Temporary files from $TempFolders older than $DaysToDelete old, please wait")
     
-    foreach($TempFolder in $TempFolders)
-    {
+    foreach ($TempFolder in $TempFolders) {
+        Write-Host(" - Currently cleaning $TempFolder")
         Get-ChildItem $TempFolder -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { ($_.CreationTime -lt $(Get-Date).AddDays(-$DaysToDelete)) } | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
     }
+    
     $ResultText.text = "Cleared temp files" + "`r`n" + "Ready for Next Task"
-    HideConsole
+    Write-Host("Cleared temp files, ready for next task")
 }
 
 function ShowConsole {
@@ -1430,7 +1450,7 @@ $ErrorActionPreference = 'SilentlyContinue'
 $wshell = New-Object -ComObject Wscript.Shell
 $Button = [System.Windows.MessageBoxButton]::YesNoCancel
 $ErrorIco = [System.Windows.MessageBoxImage]::Error
-If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
 	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	Exit
 }
@@ -1465,6 +1485,18 @@ if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
 
 Write-Host "----------------------"
 Write-Host ""
+
+function InstallWinGetPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    Write-Host "Please wait... (you can watch the console)"
+    $ResultText.text = "Installing $packageFullName ... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e $package | Out-Host
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
 #endregion
 
 #region ChkDsk
@@ -1913,6 +1945,17 @@ if (-not (Test-Path 'C:\Tools')) {
     New-Item -Path 'C:\Tools' -ItemType Directory    
     Write-Host "Tools Folder Created successfully"
 }
+
+New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
+New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-functions -ItemType Directory
+
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
+
+Register-PSRepository -Name 'winpstoolboxgui-repo' -SourceLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -PublishLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -InstallationPolicy Trusted
+
+Publish-Module -Name C:\winpstoolboxgui\winpstoolboxgui-functions -Repository winpstoolboxgui-repo
+
 #endregion
 
 #region Choco
@@ -1939,18 +1982,30 @@ Write-Host "----------------------"
 Write-Host ""
 
 function InstallChoco {
-    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
 }
 
 function InstallChocoPackage($package, $packageFullName) {
     Write-Host "Installing $packageFullName"
-    $ResultText.text = "Installing $packageFullName ... Please Wait" 
+    Write-Host "Please Wait..."
+    $ResultText.text = "Installing $packageFullName ... Please Wait (you can watch the console)" 
     $ProgressBar1.value = 10
-    choco install $package /y
+    #choco install $package /y
+    SpawnPSCommand("choco install ")
     $ProgressBar1.value = 50
     if($?) { Write-Host "Installed $packageFullName" }
     $ProgressBar1.value = 100
     $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
+#endregion
+
+#region Feedback
+
+#endregion
+
+#region Functions
+function SpawnPSCommand($pscommand) {
+    Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$pscommand`"" -Verb RunAs
 }
 #endregion
 

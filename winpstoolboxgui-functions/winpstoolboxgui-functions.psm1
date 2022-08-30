@@ -501,3 +501,82 @@ function SFCScan {
         $ResultText.text = "SFC is okay" + "`r`n" + "Ready for Next Task"
     }
 }
+
+function ClearTempFiles {
+    ShowConsole
+    
+    $DaysToDelete = 30
+    $TempFolders = @()
+    $TempFolders += "C:\Windows\Temp"
+    $TempFolders += "C:\users\*\AppData\Local\Temp"
+    $TempFolders += "C:\Windows\SoftwareDistribution\Download"
+
+    Write-Host("Clearing Temporary files from $TempFolders older than $DaysToDelete old, please wait")
+    
+    foreach ($TempFolder in $TempFolders) {
+        Write-Host(" - Currently cleaning $TempFolder")
+        Get-ChildItem $TempFolder -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { ($_.CreationTime -lt $(Get-Date).AddDays(-$DaysToDelete)) } | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
+    }
+    
+    $ResultText.text = "Cleared temp files" + "`r`n" + "Ready for Next Task"
+    Write-Host("Cleared temp files, ready for next task")
+}
+
+function DISMSpace {
+    ShowConsole
+    $ResultText.text = "Checking the DISM component store. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
+    $dismspacecheck = DISM /online /Cleanup-Image /AnalyzeComponentStore | Out-Host
+    if ($dismspacecheck -like "*Component Store Cleanup Recommended : Yes*")
+    {
+        $dismmatch = [string]$dismspacecheck -match "Reclaimable Packages : (\d*)"
+        if ($dismmatch) {
+            if ($Matches.2 -gt 4) {
+                Write-Host("Cleanup needed. Doing it. ")
+                $ResultText.text = "DISM Cleanup is needed" + "`r`n" + "`r`n" + "Starting cleanup now"
+                DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
+                $ResultText.text = "DISM Cleanup has finished" + "`r`n" + "Ready for Next Task"
+                Write-Host("Cleanup complete")
+            } else {
+                Write-Host("Cleanup recommended but not needed.")
+                Write-Host("Cleaning up anyway...")
+                DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
+                Write-Host("Cleanup complete")
+                $ResultText.text = "DISM Cleanup was recommended but not needed - did it anyway" + "`r`n" + "Ready for Next Task"
+            }
+        }
+    } else {
+        Write-Host("Cleanup not needed.")
+        $ResultText.text = "DISM Cleanup is not needed" + "`r`n" + "Ready for Next Task"
+    }
+}
+
+function DISMHealth {
+    ShowConsole
+    Show-Feedback "Scanning the DISM system health. Watch the Console Window." -Wait $true
+        
+    $dismhealth = DISM /Online /Cleanup-Image /ScanHealth | Out-Host
+    
+    if ($dismhealth -like "*The component store is repairable.*") {
+        Show-Feedback "The component store is repairable, running the DISM /Online /Cleanup-Image /RestoreHealth now" -Wait $true
+                
+        $dismhealthfix = DISM /Online /Cleanup-Image /RestoreHealth | Out-Host
+        
+        if ($dismhealthfix -like "*The restore operation completed successfully.*") {
+            Show-Feedback "DISM has made repairs to the system" -Ready $true
+        }
+    } elseif ($dismhealth -like "*No component store corruption detected.*") {
+        Show-Feedback "DISM Health is good and doesn't report that RestoreHealth is required" -Ready $true
+    }
+}
+
+function DisableFastStartup { 
+    REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "0" /f
+    powercfg -h off
+    Show-Feedback "Fast Startup Disabled" -Ready $true
+}
+
+function EnableFastStartup { 
+    REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d "1" /f
+    powercfg -h on
+    Show-Feedback "Fast Startup Enabled" -Ready $true
+}

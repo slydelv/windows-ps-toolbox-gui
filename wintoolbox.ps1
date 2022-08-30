@@ -1456,6 +1456,41 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 }
 #endregion
 
+#region Startup
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path 'C:\Tools' -ItemType Directory    
+    Write-Host "Tools Folder Created successfully"
+}
+
+#Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
+Write-Host "----------------------"
+
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
+}
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-repo -ItemType Directory
+}
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
+}
+
+#Write-Host "Downloading functions file..."
+#Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.ps1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions.ps1'
+#. .\winpstoolboxgui-functions.ps1
+
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
+
+Copy-Item -Path "C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions" -Destination "C:\Program Files\WindowsPowerShell\Modules" -recurse -Force
+
+#Register-PSRepository -Name 'winpstoolboxgui-repo' -SourceLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -PublishLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -InstallationPolicy Trusted
+#Publish-Module -Name C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions -Repository winpstoolboxgui-repo
+#Install-Module winpstoolboxgui-functions
+
+#endregion
+
 #region Greetings
 # Hello there, curious fellow
 Write-Host "You're welcome to learn from the code here but if you use the toolbox or any scripts from it, please ask permission and at the very least, give credit where credit is due."
@@ -1497,32 +1532,6 @@ function InstallWinGetPackage($package, $packageFullName) {
     $ProgressBar1.value = 100
     $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
 }
-#endregion
-
-#region Startup
-if (-not (Test-Path 'C:\Tools')) {
-    New-Item -Path 'C:\Tools' -ItemType Directory    
-    Write-Host "Tools Folder Created successfully"
-}
-
-#Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-
-Write-Host "----------------------"
-
-if (-not (Test-Path 'C:\Tools')) {
-    New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
-}
-#New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-repo -ItemType Directory
-#New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
-
-Write-Host "Downloading functions file..."
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.ps1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions.ps1'
-#Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
-#Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
-#Register-PSRepository -Name 'winpstoolboxgui-repo' -SourceLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -PublishLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -InstallationPolicy Trusted
-#Publish-Module -Name C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions -Repository winpstoolboxgui-repo
-#Install-Module winpstoolboxgui-functions
-
 #endregion
 
 #region Choco

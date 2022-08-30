@@ -1,3 +1,4 @@
+
 function Show-Feedback($feedback, $wait, $ready) {
     $linebreak = "`r`n"
     $linebreakDouble = "`r`n" + "`r`n"

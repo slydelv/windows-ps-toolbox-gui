@@ -805,7 +805,7 @@ $Button4.Add_Click({ Placeholder })
 
 #region Logic 
 function Placeholder { 
-    feedback("This is a test", $true, $false)
+    Show-Feedback("This is a test", $true, $false)
 }
 
 function InstallKIS { 

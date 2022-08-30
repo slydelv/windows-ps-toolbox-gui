@@ -1,27 +1,40 @@
 
-function Show-Feedback($feedback, $wait, $ready) {
-    $linebreak = "`r`n"
+function Show-Feedback {
+    [CmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$Feedback,
+
+        [Parameter(Mandatory=$false, Position=1)]
+        [string]$Ready,
+
+        [Parameter(Mandatory=$false, Position=2)]
+        [string]$Wait
+    )
+
+    #$linebreak = "`r`n"
     $linebreakDouble = "`r`n" + "`r`n"
     
-    Write-Host $feedback
+    Write-Host $Feedback
     
-    if ($wait -eq $true) {
+    if ($Wait -eq $true) {
         Write-Host "Please Wait..."
         Write-Host "---------------------------------------------------------"
     }
     
-    if ($ready -eq $true) {
+    if ($Ready -eq $true) {
         Write-Host "---------------------------------------------------------"
         Write-Host "Ready for next task." 
         Write-Host "---------------------------------------------------------"
     }
     
-    if ($wait -eq $true) {
-        $ResultText.text = $feedback + $linebreakDouble + "Please Wait..."
-    } elseif ($ready -eq $true) {
-        $ResultText.text = $feedback + $linebreakDouble + "Ready for next task."
+    if ($Wait -eq $true) {
+        $ResultText.text = $Feedback + $linebreakDouble + "Please Wait..."
+    } elseif ($Ready -eq $true) {
+        $ResultText.text = $Feedback + $linebreakDouble + "Ready for next task."
     } else {
-        $ResultText.text = $feedback
+        $ResultText.text = $Feedback
     }
 }
 

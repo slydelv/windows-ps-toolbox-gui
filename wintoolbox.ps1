@@ -455,7 +455,7 @@ $Label6.text                     = "Author: slydelv (sly#7558), with credit to: 
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
-$Label6.location                 = New-Object System.Drawing.Point(155,40)
+$Label6.location                 = New-Object System.Drawing.Point(155,45)
 $Label6.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -464,7 +464,7 @@ $Label7.text                     = "Contributors: 000000000000000000#8134, Silen
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
-$Label7.location                 = New-Object System.Drawing.Point(155,60)
+$Label7.location                 = New-Object System.Drawing.Point(155,65)
 $Label7.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $Label7.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
@@ -1499,6 +1499,73 @@ function InstallWinGetPackage($package, $packageFullName) {
 }
 #endregion
 
+#region Startup
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path 'C:\Tools' -ItemType Directory    
+    Write-Host "Tools Folder Created successfully"
+}
+
+#Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
+Write-Host "----------------------"
+
+if (-not (Test-Path 'C:\Tools')) {
+    New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
+}
+#New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-repo -ItemType Directory
+#New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
+
+Write-Host "Downloading functions file..."
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.ps1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions.ps1'
+#Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
+#Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
+#Register-PSRepository -Name 'winpstoolboxgui-repo' -SourceLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -PublishLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -InstallationPolicy Trusted
+#Publish-Module -Name C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions -Repository winpstoolboxgui-repo
+#Install-Module winpstoolboxgui-functions
+
+#endregion
+
+#region Choco
+Write-Host ""
+Write-Host "----------------------"
+Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
+Write-Host "----------------------"
+Write-Host ""
+
+$testchoco = powershell choco -v
+if(-not($testchoco)){
+    Write-Output "Seems Chocolatey is not installed, installing now"
+    InstallChoco
+    Write-Output "Chocolately installing, double checking..."
+    if(Test-Path "C:\ProgramData\chocolatey\choco.exe"){
+        Write-Output "It looks like there was an error installing Chocolatey"
+    }
+
+} else {
+    Write-Output "Chocolatey Version $testchoco is already installed"
+}
+
+Write-Host "----------------------"
+Write-Host ""
+
+function InstallChoco {
+    SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
+}
+
+function InstallChocoPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    Write-Host "Please Wait..."
+    $ResultText.text = "Installing $packageFullName ... Please Wait (you can watch the console)" 
+    $ProgressBar1.value = 10
+    #choco install $package /y
+    SpawnPSCommand("choco install ")
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
+#endregion
+
 #region ChkDsk
 
 #endregion
@@ -1937,65 +2004,6 @@ function EssentialUndo {
 
     Write-Host "Essential Undo Completed"
     $ResultText.text = "`r`n" +"`r`n" + "Essential Undo Completed - Ready for next task"
-}
-#endregion
-
-#region Startup
-if (-not (Test-Path 'C:\Tools')) {
-    New-Item -Path 'C:\Tools' -ItemType Directory    
-    Write-Host "Tools Folder Created successfully"
-}
-
-New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
-New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-functions -ItemType Directory
-
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
-
-Register-PSRepository -Name 'winpstoolboxgui-repo' -SourceLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -PublishLocation 'C:\winpstoolboxgui\winpstoolboxgui-repo' -InstallationPolicy Trusted
-
-Publish-Module -Name C:\winpstoolboxgui\winpstoolboxgui-functions -Repository winpstoolboxgui-repo
-
-#endregion
-
-#region Choco
-Write-Host ""
-Write-Host "----------------------"
-Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
-Write-Host "----------------------"
-Write-Host ""
-
-$testchoco = powershell choco -v
-if(-not($testchoco)){
-    Write-Output "Seems Chocolatey is not installed, installing now"
-    InstallChoco
-    Write-Output "Chocolately installing, double checking..."
-    if(Test-Path "C:\ProgramData\chocolatey\choco.exe"){
-        Write-Output "It looks like there was an error installing Chocolatey"
-    }
-
-} else {
-    Write-Output "Chocolatey Version $testchoco is already installed"
-}
-
-Write-Host "----------------------"
-Write-Host ""
-
-function InstallChoco {
-    SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
-}
-
-function InstallChocoPackage($package, $packageFullName) {
-    Write-Host "Installing $packageFullName"
-    Write-Host "Please Wait..."
-    $ResultText.text = "Installing $packageFullName ... Please Wait (you can watch the console)" 
-    $ProgressBar1.value = 10
-    #choco install $package /y
-    SpawnPSCommand("choco install ")
-    $ProgressBar1.value = 50
-    if($?) { Write-Host "Installed $packageFullName" }
-    $ProgressBar1.value = 100
-    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
 }
 #endregion
 

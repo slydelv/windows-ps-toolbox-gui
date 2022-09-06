@@ -524,29 +524,26 @@ function ClearTempFiles {
 
 function DISMSpace {
     ShowConsole
-    $ResultText.text = "Checking the DISM component store. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
+
+    Show-Feedback "DISM is checking the component store. Watch the Console Window." -Wait $true
+
     $dismspacecheck = DISM /online /Cleanup-Image /AnalyzeComponentStore | Out-Host
     if ($dismspacecheck -like "*Component Store Cleanup Recommended : Yes*")
     {
         $dismmatch = [string]$dismspacecheck -match "Reclaimable Packages : (\d*)"
         if ($dismmatch) {
             if ($Matches.2 -gt 4) {
-                Write-Host("Cleanup needed. Doing it. ")
-                $ResultText.text = "DISM Cleanup is needed" + "`r`n" + "`r`n" + "Starting cleanup now"
+                Show-Feedback "DISM is showing that cleanup is needed, so we will do that now. " -Wait $true
                 DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
-                $ResultText.text = "DISM Cleanup has finished" + "`r`n" + "Ready for Next Task"
-                Write-Host("Cleanup complete")
+                Show-Feedback "DISM has completed the Component Cleanup" -Ready $true
             } else {
-                Write-Host("Cleanup recommended but not needed.")
-                Write-Host("Cleaning up anyway...")
+                Show-Feedback "DISM advises that Component Cleanup is recommended but not needed. We'll perform the cleanup now" -Wait $true
                 DISM /online /Cleanup-Image /StartComponentCleanup | Out-Host
-                Write-Host("Cleanup complete")
-                $ResultText.text = "DISM Cleanup was recommended but not needed - did it anyway" + "`r`n" + "Ready for Next Task"
+                Show-Feedback "DISM has completed the Component Cleanup" -Ready $true
             }
         }
     } else {
-        Write-Host("Cleanup not needed.")
-        $ResultText.text = "DISM Cleanup is not needed" + "`r`n" + "Ready for Next Task"
+        Show-Feedback "Checks done, DISM Cleanup is not needed." -Ready $true
     }
 }
 

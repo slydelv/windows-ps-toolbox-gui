@@ -91,7 +91,7 @@ $BtnInstallHwInfo.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnInstallHwInfo.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDownloadSophiaApp            = New-Object system.Windows.Forms.Button
-$BtnDownloadSophiaApp.text       = "SophiaApp"
+$BtnDownloadSophiaApp.text       = "SophiApp"
 $BtnDownloadSophiaApp.width      = 120
 $BtnDownloadSophiaApp.height     = 30
 $BtnDownloadSophiaApp.location   = New-Object System.Drawing.Point(10,160)
@@ -1239,11 +1239,6 @@ function InstWinTerminal {
     	Exit
     }
     HideConsole
-}
-
-function ChkDskC { 
-    ShowConsole
-    ChkDskCWithProgress
 }
 
 function ChkDskCFX {

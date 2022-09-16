@@ -578,7 +578,7 @@ function EnableFastStartup {
     Show-Feedback "Fast Startup Enabled" -Ready $true
 }
 
-function ChkDskCWithProgress { 
+function ChkDskC { 
     ShowConsole
     Show-Feedback "Checking the file system for errors. Watch the progress bar. The toolbox might lock up, that's normal." -Wait $true
 

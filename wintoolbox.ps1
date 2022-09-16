@@ -129,7 +129,7 @@ $BtnChkDsk.width                 = 120
 $BtnChkDsk.height                = 30
 $BtnChkDsk.location              = New-Object System.Drawing.Point(10,40)
 $BtnChkDsk.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnChkDsk.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ResultText                      = New-Object system.Windows.Forms.TextBox
@@ -451,7 +451,7 @@ $BtnBlockAds.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnBlockAds.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Label6                          = New-Object system.Windows.Forms.Label
-$Label6.text                     = "Author: slydelv (sly#7558), with credit to: ChrisTitusTech (for some functions)"
+$Label6.text                     = "Author: slydelv (sly#7558), with credit to: "
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
@@ -460,7 +460,7 @@ $Label6.Font                     = New-Object System.Drawing.Font('Microsoft San
 $Label6.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
 $Label7                          = New-Object system.Windows.Forms.Label
-$Label7.text                     = "Contributors: 000000000000000000#8134, Silence#1332"
+$Label7.text                     = "ChrisTitusTech (for some of the tweak functions), EmKaCe for ChkDsk handling"
 $Label7.AutoSize                 = $true
 $Label7.width                    = 25
 $Label7.height                   = 10
@@ -1243,24 +1243,7 @@ function InstWinTerminal {
 
 function ChkDskC { 
     ShowConsole
-    $ResultText.text = "Checking the file system. Watch the Console Window." + "`r`n" + "`r`n" + "Please wait..."
-    
-    $chkdsk1 = ($(chkdsk c: /scan) -split '' | ? {$_ -and [byte][char]$_ -ne 0}) -join '' | Out-Host
-    
-    if ($chkdsk1 -like "*Windows has made corrections to the file system*") {
-        #Windows found errors and corrected them. 
-    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*") {
-        Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
-        $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
-        ChkDskCFX
-    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*") {
-        Write-Host "Chkdsk found no problems"
-        $ResultText.text = "Chkdsk found no problems." + "`r`n" + "Ready for Next Task"
-    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*") {
-        Write-Host "Chkdsk found corruption on the C: drive. Launching repair function..."
-        $ResultText.text = "Chkdsk found corruption." + "`r`n" + "Launching repair function..."
-        ChkDskCFX
-    }
+    ChkDskCWithProgress
 }
 
 function ChkDskCFX {

@@ -808,6 +808,35 @@ function Placeholder {
     Show-Feedback "Test"
 }
 
+function ChkDskC { 
+    ShowConsole
+    Show-Feedback "Checking the file system for errors. Watch the progress bar. The toolbox might lock up, that's normal." -Wait $true
+
+    $chkdsk1 = cmd /c chkdsk C: /scan '2>&1' | ForEach-Object {
+        $_ -match "Stage:\s+(\d+)%;\s+Total:\s+(\d+)%;"
+        if ($Matches.count -gt 0) {
+            $ChkDskTotal = $Matches.2
+            $ProgressBar1.value = $ChkDskTotal
+        }
+    }
+
+    if ($chkdsk1 -like "*Windows has made corrections to the file system*") {
+        Show-Feedback "Chkdsk found some errors and corrected them." -Ready $true
+    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*") {
+        Show-Feedback "Chkdsk found corruption." + "`r`n" + "Launching repair function..." -Wait $true
+        ChkDskCFX
+    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*") {
+        Show-Feedback "Chkdsk found no problems." -Ready $true
+    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*") {
+        Show-Feedback "Chkdsfound corruption." + "`r`n" + "Launching repair function..." -Wait $true
+        ChkDskCFXk 
+    }
+
+    #PowerShell psinstance1 = PowerShell.Create();
+    #psinstance1.AddScript(scriptPath);
+    #var results = psinstance1.Invoke();
+}
+
 function InstallKIS { 
     $packageFullName = "Kaspersky Internet Security (KIS)"
     $package = "kis"

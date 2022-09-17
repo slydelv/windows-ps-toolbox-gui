@@ -808,11 +808,11 @@ function Placeholder {
     Show-Feedback "Test"
 }
 
-function ChkDskC{
+function ChkDskC2{
     SpawnBGPSCommand(ChkDskC2)
 }
 
-function ChkDskC2 { 
+function ChkDskC { 
     ShowConsole
     Show-Feedback "Checking the file system for errors. Watch the progress bar. The toolbox might lock up, that's normal." -Wait $true
 

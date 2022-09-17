@@ -42,6 +42,11 @@ function SpawnPSCommand($pscommand) {
     Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$pscommand`"" -Verb RunAs
     #Show-Feedback "Spawned PowerShell Command: $pscommand"
 }
+function SpawnBGPSCommand($pscommand) {
+    Start-Job -ScriptBlock { powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$pscommand`"" -Verb RunAs }
+    #Show-Feedback "Spawned PowerShell Command: $pscommand"
+}
+
 
 function EssentialTweaks {
     Write-Host "Creating Restore Point incase something bad happens"

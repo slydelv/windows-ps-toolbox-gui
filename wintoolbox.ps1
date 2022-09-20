@@ -258,14 +258,14 @@ $BtnDisableFastStartup.Font      = New-Object System.Drawing.Font('Microsoft San
 $BtnDisableFastStartup.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnDisableFastStartup.BackColor  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
-$Button7                         = New-Object system.Windows.Forms.Button
-$Button7.text                    = "Placeholder"
-$Button7.width                   = 120
-$Button7.height                  = 30
-$Button7.location                = New-Object System.Drawing.Point(10,200)
-$Button7.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Button7.ForeColor               = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
-$Button7.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+$BtnWinUpdateReset               = New-Object system.Windows.Forms.Button
+$BtnWinUpdateReset.text          = "Win Update Reset"
+$BtnWinUpdateReset.width         = 120
+$BtnWinUpdateReset.height        = 30
+$BtnWinUpdateReset.location      = New-Object System.Drawing.Point(10,200)
+$BtnWinUpdateReset.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnWinUpdateReset.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnWinUpdateReset.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $LblStatus                       = New-Object system.Windows.Forms.Label
 $LblStatus.text                  = "Status: "
@@ -755,7 +755,7 @@ $ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
 $ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
-$GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$Button7))
+$GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$BtnWinUpdateReset))
 $Groupbox1.controls.AddRange(@($BtnAppList,$Button6,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
@@ -802,14 +802,13 @@ $BtnMBAMSetup.Add_Click({ MBAMSetup })
 $BtnNod32.Add_Click({ ESETNod32 })
 $BtnKIS.Add_Click({ InstallKIS })
 $Button4.Add_Click({ Placeholder })
+$BtnWinUpdateReset.Add_Click({ WinUpdateReset })
 
 #region Logic 
+function WinUpdateReset { }
+
 function Placeholder { 
     Show-Feedback "Test"
-}
-
-function ChkDskC2{
-    SpawnBGPSCommand(ChkDskC2)
 }
 
 function ChkDskC { 
@@ -976,11 +975,11 @@ function InstallChecked {
 }
 
 function SophiaApp { 
-    Write-Host "Downloading SophiaApp, please wait"
-    $ResultText.text = "Downloading SophiaApp, please wait"
+    Write-Host "Downloading SophiApp, please wait"
+    $ResultText.text = "Downloading SophiApp, please wait"
     irm app.sophi.app -useb | iex
-    $ResultText.text = "Downloaded SophiaApp, enjoy." + "`r`n" + "Ready for Next Task"
-    Write-Host "Downloaded SophiaApp, enjoy."
+    $ResultText.text = "Downloaded SophiApp, enjoy." + "`r`n" + "Ready for Next Task"
+    Write-Host "Downloaded SophiApp, enjoy."
 }
 
 function InstallKeePass {

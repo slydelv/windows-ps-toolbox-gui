@@ -129,7 +129,7 @@ $BtnChkDsk.width                 = 120
 $BtnChkDsk.height                = 30
 $BtnChkDsk.location              = New-Object System.Drawing.Point(10,40)
 $BtnChkDsk.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnChkDsk.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnChkDsk.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $ResultText                      = New-Object system.Windows.Forms.TextBox
@@ -959,17 +959,6 @@ function HitmanPro64 {
     #Start-Sleep -s 5
     $ProgressBar1.value = 0
     HideConsole
-}
-
-function FRST { 
-    Write-Host 'Downloading SlyDelvs FRST Downloader Updater, please wait...'
-    $ResultText.text = 'Downloading SlyDelvs FRST Downloader Updater, please wait...'
-    New-Item 'C:\winpstoolboxgui\' -Name FRST -ItemType Directory -ErrorAction SilentyContinue
-    Invoke-WebRequest -Uri 'https://github.com/slydelv/FRST-Download-Update/releases/download/Release/FRST-Download-Update.exe' -OutFile 'C:\winpstoolboxgui\FRST\FRST-Download-Update.exe'
-
-    Write-Host 'FRST Downloader Updater has been downloaded, it will now launch and download FRST for you'
-    $ResultText.text = "FRST Downloader Updater has been downloaded, it will now launch and download FRST for you" + "`r`n" + "Ready for Next Task"
-	Start-Process 'C:\winpstoolboxgui\FRST\FRST-Download-Update.exe'
 }
 
 function InstallChecked {

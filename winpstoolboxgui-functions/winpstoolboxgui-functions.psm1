@@ -619,13 +619,9 @@ function DumpNetworkInfo {
     Add-Content -Path 'C:\winpstoolboxgui\networkinfo.txt' -Value (Get-Date)
     Add-Content -Path 'C:\winpstoolboxgui\networkinfo.txt' -Value ''
 
-    $adapters = Get-NetAdapter -Name * | ft *
+    $adapters = Get-NetAdapter -Name * | Format-Table *
 
     $IPConfig = $(ipconfig /all)
-    $IPAddresses = $(ipconfig /all | Where-Object {$_ -match '(IPv4).*' } | out-null; $Matches[0])
-    $Subnets = $(ipconfig /all | Where-Object {$_ -match '(Subnet Mask).*' } | out-null; $Matches[0])
-    $Gateways = $(ipconfig /all | Where-Object {$_ -match '(Default Gateway).*' } | out-null; $Matches[0])
-    $DNSServers = $(ipconfig /all | Where-Object {$_ -match '(DNS Servers).*' } | out-null; $Matches[0])
 
     Add-Content -Path 'C:\winpstoolboxgui\networkinfo.txt' -Value 'Adapters:'
     Add-Content -Path 'C:\winpstoolboxgui\networkinfo.txt' -Value $adapters
@@ -646,7 +642,7 @@ function OSInfo {
     Add-Content -Path 'C:\winpstoolboxgui\osinfo.txt' -Value ''
     Show-Feedback 'Getting OS Info...' -Wait $true
     ShowConsole
-    (Get-ComputerInfo -Property BiosDescription, BiosFirmwareType, WindowsProductName, WindowsInstallDateFromRegistry, WindowsVersion, *SystemRoot, BiosName*, BiosReleaseDate, BiosStatus, BiosPrimaryBIOS, CsCaption, CsBootupState, CsDomainRole, CsDomain, CsInstallDate, CsEnableDaylightSavingsTime, CsManufacturer, CsModel, CsNetworkServerModeEnabled, CsProcessors, CsNumberOfLogicalProcessors, CsPartOfDomain, CsPowerManagementCapabilities, CsPowerState, CsPowerSupplyState, CsResetCapability, CsSystemType, CsThermalState, CsTotalPhysicallyInstalledMemory, CsUserName, CsWakeUpType, CsWorkgroup, OSName, OsVersion, OsBuildNumber, Os, HotFixes, OsBootDevice, OsSystemDevice, OsSystemDrive, OsWindowsDirectory, OsCountryCode, OsLocale, OsLocalDateTime, OsLastBootUpTime, OsUptime, OsLanguage, OsNumberOfProcesses, OsNumberOfUsers, OsArchitectire, OsPrimary, OsPortableOperatingSystem, OsStatus, TimeZone, PowerPlatformRole, HyperVisorPresent, HyperVRequirementVirtualizationFirmwareEnabled, HyperVRequirementVMMonitorModeExtensions | fl *) | Out-File C:\winpstoolboxgui\osinfo.txt
+    (Get-ComputerInfo -Property BiosDescription, BiosFirmwareType, WindowsProductName, WindowsInstallDateFromRegistry, WindowsVersion, *SystemRoot, BiosName*, BiosReleaseDate, BiosStatus, BiosPrimaryBIOS, CsCaption, CsBootupState, CsDomainRole, CsDomain, CsInstallDate, CsEnableDaylightSavingsTime, CsManufacturer, CsModel, CsNetworkServerModeEnabled, CsProcessors, CsNumberOfLogicalProcessors, CsPartOfDomain, CsPowerManagementCapabilities, CsPowerState, CsPowerSupplyState, CsResetCapability, CsSystemType, CsThermalState, CsTotalPhysicallyInstalledMemory, CsUserName, CsWakeUpType, CsWorkgroup, OSName, OsVersion, OsBuildNumber, Os, HotFixes, OsBootDevice, OsSystemDevice, OsSystemDrive, OsWindowsDirectory, OsCountryCode, OsLocale, OsLocalDateTime, OsLastBootUpTime, OsUptime, OsLanguage, OsNumberOfProcesses, OsNumberOfUsers, OsArchitectire, OsPrimary, OsPortableOperatingSystem, OsStatus, TimeZone, PowerPlatformRole, HyperVisorPresent, HyperVRequirementVirtualizationFirmwareEnabled, HyperVRequirementVMMonitorModeExtensions | Format-List *) | Out-File C:\winpstoolboxgui\osinfo.txt
     
     Show-Feedback 'Dumped the OS Info to C:\winpstoolboxgui\osinfo.txt, opening now' -Ready $true
     C:\winpstoolboxgui\osinfo.txt
@@ -661,14 +657,14 @@ function HwDump {
     ShowConsole
     $cpu1 = (get-wmiobject win32_processor)
     $ProgressBar1.value              = 20
-    $video = (Get-WmiObject win32_videocontroller | Select-Object -Property '__GENUS', Caption, Description, VideoProcessor, DeviceID, PowerManagementCapabilities, PowerManagementSupported, ProtocolSupported, AcceleratorCapabilities, DriverDate, DriverVersion, MaxRefreshRate, CurrentRefreshRate, Monochrome, VideoModeDescription, CurrentBitsPerPixel, Status, ConfigManagerUserConfig, ConfigManagerErrorCode, InstalledDisplayDrivers | fl *)
+    $video = (Get-WmiObject win32_videocontroller | Select-Object -Property '__GENUS', Caption, Description, VideoProcessor, DeviceID, PowerManagementCapabilities, PowerManagementSupported, ProtocolSupported, AcceleratorCapabilities, DriverDate, DriverVersion, MaxRefreshRate, CurrentRefreshRate, Monochrome, VideoModeDescription, CurrentBitsPerPixel, Status, ConfigManagerUserConfig, ConfigManagerErrorCode, InstalledDisplayDrivers | Format-List *)
     $ProgressBar1.value              = 40
     $memory = (Get-WmiObject Win32_PhysicalMemory | Select-Object -Property * -ExcludeProperty '__CLASS', '__SERVER', '__SUPERCLASS', '__DYNASTY', '__RELPATH', '__PROPERTY_COUNT', '__DERIVATION', '__NAMESPACE', '__PATH', CreationClassName, Description, Name, TypeDetail, Scope, Path, Options, ClassPath, Qualifiers, Site, Container, Properties  | fl *)
     $ProgressBar1.value              = 60
-    $networking = (Get-WmiObject -Class Win32_NetworkAdapter | Select-Object -Property Name, ServiceName, AdapterType, Speed | ft * ) 
+    $networking = (Get-WmiObject -Class Win32_NetworkAdapter | Select-Object -Property Name, ServiceName, AdapterType, Speed | Format-Table * ) 
     $ProgressBar1.value              = 80
-    $drives = ([System.IO.DriveInfo]::GetDrives() | Select-Object -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready | Where-Object Drivetype -EQ Fixed | ft *)
-    $drives2 = ([System.IO.DriveInfo]::GetDrives() | Select-Object -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready | Where-Object Drivetype -NE Fixed | ft *)
+    $drives = ([System.IO.DriveInfo]::GetDrives() | Select-Object -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready | Where-Object Drivetype -EQ Fixed | Format-Table *)
+    $drives2 = ([System.IO.DriveInfo]::GetDrives() | Select-Object -Property name, rootdirectory, volumelabel, driveformat, totalsize, availablefreespace,  drivetype, isready | Where-Object Drivetype -NE Fixed | Format-Table *)
     $ProgressBar1.value              = 95
 
 
@@ -703,20 +699,25 @@ function HwDump {
 }
 
 function AdwCleaner { 
-    ShowConsole
-    
     Invoke-WebRequest -Uri 'https://github.com/slydelv/windows-ps-toolbox-gui/blob/main/img/Adwcleaner-basic-repair-actions.png?raw=true' -OutFile 'C:\winpstoolboxgui\Adwcleaner-basic-repair-actions.png'
     
     $ProgressBar1.value = 10
     Show-Feedback 'Downloading AdwCleaner from MalwareBytes' -Wait $true
-    curl -o 'C:\winpstoolboxgui\adwcleaner.exe' 'https://adwcleaner.malwarebytes.com/adwcleaner?channel=release'
+    Invoke-WebRequest -Uri 'https://adwcleaner.malwarebytes.com/adwcleaner?channel=release' -OutFile 'C:\winpstoolboxgui\adwcleaner.exe'
     $ProgressBar1.value = 60
-    
+
     Show-Feedback 'AdwCleaner downloaded, now launching it and displaying settings image' -Ready $true
     $ProgressBar1.value = 100
     Start-Process 'C:\winpstoolboxgui\adwcleaner.exe' 
     Start-Sleep -s 5
     $ProgressBar1.value = 0
-    C:\winpstoolboxgui\Adwcleaner-basic-repair-actions.png
-    HideConsole
+    Start-Process "C:\winpstoolboxgui\Adwcleaner-basic-repair-actions.png"
+}
+
+function FRST { 
+    Show-Feedback 'Downloading SlyDelvs FRST Downloader Updater...' -Wait $true
+    Invoke-WebRequest -Uri 'https://github.com/slydelv/FRST-Download-Update/releases/download/Release/FRST-Download-Update.exe' -OutFile 'C:\winpstoolboxgui\FRST-Download-Update.exe'
+
+    Show-Feedback 'FRST Downloader Updater has been downloaded, it will now launch and download FRST for you' -Ready $true
+	Start-Process 'C:\winpstoolboxgui\FRST-Download-Update.exe'
 }

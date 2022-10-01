@@ -1395,8 +1395,6 @@ if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-fun
 Write-Host ""
 Write-Host "----------------------"
 Write-Host "Downloading functions file..."
-#Write-Host "----------------------"
-#Write-Host ""
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
@@ -1449,10 +1447,6 @@ function InstallChocoPackage($package, $packageFullName) {
     $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
 }
 
-#endregion
-
-#region Clear
-cls
 #endregion
 
 [void]$WindowsGUIToolbox.ShowDialog()

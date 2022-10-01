@@ -819,5 +819,319 @@ $BtnVisualFX.Add_Click({ VisualFxApperance })
 #region Logic 
 
 
+function StartSearchOff { 
+    Write-Host "Disabling search suggestions, searching Bing from the Start menu. Good riddance."
+    if ( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
+    
+    if ( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
+        New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 1 -Type DWord
+    Write-Host "Okay, it's disabled."
+    $ResultText.text = "Disabled searching Bing from Start. Restart to take effect." + "`r`n" + "Ready for Next Task"
+}
+
+function StartSearchOn { 
+    Write-Host "Enabling search suggestions, searching Bing from the Start menu. You maniac."
+    if ( -not (Test-Path -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
+        New-Item HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
+    
+    if ( -not (Test-Path -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer)) {
+        New-Item HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer
+    }
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Explorer -Name "DisableSearchBoxSuggestions" -Value 0 -Type DWord
+    
+    Write-Host "Okay, it's enabled."
+    $ResultText.text = "Enabled searching Bing from Start (WHY?). Restart to take effect." + "`r`n" + "Ready for Next Task"
+}
+
+function EnableCortana { 
+    ShowConsole
+    Write-Host "Enabling Cortana..."
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue
+	if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+		New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
+	}
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 0
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 0
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -ErrorAction SilentlyContinue
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -ErrorAction SilentlyContinue
+	Write-Host "Restoring Windows Search..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Type DWord -Value "1"
+	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "CortanaConsent" -ErrorAction SilentlyContinue
+	Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "DisableWebSearch" -ErrorAction SilentlyContinue
+	Write-Host "Restore and Starting Windows Search Service..."
+    Set-Service "WSearch" -StartupType Automatic
+    Start-Service "WSearch" -WarningAction SilentlyContinue
+    Write-Host "Restore Windows Search Icon..."
+	Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 1
+	Write-Host "Done - Reverted to Stock Settings"
+    $ResultText.text = "Enabled Cortana and Restored Search" + "`r`n" + "Ready for Next Task"
+    HideConsole
+}
+
+function DisableCortana { 
+    ShowConsole
+    Write-Host "Disabling Cortana..."
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -Type DWord -Value 0
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 1
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 1
+    if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore")) {
+        New-Item -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0
+    if (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
+        New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Force | Out-Null
+    }
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
+    Write-Host "Disabled Cortana"
+    $ResultText.text = "Disabled Cortana" + "`r`n" + "Ready for Next Task"
+    HideConsole
+}
+
+function BlockAds { 
+    $adlist= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/BlockAds.cfg' 
+    $adfile = "$env:windir\System32\drivers\etc\hosts"
+    $adlist | Add-Content -PassThru $adfile
+    $ResultText.text = "Blocked common ad servers" + "`r`n" + "Ready for Next Task"
+}
+
+function BlockEpicBloat { 
+    $content= Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/EpicGamesBlocklist.cfg' 
+    $file = "$env:windir\System32\drivers\etc\hosts"
+    $content | Add-Content -PassThru $file
+    $ResultText.text = "Blocked Epic Bloatware servers" + "`r`n" + "Ready for Next Task"
+}
+
+function InstallVLC { 
+    Write-Host "Installing VLC Media Player"
+    $ResultText.text = "`r`n" + "Installing VLC Media Player... Please Wait" 
+    winget install -e VideoLAN.VLC | Out-Host
+    if ($?) { Write-Host "Installed VLC Media Player" }
+    $ResultText.text = "Finished Installing VLC Media Player" + "`r`n" + "Ready for Next Task"
+}
+
+function InstallNotepad { 
+    Write-Host "Installing Notepad++"
+    $ResultText.text = "Installing Notepad++... Please Wait" 
+    winget install -e Notepad++.Notepad++ | Out-Host
+    if ($?) { Write-Host "Installed Notepad++" }
+    $ResultText.text = "Finished Installing NotePad++" + "`r`n" + "Ready for Next Task"
+}
+
+function InstallSumatra { 
+    Write-Host "Installing SumatraPDF"
+    $ResultText.text = "`r`n" + "Installing SumatraPDF... Please Wait" 
+    winget install -e --id SumatraPDF.SumatraPDF | Out-Host
+    if ($?) { Write-Host "Installed SumatraPDF" }
+    $ResultText.text = "Finished Installing SumatraPDF" + "`r`n" + "Ready for Next Task"
+}
+
+function RunningServices { 
+    Show-Console
+    Write-Host "Listing Running Services..."
+    $Svcs = Get-Service | Where-Object {$_.Status -EQ "Running"}| Out-GridView -Title "List of running services" -PassThru| Select -ExpandProperty Name
+    $ResultText.text = "Listing Running Services" + "`r`n" + $Svcs
+    Write-Host "Next step: Output to text file"
+}
+
+function RunUndoEssentialTweaks { 
+    ShowConsole
+    EssentialTweaks 
+    HideConsole
+}
+
+function RunEssentialTweaks { 
+    ShowConsole
+    EssentialUndo 
+    HideConsole
+}
+
+function InstallFirefox { 
+    Write-Host "Installing Firefox"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Firefox... Please Wait" 
+    winget install -e Mozilla.Firefox | Out-Host
+    if ($?) { Write-Host "Installed Firefox" }
+    $ResultText.text = "Finished Installing Firefox" + "`r`n" + "Ready for Next Task"
+}
+
+function InstallChrome { 
+    Write-Host "Installing Google Chrome"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Google Chrome... Please Wait" 
+    winget install -e Google.Chrome | Out-Host
+    if ($?) { Write-Host "Installed Google Chrome" }
+    $ResultText.text = "Finished Installing Google Chrome" + "`r`n" + "Ready for Next Task"
+}
+
+function InstallBrave { 
+    Write-Host "Installing Brave Browser"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Brave... Please Wait" 
+    winget install -e BraveSoftware.BraveBrowser | Out-Host
+    if ($?) { Write-Host "Installed Brave Browser" }
+    $ResultText.text = "Finished Installing Brave" + "`r`n" + "Ready for Next Task"
+}
+
+function Derp { 
+    ShowConsole
+    Show-Feedback "Derp"
+}
+
+function GetAppList { 
+    ShowConsole
+    
+    Write-Host 'Getting installed applications...'
+    Write-Host ''
+    
+    $applist1 += Get-ItemProperty -Name * -Path @(
+        'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
+        'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+        'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
+        'HKCU:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+    ) -ErrorAction SilentlyContinue | Where-Object {$_.DisplayName.Length -ge 1 } | Select-Object -Property DisplayName
+
+    if ($ChkSaveTxt.Checked) {
+        Write-Output $applist1 > $env:USERPROFILE\Desktop\Applist.txt
+        Write-Host ''
+        Write-Host '------------------'
+        Write-Host 'I have saved this applist on your desktop. I will open the file in Notepad for you too.'
+        Start notepad $env:USERPROFILE\Desktop\Applist.txt
+        Write-Host 'Finished'
+        Write-Host '------------------'
+        
+    } else {
+        Write-Output $applist1
+        Write-Host '------------------'
+        Write-Host 'Finished'
+        Write-Host '------------------'
+    }
+
+}
+
+function InstEverything { 
+    ShowConsole
+    Write-Host "Installing Voidtools Everything Search"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing Voidtools Everything Search... Please Wait" 
+    winget install -e voidtools.Everything --source winget | Out-Host
+    if ($?) { Write-Host "Installed Everything Search" }
+    $ResultText.text = "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
+    HideConsole
+}
+
+function Inst7Zip { 
+    ShowConsole
+    Write-Host "Installing 7-Zip Compression Tool"
+    $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
+    winget install -e 7zip.7zip | Out-Host
+    if ($?) { Write-Host "Installed 7-Zip Compression Tool" }
+    $ResultText.text = "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
+    HideConsole
+}
+
+function InstWinTerminal { 
+    ShowConsole
+    $ErrorActionPreference = 'SilentlyContinue'
+    $wshell = New-Object -ComObject Wscript.Shell
+    $Button = [System.Windows.MessageBoxButton]::YesNoCancel
+    $ErrorIco = [System.Windows.MessageBoxImage]::Error
+    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+    	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    	Exit
+    }
+    HideConsole
+}
+
+function ChkDskCFX {
+    ShowConsole
+    Write-Host "Now scheduling chkdsk with the fix parameter and scheduling it for your next computer restart. Please restart your computer as soon as possible."
+    Write-Host "I am also setting your computer to restart in 5 minutes. Please save and close your work immediately. Ideally restart your computer before the 5 minutes"
+    Write-Host " - Ensure you DO NOT TURN OFF YOUR COMPUTER during the scan which runs on the next boot/reboot."
+    
+    Write-Output Y > chkdsk C: /f /x
+    
+    shutdown /r /t 300 /f /c "Your PC will be restarted in 5 minutes. Make sure all your work is saved. (This process can be aborted by using the shutdown /a command)"
+}
+
+function ChkDskCR {
+    ShowConsole
+    cmd /c "echo y|chkdsk C: /F /X /R" | Out-Host
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
+}
+
+function ChkDskChoice {
+    ShowConsole
+    $chkdskPrompt = Read-Host "Would you like to scan with chkdsk? This will temporarily disable the actively scanned disk(s). The main disk can be scheduled for scanning next startup, and the other disks will start to get scanned now. Do you wish to run this scan? (Y/N)"
+    if ($chkdskPrompt -ne 'y') {
+    	break
+    }
+    
+    Write-Host ""
+    $chkdskComprehensiveHddScanPrompt = Read-Host "Would you like to use the chkdsk '/R' parameter to scan HDDs for bad sectors?`r`nThis is a more comprehensive scan option for HDDs, which takes longer time to run. It can take multiple hours on a slow HDD, while the regular scan (without the '/R' parameter) is fast and only takes a few minutes.`r`nThe SSD scans will ignore this parameter as it can cause the SSD to shrink in data size.`r`nDo you wish to use the '/R' parameter for the HDD scans? (Y/N)"
+    
+    Get-PhysicalDisk | Where-Object MediaType | ForEach-Object {
+    	$physicalDisk = $_
+    	$driveLetter = $physicalDisk | Get-Disk | Get-Partition | Where-Object DriveLetter | Select -ExpandProperty DriveLetter
+    	if ($driveLetter) {
+    		if ($chkdskComprehensiveHddScanPrompt -eq 'y' -and $physicalDisk.MediaType -eq "HDD") {
+    			$message = "`r`n`r`n" + 'Starting "chkdsk ' + $driveLetter + ': /F /R /X" scan' + "`r`n"
+    			Write-Host $message
+    			
+    			chkdsk ${driveLetter}: /F /R /X | Out-Host
+    		}
+    		elseif ($physicalDisk.MediaType -eq "HDD" -or $physicalDisk.MediaType -eq "SSD") {
+    			$message = "`r`n`r`n" + 'Starting "chkdsk ' + $driveLetter + ': /F /X" scan' + "`r`n"
+    			Write-Host $message
+    			
+    			chkdsk ${driveLetter}: /F /X | Out-Host
+    		}
+    	}
+    }
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
+    Write-Host `n
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
+}
+
+function ChkDskScanOnly {
+    ShowConsole
+    cmd /c "echo y|chkdsk C: /scan" | Out-Host
+    $ResultText.text = "`r`n" + "Chkdsk run. Check the console." + "`r`n" + "Ready for Next Task"
+    #This needs work, like the DISM / SFC. Maybe even the powershell Repair-Volume, but it doesn't have as many options as Chkdsk
+}
+
+
+
+function ShowConsole {
+    [Console.Window]::ShowWindow([Console.Window]::GetConsoleWindow(), 1)
+}
+
+function HideConsole {
+    [Console.Window]::ShowWindow([Console.Window]::GetConsoleWindow(), 0)
+}
+
+function MoveConsole {
+    [Console.Window]::MoveWindow([Console.Window]::GetConsoleWindow(),900,0,800,500);
+}
+
+$ErrorActionPreference = 'SilentlyContinue'
+$wshell = New-Object -ComObject Wscript.Shell
+$Button = [System.Windows.MessageBoxButton]::YesNoCancel
+$ErrorIco = [System.Windows.MessageBoxImage]::Error
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+	Exit
+}
+#endregion
+
 
 [void]$WindowsGUIToolbox.ShowDialog()

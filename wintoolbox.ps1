@@ -1133,5 +1133,73 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 }
 #endregion
 
+#region Greetings
+Write-Host "Hello! You're welcome to learn from the code here but if you use the toolbox or any scripts from it, please ask permission and at the very least, give credit where credit is due."
+Write-Host ""
+#endregion
+
+#region Winget
+Write-Host ""
+Write-Host "----------------------"
+Write-Host "Checking to see if WinGet is installed..."
+
+if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
+    Write-Host 'Winget already installed.'
+}  else {
+    # Installing winget from the Microsoft Store
+	Write-Host 'Winget not found, installing it now...'
+	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
+	$nid = (Get-Process AppInstaller).Id
+	Wait-Process -Id $nid
+	Write-Host 'Winget has been installed.'
+}
+
+Write-Host "----------------------"
+Write-Host ""
+
+function InstallWinGetPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    Write-Host "Please wait... (you can watch the console)"
+    $ResultText.text = "Installing $packageFullName ... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e $package | Out-Host
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
+#endregion
+
+#region Startup
+#Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
+if (-not (Test-Path 'C:\winpstoolboxgui')) {
+    New-Item -Path C:\ -Name winpstoolboxgui -ItemType Directory
+}
+if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo')) {
+    New-Item -Path C:\winpstoolboxgui -Name winpstoolboxgui-repo -ItemType Directory
+}
+if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions')) {
+    New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
+}
+
+Write-Host ""
+Write-Host "----------------------"
+Write-Host "Downloading functions file..."
+
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psm1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psm1'
+Write-Host "Functions module downloaded."
+
+Copy-Item -Path "C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions" -Destination "C:\Program Files\WindowsPowerShell\Modules" -recurse -Force
+Write-Host "Functions module copied to C:\Program Files\WindowsPowerShell\Modules"
+
+Import-Module winpstoolboxgui-functions
+Write-Host "Functions module registered."
+Write-Host "----------------------"
+Write-Host ""
+#endregion
+
+
 
 [void]$WindowsGUIToolbox.ShowDialog()

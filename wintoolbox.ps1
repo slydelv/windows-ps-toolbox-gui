@@ -1123,14 +1123,6 @@ function MoveConsole {
     [Console.Window]::MoveWindow([Console.Window]::GetConsoleWindow(),900,0,800,500);
 }
 
-$ErrorActionPreference = 'SilentlyContinue'
-$wshell = New-Object -ComObject Wscript.Shell
-$Button = [System.Windows.MessageBoxButton]::YesNoCancel
-$ErrorIco = [System.Windows.MessageBoxImage]::Error
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-	Exit
-}
 #endregion
 
 #region Greetings
@@ -1171,6 +1163,15 @@ function InstallWinGetPackage($package, $packageFullName) {
 #endregion
 
 #region Startup
+$ErrorActionPreference = 'SilentlyContinue'
+$wshell = New-Object -ComObject Wscript.Shell
+$Button = [System.Windows.MessageBoxButton]::YesNoCancel
+$ErrorIco = [System.Windows.MessageBoxImage]::Error
+if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs -Wait
+	Exit
+}
+
 #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 
 if (-not (Test-Path 'C:\winpstoolboxgui')) {
@@ -1200,6 +1201,44 @@ Write-Host "----------------------"
 Write-Host ""
 #endregion
 
+#region Choco
+Write-Host ""
+Write-Host "----------------------"
+Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
 
+$testchoco = powershell choco -v
+if(-not($testchoco)){
+    Write-Output "Seems Chocolatey is not installed, installing now..."
+    InstallChoco
+    Write-Output "Chocolately installing, double checking..."
+    if(Test-Path "C:\ProgramData\chocolatey\choco.exe"){
+        Write-Output "It looks like there was an error installing Chocolatey."
+    }
+
+} else {
+    Write-Output "Chocolatey Version $testchoco is already installed."
+}
+
+Write-Host "----------------------"
+Write-Host ""
+
+function InstallChoco {
+    SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
+}
+
+function InstallChocoPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    Write-Host "Please Wait..."
+    $ResultText.text = "Installing $packageFullName ... Please Wait (you can watch the console)" 
+    $ProgressBar1.value = 10
+    #choco install $package /y
+    SpawnPSCommand("choco install $packageFullName /y")
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
+
+#endregion
 
 [void]$WindowsGUIToolbox.ShowDialog()

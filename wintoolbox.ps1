@@ -829,10 +829,9 @@ $BtnRunAsAdmin.Add_Click({ RunAsAdmin })
 function RunAsAdmin { 
     if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
     	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    	[System.Windows.Forms.Application]::Exit()
+    	#[System.Windows.Forms.Application]::Exit()
     }    
 }
-
 
 function StartSearchOff { 
     Write-Host "Disabling search suggestions, searching Bing from the Start menu. Good riddance."
@@ -1054,16 +1053,7 @@ function Inst7Zip {
 }
 
 function InstWinTerminal { 
-    ShowConsole
-    $ErrorActionPreference = 'SilentlyContinue'
-    $wshell = New-Object -ComObject Wscript.Shell
-    $Button = [System.Windows.MessageBoxButton]::YesNoCancel
-    $ErrorIco = [System.Windows.MessageBoxImage]::Error
-    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-    	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    	Exit
-    }
-    HideConsole
+    Write-Host "Unimplemented"
 }
 
 function ChkDskCFX {

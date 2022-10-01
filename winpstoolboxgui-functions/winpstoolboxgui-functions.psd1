@@ -69,7 +69,7 @@
     # NestedModules = @()
     
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = @('Show-Feedback','EssentialTweaks','EssentialUndo','SpawnPSCommand','SFCScan','ClearTempFiles','DISMSpace','DISMHealth','DisableFastStartup','EnableFastStartup','VisualFxPerformance','VisualFxApperance','DumpNetworkInfo','OSInfo','HwDump','AdwCleaner','FRST')
+    FunctionsToExport = @('Show-Feedback','EssentialTweaks','EssentialUndo','SpawnPSCommand','SFCScan','ClearTempFiles','DISMSpace','DISMHealth','DisableFastStartup','EnableFastStartup','VisualFxPerformance','VisualFxApperance','DumpNetworkInfo','OSInfo','HwDump','AdwCleaner','FRST','ClearDiscordCache','WinUpdateReset','Placeholder','ChkDskC','InstallKIS','ESETNod32','MBAMSetup','RKill','HitmanPro64','InstallChecked','SophiaApp','InstallKeePass','InstallHWiNFO','EnableBGApps','DisableBGApps')
     
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()

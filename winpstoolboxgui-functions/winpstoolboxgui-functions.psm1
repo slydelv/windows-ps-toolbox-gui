@@ -721,3 +721,196 @@ function FRST {
     Show-Feedback 'FRST Downloader Updater has been downloaded, it will now launch and download FRST for you' -Ready $true
 	Start-Process 'C:\winpstoolboxgui\FRST-Download-Update.exe'
 }
+
+
+function ClearDiscordCache { 
+    Show-Feedback "Closing Discord and clearing the Discord cache" -Wait $true
+    taskkill /im discord.exe /f
+    rmdir /r /q "%appdata%/discord/cache"
+    Show-Feedback "Cleared Discord Cache. You can open Discord again." -Ready $true
+}
+
+function WinUpdateReset { 
+    
+}
+
+function Placeholder { 
+    Show-Feedback "Test"
+}
+
+function ChkDskC { 
+    ShowConsole
+    Show-Feedback "Checking the file system for errors. Watch the progress bar. The toolbox might lock up, that's normal." -Wait $true
+
+    $chkdsk1 = cmd /c chkdsk C: /scan '2>&1' | ForEach-Object {
+        $_ -match "Stage:\s+(\d+)%;\s+Total:\s+(\d+)%;"
+        if ($Matches.count -gt 0) {
+            $ChkDskTotal = $Matches.2
+            $ProgressBar1.value = $ChkDskTotal
+        }
+    }
+
+    if ($chkdsk1 -like "*Windows has made corrections to the file system*") {
+        Show-Feedback "Chkdsk found some errors and corrected them." -Ready $true
+    } elseif ($chkdsk1 -like "*Windows has checked the file system and found problems*") {
+        Show-Feedback "Chkdsk found corruption." + "`r`n" + "Launching repair function..." -Wait $true
+        ChkDskCFX
+    } elseif ($chkdsk1 -like "*Windows has scanned the file system and found no problems.*") {
+        Show-Feedback "Chkdsk found no problems." -Ready $true
+    } elseif ($chkdsk1 -like "*Run CHKDSK with the /F (fix) option to correct these.*") {
+        Show-Feedback "Chkdsfound corruption." + "`r`n" + "Launching repair function..." -Wait $true
+        ChkDskCFXk 
+    }
+
+    #PowerShell psinstance1 = PowerShell.Create();
+    #psinstance1.AddScript(scriptPath);
+    #var results = psinstance1.Invoke();
+}
+
+function InstallKIS { 
+    $packageFullName = "Kaspersky Internet Security (KIS)"
+    $package = "kis"
+    
+    InstallChocoPackage($package, $packageFullName)
+}
+
+function ESETNod32 { 
+    Write-Host "Installing ESET.Nod32"
+    $ResultText.text = "Installing ESET.Nod32... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e ESET.Nod32 | Out-Host
+    $ProgressBar1.value = 50
+    if ($?) { Write-Host "Installed ESET.Nod32" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing ESET.Nod32" + "`r`n" + "Ready for Next Task"
+}
+
+function MBAMSetup { 
+    Write-Host "Installing MalwareBytes"
+    $ResultText.text = "Installing MalwareBytes... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e Malwarebytes.Malwarebytes | Out-Host
+    $ProgressBar1.value = 50
+    if ($?) { Write-Host "Installed MalwareBytes" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing MalwareBytes" + "`r`n" + "Ready for Next Task"
+}
+
+function RKill { 
+    ShowConsole
+    
+    Remove-Item -Path 'C:\winpstoolboxgui\rkill.exe' -Force -ErrorAction SilentlyContinue
+    
+    $ProgressBar1.value = 10
+    Show-Feedback 'Downloading RKill from Bleeping Computer' -Wait $true
+    
+    
+    $destination = "C:\winpstoolboxgui\rkill.exe"
+    $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/rkill/dl/10/" -MaximumRedirection 0
+    $ProgressBar1.value = 30
+    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    
+    $ProgressBar1.value = 70
+    
+    Invoke-WebRequest $source2 -OutFile $destination 
+    
+    Show-Feedback 'RKill downloaded, now launching it' -Ready $true
+
+    $ProgressBar1.value = 100
+    Start-Process 'C:\winpstoolboxgui\rkill.exe'
+    #Start-Sleep -s 5
+    $ProgressBar1.value = 0
+    HideConsole
+}
+
+function HitmanPro64 { 
+    ShowConsole
+    Remove-Item -Path 'C:\winpstoolboxgui\HitmanPro_x64.exe' -Force -ErrorAction SilentlyContinue
+    $ProgressBar1.value = 10
+    Write-Host 'Downloading HitmanPro_x64 from Bleeping Computer, please wait...'
+    $ResultText.text = "Downloading HitmanPro_x64 from Bleeping Computer, please wait..." 
+    
+    $destination = "C:\winpstoolboxgui\HitmanPro_x64.exe"
+    $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/hitmanpro/dl/176" -MaximumRedirection 0
+    $ProgressBar1.value = 30
+    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    $ProgressBar1.value = 70
+    Invoke-WebRequest $source2 -OutFile $destination 
+    
+    Write-Host 'HitmanPro_x64 downloaded, now launching it'
+    $ResultText.text = "HitmanPro_x64 downloaded, now launching it" + "`r`n" + "Ready for Next Task"
+    
+    $ProgressBar1.value = 100
+    Start-Process 'C:\winpstoolboxgui\HitmanPro_x64.exe'
+    #Start-Sleep -s 5
+    $ProgressBar1.value = 0
+    HideConsole
+}
+
+function InstallChecked {
+    ShowConsole
+    $selectableItems = @(
+		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'winget install -e --id BraveSoftware.BraveBrowser;'}, 
+		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'winget install -e --id Google.Chrome;'}, 
+		[pscustomobject]@{Value = $ChkInstall7Zip.Checked; Title = '7Zip'; Command = 'winget install -e --id 7zip.7zip;'}, 
+		[pscustomobject]@{Value = $ChkInstallFirefox.Checked; Title = ' Firefox'; Command = 'winget install -e --id Mozilla.Firefox;'}, 
+		[pscustomobject]@{Value = $ChkInstallVLC.Checked; Title = 'VLC'; Command = 'winget install -e --id VideoLAN.VLC;'}, 
+		[pscustomobject]@{Value = $ChkInstallNotepadpp.Checked; Title = 'Notepad++'; Command = 'winget install -e --id Notepad++.Notepad++;'}, 
+		[pscustomobject]@{Value = $ChkInstallSumatra.Checked; Title = 'SumatraPDF'; Command = 'winget install -e --id SumatraPDF.SumatraPDF;'}, 
+		[pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'KeePass'; Command = 'winget install -e --id DominikReichl.KeePass;'}
+	)
+    
+	$selectedItems = $selectableItems | where {$_.Value -eq $true}
+	$command = $selectedItems.Command -Join " "
+	$titles = $selectedItems.Title -Join " "
+	
+    Show-Feedback "Installing selected items: $titles" -Wait $true
+	
+	Invoke-Expression $command | Out-Host
+	
+    Show-Feedback 'Finished installing checked programs' -Ready $true
+	HideConsole
+}
+
+function SophiaApp { 
+    Show-Feedback 'Downloading SophiApp' -Wait $true
+    irm app.sophi.app -useb | iex
+    Show-Feedback 'Downloaded SophiApp, Enjoy' -Ready -$true
+}
+
+function InstallKeePass {
+    Write-Host "Installing KeePass"
+    $ResultText.text = "Installing KeePass... Please Wait" 
+    winget install -e DominikReichl.KeePass | Out-Host
+    if ($?) { Write-Host "Installed KeePass" }
+    $ResultText.text = "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
+    
+}
+
+function InstallHWiNFO { 
+    Write-Host "Installing HWiNFO"
+    $ResultText.text = "Installing HWiNFO... Please Wait" 
+    winget install -e REALiX.HWiNFO | Out-Host
+    if ($?) { Write-Host "Installed HWiNFO" }
+    $ResultText.text = "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"
+}
+
+function EnableBGApps { 
+    Write-Host "Allowing Background Apps..."
+	Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
+		Remove-ItemProperty -Path $_.PsPath -Name "Disabled" -ErrorAction SilentlyContinue
+		Remove-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -ErrorAction SilentlyContinue
+	}
+	Write-Host "Done - Reverted to Stock Settings"
+    $ResultText.text = "Enabled Background Apps." + "`r`n" + "Ready for Next Task"
+}
+
+function DisableBGApps { 
+    Write-Host "Disabling Background application access..."
+    Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
+        Set-ItemProperty -Path $_.PsPath -Name "Disabled" -Type DWord -Value 1
+        Set-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -Type DWord -Value 1
+    }
+    Write-Host "Disabled Background application access"
+    $ResultText.text = "Disabled Background application access." + "`r`n" + "Ready for Next Task"
+}

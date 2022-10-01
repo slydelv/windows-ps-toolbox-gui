@@ -176,16 +176,16 @@ $BtnChkDsScan.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#
 $BtnShowConsole                  = New-Object system.Windows.Forms.Button
 $BtnShowConsole.text             = "Show Console"
 $BtnShowConsole.width            = 110
-$BtnShowConsole.height           = 30
-$BtnShowConsole.location         = New-Object System.Drawing.Point(23,206)
+$BtnShowConsole.height           = 20
+$BtnShowConsole.location         = New-Object System.Drawing.Point(629,753)
 $BtnShowConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnShowConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
 $BtnHideConsole                  = New-Object system.Windows.Forms.Button
 $BtnHideConsole.text             = "Hide Console"
 $BtnHideConsole.width            = 110
-$BtnHideConsole.height           = 30
-$BtnHideConsole.location         = New-Object System.Drawing.Point(143,206)
+$BtnHideConsole.height           = 20
+$BtnHideConsole.location         = New-Object System.Drawing.Point(745,753)
 $BtnHideConsole.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnHideConsole.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
@@ -266,15 +266,6 @@ $BtnWinUpdateReset.location      = New-Object System.Drawing.Point(10,200)
 $BtnWinUpdateReset.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
 $BtnWinUpdateReset.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#d0021b")
 $BtnWinUpdateReset.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$LblStatus                       = New-Object system.Windows.Forms.Label
-$LblStatus.text                  = "Status: "
-$LblStatus.AutoSize              = $true
-$LblStatus.width                 = 25
-$LblStatus.height                = 10
-$LblStatus.location              = New-Object System.Drawing.Point(562,12)
-$LblStatus.Font                  = New-Object System.Drawing.Font('Verdana',12)
-$LblStatus.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
 $Groupbox2                       = New-Object system.Windows.Forms.Groupbox
 $Groupbox2.height                = 350
@@ -781,10 +772,10 @@ $ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download and install MalwareBytes')
 $ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
 $ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
 $ToolTipRepairUtils.SetToolTip($BtnClearDiscordCache,'Clear Temporary Files')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$Groupbox1,$LblStatus,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1,$Label4,$Label5))
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1,$Label4,$Label5))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$BtnWinUpdateReset,$BtnClearDiscordCache))
-$Groupbox1.controls.AddRange(@($BtnShowConsole,$BtnHideConsole,$BtnAppList,$BtnNetworkSettings,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
+$Groupbox1.controls.AddRange(@($BtnAppList,$BtnNetworkSettings,$Label2,$ChkSaveTxt,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
 $Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
 $Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner,$BtnHitmanPro64,$BtnHitmanPro32,$BtnRKill,$BtnMBAMSetup,$BtnNod32,$BtnKIS))
@@ -1392,6 +1383,7 @@ if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo')) {
 if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions')) {
     New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
 }
+
 Write-Host ""
 Write-Host "----------------------"
 Write-Host "Downloading functions file..."

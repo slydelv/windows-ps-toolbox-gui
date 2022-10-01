@@ -451,7 +451,7 @@ $Label7.Font                     = New-Object System.Drawing.Font('Microsoft San
 $Label7.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
 $Label8                          = New-Object system.Windows.Forms.Label
-$Label8.text                     = "Red = Unimplemented. Orange = Testing. Yellow = Should be working. Green = Tested, Working."
+$Label8.text                     = "Red = TBC. Orange = Testing. Yellow = Should be working. Green = Working."
 $Label8.AutoSize                 = $true
 $Label8.width                    = 25
 $Label8.height                   = 10
@@ -711,6 +711,14 @@ $Label5.location                 = New-Object System.Drawing.Point(388,100)
 $Label5.Font                     = New-Object System.Drawing.Font('Verdana',10)
 $Label5.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
+$BtnRunAsAdmin                   = New-Object system.Windows.Forms.Button
+$BtnRunAsAdmin.text              = "Run as Admin"
+$BtnRunAsAdmin.width             = 110
+$BtnRunAsAdmin.height            = 20
+$BtnRunAsAdmin.location          = New-Object System.Drawing.Point(514,753)
+$BtnRunAsAdmin.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnRunAsAdmin.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#515151")
+
 $ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
 $ToolTipUtils.SetToolTip($Everything,'Install VoidTools Everything (Ultimate Windows search tool)')
 $ToolTipUtils.SetToolTip($AdvIPScanner,'Install Advanced IP Scanner')
@@ -762,7 +770,7 @@ $ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download and install MalwareBytes')
 $ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
 $ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
 $ToolTipRepairUtils.SetToolTip($BtnClearDiscordCache,'Clear Temporary Files')
-$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1,$Label4,$Label5))
+$WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1,$Label4,$Label5,$BtnRunAsAdmin))
 $GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$BtnWinUpdateReset,$BtnClearDiscordCache))
 $Groupbox1.controls.AddRange(@($BtnAppList,$BtnNetworkSettings,$Label2,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
@@ -815,8 +823,15 @@ $BtnWinUpdateReset.Add_Click({ WinUpdateReset })
 $BtnClearDiscordCache.Add_Click({ ClearDiscordCache })
 $BtnPerfFX.Add_Click({ VisualFxPerformance })
 $BtnVisualFX.Add_Click({ VisualFxApperance })
+$BtnRunAsAdmin.Add_Click({ RunAsAdmin })
 
 #region Logic 
+function RunAsAdmin { 
+    if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+    	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    	[System.Windows.Forms.Application]::Exit()
+    }    
+}
 
 
 function StartSearchOff { 
@@ -1167,10 +1182,10 @@ $ErrorActionPreference = 'SilentlyContinue'
 $wshell = New-Object -ComObject Wscript.Shell
 $Button = [System.Windows.MessageBoxButton]::YesNoCancel
 $ErrorIco = [System.Windows.MessageBoxImage]::Error
-if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs -Wait
+#if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
+	#Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	#Exit
-}
+#}
 
 #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 

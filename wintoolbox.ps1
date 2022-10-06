@@ -829,7 +829,7 @@ $BtnRunAsAdmin.Add_Click({ RunAsAdmin })
 function RunAsAdmin { 
     if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
     	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    	#[System.Windows.Forms.Application]::Exit()
+    	[System.Windows.Forms.Application]::Exit()
     }    
 }
 
@@ -1130,48 +1130,13 @@ function MoveConsole {
 
 #endregion
 
-#region Winget
-Write-Host ''
-Write-Host '----------------------'
-Write-Host "Checking to see if WinGet is installed..."
-
-if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
-    Write-Host 'Winget already installed.'
-}  else {
-    # Installing winget from the Microsoft Store
-	Write-Host 'Winget not found, installing it now...'
-	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
-	$nid = (Get-Process AppInstaller).Id
-	Wait-Process -Id $nid
-	Write-Host 'Winget has been installed.'
-}
-
-Write-Host '----------------------'
-Write-Host ''
-
-function InstallWinGetPackage($package, $packageFullName) {
-    Write-Host "Installing $packageFullName"
-    Write-Host "Please wait... (you can watch the console)"
-    $ResultText.text = "Installing $packageFullName ... Please Wait" 
-    $ProgressBar1.value = 10
-    winget install -e $package | Out-Host
-    $ProgressBar1.value = 50
-    if($?) { Write-Host "Installed $packageFullName" }
-    $ProgressBar1.value = 100
-    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
-}
-#endregion
-
 #region Startup
 $ErrorActionPreference = 'SilentlyContinue'
 $wshell = New-Object -ComObject Wscript.Shell
 $Button = [System.Windows.MessageBoxButton]::YesNoCancel
 $ErrorIco = [System.Windows.MessageBoxImage]::Error
 
-#if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-	#Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-	#Exit
-#}
+RunAsAdmin
 
 #Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 
@@ -1202,6 +1167,38 @@ Write-Host "Functions module registered."
 Write-Host '----------------------'
 Write-Host ''
 
+#endregion
+
+#region Winget
+Write-Host ''
+Write-Host '----------------------'
+Write-Host "Checking to see if WinGet is installed..."
+
+if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
+    Write-Host 'Winget already installed.'
+}  else {
+    # Installing winget from the Microsoft Store
+	Write-Host 'Winget not found, installing it now...'
+	Start-Process "ms-appinstaller:?source=https://aka.ms/getwinget"
+	$nid = (Get-Process AppInstaller).Id
+	Wait-Process -Id $nid
+	Write-Host 'Winget has been installed.'
+}
+
+Write-Host '----------------------'
+Write-Host ''
+
+function InstallWinGetPackage($package, $packageFullName) {
+    Write-Host "Installing $packageFullName"
+    Write-Host "Please wait... (you can watch the console)"
+    $ResultText.text = "Installing $packageFullName ... Please Wait" 
+    $ProgressBar1.value = 10
+    winget install -e $package | Out-Host
+    $ProgressBar1.value = 50
+    if($?) { Write-Host "Installed $packageFullName" }
+    $ProgressBar1.value = 100
+    $ResultText.text = "Finished Installing $packageFullName" + "`r`n" + "Ready for Next Task"
+}
 #endregion
 
 #region Choco

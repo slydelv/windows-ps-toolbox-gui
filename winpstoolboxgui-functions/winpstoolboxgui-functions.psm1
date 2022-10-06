@@ -767,14 +767,14 @@ function ChkDskC {
     #var results = psinstance1.Invoke();
 }
 
-function InstallKIS { 
+function InstallKIS {
     $packageFullName = "Kaspersky Internet Security (KIS)"
     $package = "kis"
     
     InstallChocoPackage($package, $packageFullName)
 }
 
-function ESETNod32 { 
+function ESETNod32 {
     Write-Host "Installing ESET.Nod32"
     $ResultText.text = "Installing ESET.Nod32... Please Wait" 
     $ProgressBar1.value = 10
@@ -785,7 +785,7 @@ function ESETNod32 {
     $ResultText.text = "Finished Installing ESET.Nod32" + "`r`n" + "Ready for Next Task"
 }
 
-function MBAMSetup { 
+function MBAMSetup {
     Write-Host "Installing MalwareBytes"
     $ResultText.text = "Installing MalwareBytes... Please Wait" 
     $ProgressBar1.value = 10
@@ -796,19 +796,18 @@ function MBAMSetup {
     $ResultText.text = "Finished Installing MalwareBytes" + "`r`n" + "Ready for Next Task"
 }
 
-function RKill { 
+function RKill {
     ShowConsole
     
     Remove-Item -Path 'C:\winpstoolboxgui\rkill.exe' -Force -ErrorAction SilentlyContinue
     
     $ProgressBar1.value = 10
-    Show-Feedback 'Downloading RKill from Bleeping Computer' -Wait $true
-    
+    Show-Feedback 'Downloading RKill from Bleeping Computer' -Wait $true  
     
     $destination = "C:\winpstoolboxgui\rkill.exe"
     $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/rkill/dl/10/" -MaximumRedirection 0
     $ProgressBar1.value = 30
-    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    $source2 = $source1.Links | Where-Object {$_.innerText -eq "click here"} | Select-Object -Expand href
     
     $ProgressBar1.value = 70
     
@@ -820,10 +819,10 @@ function RKill {
     Start-Process 'C:\winpstoolboxgui\rkill.exe'
     #Start-Sleep -s 5
     $ProgressBar1.value = 0
-    HideConsole
+    
 }
 
-function HitmanPro64 { 
+function HitmanPro64 {
     ShowConsole
     Remove-Item -Path 'C:\winpstoolboxgui\HitmanPro_x64.exe' -Force -ErrorAction SilentlyContinue
     $ProgressBar1.value = 10
@@ -833,7 +832,7 @@ function HitmanPro64 {
     $destination = "C:\winpstoolboxgui\HitmanPro_x64.exe"
     $source1 = Invoke-WebRequest "https://www.bleepingcomputer.com/download/hitmanpro/dl/176" -MaximumRedirection 0
     $ProgressBar1.value = 30
-    $source2 = $source1.Links | where {$_.innerText -eq "click here"} | select -Expand href
+    $source2 = $source1.Links | Where-Object {$_.innerText -eq "click here"} | Select-Object -Expand href
     $ProgressBar1.value = 70
     Invoke-WebRequest $source2 -OutFile $destination 
     
@@ -844,7 +843,7 @@ function HitmanPro64 {
     Start-Process 'C:\winpstoolboxgui\HitmanPro_x64.exe'
     #Start-Sleep -s 5
     $ProgressBar1.value = 0
-    HideConsole
+    
 }
 
 function InstallChecked {
@@ -857,10 +856,12 @@ function InstallChecked {
 		[pscustomobject]@{Value = $ChkInstallVLC.Checked; Title = 'VLC'; Command = 'winget install -e --id VideoLAN.VLC;'}, 
 		[pscustomobject]@{Value = $ChkInstallNotepadpp.Checked; Title = 'Notepad++'; Command = 'winget install -e --id Notepad++.Notepad++;'}, 
 		[pscustomobject]@{Value = $ChkInstallSumatra.Checked; Title = 'SumatraPDF'; Command = 'winget install -e --id SumatraPDF.SumatraPDF;'}, 
+        [pscustomobject]@{Value = $ChkInstallBitwarden.Checked; Title = 'BitWarden'; Command = 'winget install -e --id Bitwarden.Bitwarden;'}
 		[pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'KeePass'; Command = 'winget install -e --id DominikReichl.KeePass;'}
+        [pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'HWiNFO'; Command = 'winget install -e --id REALiX.HWiNFO;'}
 	)
     
-	$selectedItems = $selectableItems | where {$_.Value -eq $true}
+	$selectedItems = $selectableItems | Where-Object {$_.Value -eq $true}
 	$command = $selectedItems.Command -Join " "
 	$titles = $selectedItems.Title -Join " "
 	
@@ -869,48 +870,69 @@ function InstallChecked {
 	Invoke-Expression $command | Out-Host
 	
     Show-Feedback 'Finished installing checked programs' -Ready $true
-	HideConsole
 }
 
-function SophiaApp { 
+function InstallCheckedChoco {
+    ShowConsole
+
+    $selectableItems = @(
+		[pscustomobject]@{Value = $ChkInstallBrave.Checked; Title = 'Brave'; Command = 'brave'}, 
+		[pscustomobject]@{Value = $ChkInstallChrome.Checked; Title = 'Chrome'; Command = 'googlechrome'}, 
+		[pscustomobject]@{Value = $ChkInstall7Zip.Checked; Title = '7Zip'; Command = '7zip.install'}, 
+		[pscustomobject]@{Value = $ChkInstallFirefox.Checked; Title = ' Firefox'; Command = 'firefox'}, 
+		[pscustomobject]@{Value = $ChkInstallVLC.Checked; Title = 'VLC'; Command = 'vlc'}, 
+		[pscustomobject]@{Value = $ChkInstallNotepadpp.Checked; Title = 'Notepad++'; Command = 'notepadplusplus'}, 
+		[pscustomobject]@{Value = $ChkInstallSumatra.Checked; Title = 'SumatraPDF'; Command = 'sumatrapdf'}, 
+		[pscustomobject]@{Value = $ChkInstallBitwarden.Checked; Title = 'BitWarden'; Command = 'bitwarden'}
+        [pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'KeePass'; Command = 'keepass'}
+        [pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'Everything'; Command = 'everything'}
+        [pscustomobject]@{Value = $ChkInstallKeePass.Checked; Title = 'HWiNFO'; Command = 'hwinfo.install'}
+	)
+
+    $selectedItems = $selectableItems | Where-Object {$_.Value -eq $true}
+    $command = "choco install " + ($selectedItems.Command -Join " ") + " /y"
+    $titles = $selectedItems.Title -Join " "
+
+    Show-Feedback "Installing selected items with choco: $titles" -Wait $true
+	
+	Invoke-Expression $command | Out-Host
+	
+    Show-Feedback 'Finished installing checked programs with choco' -Ready $true
+}
+
+function SophiaApp {
     Show-Feedback 'Downloading SophiApp' -Wait $true
     irm app.sophi.app -useb | iex
     Show-Feedback 'Downloaded SophiApp, Enjoy' -Ready -$true
 }
 
-function InstallKeePass {
-    Write-Host "Installing KeePass"
-    $ResultText.text = "Installing KeePass... Please Wait" 
-    winget install -e DominikReichl.KeePass | Out-Host
-    if ($?) { Write-Host "Installed KeePass" }
-    $ResultText.text = "Finished Installing KeePass" + "`r`n" + "Ready for Next Task"
-    
-}
+function InstallHWiNFO {
+    Show-Feedback "Installing HWiNFO" -Wait $true
 
-function InstallHWiNFO { 
-    Write-Host "Installing HWiNFO"
-    $ResultText.text = "Installing HWiNFO... Please Wait" 
     winget install -e REALiX.HWiNFO | Out-Host
     if ($?) { Write-Host "Installed HWiNFO" }
-    $ResultText.text = "Finished Installing HWiNFO" + "`r`n" + "Ready for Next Task"
+
+    Show-Feedback "Finished Installing HWiNFO" -Ready $true
 }
 
-function EnableBGApps { 
-    Write-Host "Allowing Background Apps..."
+function EnableBGApps {
+    Show-Feedback "Allowing background apps (again)" -Wait $true
+
 	Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
 		Remove-ItemProperty -Path $_.PsPath -Name "Disabled" -ErrorAction SilentlyContinue
 		Remove-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -ErrorAction SilentlyContinue
 	}
-	Write-Host "Done - Reverted to Stock Settings"
-    $ResultText.text = "Enabled Background Apps." + "`r`n" + "Ready for Next Task"
+
+    Show-Feedback "Done - reverted to stock settings" -Ready $true
 }
 
-function DisableBGApps { 
-    Write-Host "Disabling Background application access..."
+function DisableBGApps {
+    Show-Feedback "Disabling unnecessary background application access... " -Wait $true
+
     Get-ChildItem -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications" -Exclude "Microsoft.Windows.Cortana*" | ForEach {
         Set-ItemProperty -Path $_.PsPath -Name "Disabled" -Type DWord -Value 1
         Set-ItemProperty -Path $_.PsPath -Name "DisabledByUser" -Type DWord -Value 1
     }
-    Write-Host "Disabled Background application access"
-    $ResultText.text = "Disabled Background application access." + "`r`n" + "Ready for Next Task"
+
+    Show-Feedback "Disabled Background application access" -Ready $true
 }

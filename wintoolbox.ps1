@@ -30,15 +30,6 @@ $Logo.height                     = 110
 $Logo.location                   = New-Object System.Drawing.Point(3,8)
 $Logo.imageLocation              = "https://github.com/slydelv/windows-ps-toolbox-gui/blob/main/img/PCHH-Logo.png?raw=true"
 $Logo.SizeMode                   = [System.Windows.Forms.PictureBoxSizeMode]::zoom
-$7zip                            = New-Object system.Windows.Forms.Button
-$7zip.text                       = "7-Zip"
-$7zip.width                      = 120
-$7zip.height                     = 30
-$7zip.location                   = New-Object System.Drawing.Point(10,40)
-$7zip.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$7zip.ForeColor                  = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
-$7zip.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
 $GrpInstallUtils                 = New-Object system.Windows.Forms.Groupbox
 $GrpInstallUtils.height          = 250
 $GrpInstallUtils.width           = 270
@@ -53,42 +44,6 @@ $LblInstallUtils.height          = 10
 $LblInstallUtils.location        = New-Object System.Drawing.Point(10,10)
 $LblInstallUtils.Font            = New-Object System.Drawing.Font('Verdana',16)
 $LblInstallUtils.ForeColor       = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
-
-$Everything                      = New-Object system.Windows.Forms.Button
-$Everything.text                 = "Everything (void)"
-$Everything.width                = 120
-$Everything.height               = 30
-$Everything.location             = New-Object System.Drawing.Point(140,40)
-$Everything.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$Everything.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
-$Everything.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$AdvIPScanner                    = New-Object system.Windows.Forms.Button
-$AdvIPScanner.text               = "Adv IP Scanner"
-$AdvIPScanner.width              = 120
-$AdvIPScanner.height             = 30
-$AdvIPScanner.location           = New-Object System.Drawing.Point(10,80)
-$AdvIPScanner.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$AdvIPScanner.ForeColor          = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
-$AdvIPScanner.BackColor          = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$WinTerminal                     = New-Object system.Windows.Forms.Button
-$WinTerminal.text                = "Win Terminal"
-$WinTerminal.width               = 120
-$WinTerminal.height              = 30
-$WinTerminal.location            = New-Object System.Drawing.Point(140,80)
-$WinTerminal.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$WinTerminal.ForeColor           = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
-$WinTerminal.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
-$BtnInstallHwInfo                = New-Object system.Windows.Forms.Button
-$BtnInstallHwInfo.text           = "HWiNFO"
-$BtnInstallHwInfo.width          = 120
-$BtnInstallHwInfo.height         = 30
-$BtnInstallHwInfo.location       = New-Object System.Drawing.Point(10,120)
-$BtnInstallHwInfo.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallHwInfo.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
-$BtnInstallHwInfo.BackColor      = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDownloadSophiaApp            = New-Object system.Windows.Forms.Button
 $BtnDownloadSophiaApp.text       = "SophiApp"
@@ -246,7 +201,7 @@ $BtnNetworkSettings.width        = 120
 $BtnNetworkSettings.height       = 30
 $BtnNetworkSettings.location     = New-Object System.Drawing.Point(10,120)
 $BtnNetworkSettings.Font         = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnNetworkSettings.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnNetworkSettings.ForeColor    = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnNetworkSettings.BackColor    = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnDisableFastStartup           = New-Object system.Windows.Forms.Button
@@ -306,7 +261,7 @@ $BtnOsInfo.width                 = 120
 $BtnOsInfo.height                = 30
 $BtnOsInfo.location              = New-Object System.Drawing.Point(10,80)
 $BtnOsInfo.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnOsInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#f5a623")
+$BtnOsInfo.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnOsInfo.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $Groupbox3                       = New-Object system.Windows.Forms.Groupbox
@@ -498,15 +453,6 @@ $Label9.location                 = New-Object System.Drawing.Point(16,126)
 $Label9.Font                     = New-Object System.Drawing.Font('Microsoft Sans Serif',8)
 $Label9.ForeColor                = [System.Drawing.ColorTranslator]::FromHtml("#928e8e")
 
-$BtnInstallUeli                  = New-Object system.Windows.Forms.Button
-$BtnInstallUeli.text             = "UELI"
-$BtnInstallUeli.width            = 120
-$BtnInstallUeli.height           = 30
-$BtnInstallUeli.location         = New-Object System.Drawing.Point(140,120)
-$BtnInstallUeli.Font             = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnInstallUeli.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
-$BtnInstallUeli.BackColor        = [System.Drawing.ColorTranslator]::FromHtml("#454545")
-
 $ChkInstallBrave                 = New-Object system.Windows.Forms.CheckBox
 $ChkInstallBrave.text            = "Brave"
 $ChkInstallBrave.AutoSize        = $false
@@ -535,10 +481,10 @@ $ChkInstall7zip.Font             = New-Object System.Drawing.Font('Microsoft San
 $ChkInstall7zip.ForeColor        = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
 
 $BtnInstallChecked               = New-Object system.Windows.Forms.Button
-$BtnInstallChecked.text          = "Install Checked"
+$BtnInstallChecked.text          = "Install (WinGet)"
 $BtnInstallChecked.width         = 120
 $BtnInstallChecked.height        = 30
-$BtnInstallChecked.location      = New-Object System.Drawing.Point(141,310)
+$BtnInstallChecked.location      = New-Object System.Drawing.Point(10,308)
 $BtnInstallChecked.Font          = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnInstallChecked.ForeColor     = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
 $BtnInstallChecked.BackColor     = [System.Drawing.ColorTranslator]::FromHtml("#454545")
@@ -654,7 +600,7 @@ $BtnRKill.width                  = 120
 $BtnRKill.height                 = 30
 $BtnRKill.location               = New-Object System.Drawing.Point(10,120)
 $BtnRKill.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$BtnRKill.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnRKill.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#7ed321")
 $BtnRKill.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#454545")
 
 $BtnMBAMSetup                    = New-Object system.Windows.Forms.Button
@@ -719,11 +665,42 @@ $BtnRunAsAdmin.location          = New-Object System.Drawing.Point(514,753)
 $BtnRunAsAdmin.Font              = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $BtnRunAsAdmin.BackColor         = [System.Drawing.ColorTranslator]::FromHtml("#515151")
 
-$ToolTipUtils.SetToolTip($7zip,'Installs 7-Zip')
-$ToolTipUtils.SetToolTip($Everything,'Install VoidTools Everything (Ultimate Windows search tool)')
-$ToolTipUtils.SetToolTip($AdvIPScanner,'Install Advanced IP Scanner')
-$ToolTipUtils.SetToolTip($WinTerminal,'Install Windows Terminal')
-$ToolTipUtils.SetToolTip($BtnInstallHwInfo,'Install HWiNFO64')
+$BtnInstallCheckedChoco          = New-Object system.Windows.Forms.Button
+$BtnInstallCheckedChoco.text     = "Install (Choco)"
+$BtnInstallCheckedChoco.width    = 120
+$BtnInstallCheckedChoco.height   = 30
+$BtnInstallCheckedChoco.location  = New-Object System.Drawing.Point(140,308)
+$BtnInstallCheckedChoco.Font     = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$BtnInstallCheckedChoco.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#f8e71c")
+$BtnInstallCheckedChoco.BackColor  = [System.Drawing.ColorTranslator]::FromHtml("#454545")
+
+$ChkInstallBitwarden             = New-Object system.Windows.Forms.CheckBox
+$ChkInstallBitwarden.text        = "BitWarden"
+$ChkInstallBitwarden.AutoSize    = $false
+$ChkInstallBitwarden.width       = 100
+$ChkInstallBitwarden.height      = 20
+$ChkInstallBitwarden.location    = New-Object System.Drawing.Point(13,120)
+$ChkInstallBitwarden.Font        = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallBitwarden.ForeColor   = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallEverything            = New-Object system.Windows.Forms.CheckBox
+$ChkInstallEverything.text       = "Everything"
+$ChkInstallEverything.AutoSize   = $false
+$ChkInstallEverything.width      = 100
+$ChkInstallEverything.height     = 20
+$ChkInstallEverything.location   = New-Object System.Drawing.Point(133,120)
+$ChkInstallEverything.Font       = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallEverything.ForeColor  = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
+$ChkInstallHwinfo                = New-Object system.Windows.Forms.CheckBox
+$ChkInstallHwinfo.text           = "HWiNFO"
+$ChkInstallHwinfo.AutoSize       = $false
+$ChkInstallHwinfo.width          = 100
+$ChkInstallHwinfo.height         = 20
+$ChkInstallHwinfo.location       = New-Object System.Drawing.Point(13,139)
+$ChkInstallHwinfo.Font           = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$ChkInstallHwinfo.ForeColor      = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+
 $ToolTipUtils.SetToolTip($BtnDownloadSophiaApp,'Downoads SophiaApp from https://github.com/Sophia-Community/SophiApp')
 $ToolTipRepairUtils.SetToolTip($BtnChkDsk,'Runs Chkdsk and if errors are found then run with /x /f')
 $ToolTipRepairUtils.SetToolTip($BtnChkDskR,'Runs Chkdsk with /x /f /r')
@@ -752,7 +729,6 @@ $ToolTipTweaks.SetToolTip($BtnBlockEpicBloat,'Blocks Epic related hosts which ru
 $ToolTipTweaks.SetToolTip($BtnBlockAds,'Blocks a load of common ad servers')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOff,'Disables searching the web and Bing from the start menu. Win 10 2004 and above. You will need to restart.')
 $ToolTipTweaks.SetToolTip($BtnStartSearchOn,'Re-enbles searching the web and Bing from the start menu. I do not know why you would want to do this.')
-$ToolTipUtils.SetToolTip($BtnInstallUeli,'Install UELI Keystroke Launcher')
 $ToolTipInfo.SetToolTip($ChkInstallBrave,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstallChrome,'Tick this to save the App List as a text file to your desktop')
 $ToolTipInfo.SetToolTip($ChkInstall7zip,'Tick this to save the App List as a text file to your desktop')
@@ -770,12 +746,15 @@ $ToolTipCyberSec.SetToolTip($BtnMBAMSetup,'Download and install MalwareBytes')
 $ToolTipCyberSec.SetToolTip($BtnNod32,'Download and install ESET Nod32')
 $ToolTipCyberSec.SetToolTip($BtnKIS,'Download and install Kaspersky Internet Security')
 $ToolTipRepairUtils.SetToolTip($BtnClearDiscordCache,'Clear Temporary Files')
+$ToolTipInfo.SetToolTip($ChkInstallBitwarden,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallEverything,'Tick this to save the App List as a text file to your desktop')
+$ToolTipInfo.SetToolTip($ChkInstallHwinfo,'Tick this to save the App List as a text file to your desktop')
 $WindowsGUIToolbox.controls.AddRange(@($LblTitle,$Logo,$GrpInstallUtils,$GrpRepairUtils,$ResultText,$BtnShowConsole,$BtnHideConsole,$Groupbox1,$Groupbox2,$Groupbox3,$Label6,$Label7,$Label8,$Label9,$Groupbox4,$ProgressBar1,$Label4,$Label5,$BtnRunAsAdmin))
-$GrpInstallUtils.controls.AddRange(@($7zip,$LblInstallUtils,$Everything,$AdvIPScanner,$WinTerminal,$BtnInstallHwInfo,$BtnDownloadSophiaApp,$Button4,$BtnInstallUeli))
+$GrpInstallUtils.controls.AddRange(@($LblInstallUtils,$BtnDownloadSophiaApp,$Button4))
 $GrpRepairUtils.controls.AddRange(@($LblRepairUtils,$BtnChkDsk,$BtnChkDskR,$BtnChkDskChoice,$BtnChkDsScan,$BtnSFC,$BtnDISMSpace,$BtnDISMHealth,$BtnDeleteTemp,$BtnWinUpdateReset,$BtnClearDiscordCache))
 $Groupbox1.controls.AddRange(@($BtnAppList,$BtnNetworkSettings,$Label2,$BtnHwInfo,$BtnOsInfo,$BtnRunningServices))
 $Groupbox2.controls.AddRange(@($BtnDisableFastStartup,$Label1,$BtnEssentialTweaks,$BtnUndoEssential,$BtnEnableFastStart,$BtnDisableCortana,$BtnEnableCortana,$BtnDisableBGApps,$BtnEnableBGApps,$BtnPerfFX,$BtnVisualFX,$BtnBlockEpicBloat,$BtnBlockAds,$BtnStartSearchOff,$BtnStartSearchOn))
-$Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass))
+$Groupbox3.controls.AddRange(@($Label3,$ChkInstallBrave,$ChkInstallChrome,$ChkInstall7zip,$BtnInstallChecked,$ChkInstallFirefox,$ChkInstallVLC,$ChkInstallNotepadpp,$ChkInstallSumatra,$ChkInstallKeePass,$BtnInstallCheckedChoco,$ChkInstallBitwarden,$ChkInstallEverything,$ChkInstallHwinfo))
 $Groupbox4.controls.AddRange(@($Label10,$BtnFarbar,$BtnAdwCleaner,$BtnHitmanPro64,$BtnHitmanPro32,$BtnRKill,$BtnMBAMSetup,$BtnNod32,$BtnKIS))
 
 $BtnChkDsk.Add_Click({ ChkDskC })
@@ -788,9 +767,6 @@ $BtnSFC.Add_Click({ SFCScan })
 $BtnDISMSpace.Add_Click({ DISMSpace })
 $BtnDISMHealth.Add_Click({ DISMHealth })
 $BtnDeleteTemp.Add_Click({ ClearTempFiles })
-$WinTerminal.Add_Click({ InstWinTerminal })
-$7zip.Add_Click({ Inst7Zip })
-$Everything.Add_Click({ InstEverything })
 $BtnAppList.Add_Click({ GetAppList })
 $BtnNetworkSettings.Add_Click({ DumpNetworkInfo })
 $BtnDisableFastStartup.Add_Click({ DisableFastStartup })
@@ -808,7 +784,6 @@ $BtnStartSearchOff.Add_Click({ StartSearchOff })
 $BtnEnableFastStart.Add_Click({ EnableFastStart })
 $BtnDisableBGApps.Add_Click({ DisableBGApps })
 $BtnEnableBGApps.Add_Click({ EnableBGApps })
-$BtnInstallHwInfo.Add_Click({ InstallHWiNFO })
 $BtnDownloadSophiaApp.Add_Click({ SophiaApp })
 $BtnInstallChecked.Add_Click({ InstallChecked })
 $BtnFarbar.Add_Click({ FRST })
@@ -824,8 +799,10 @@ $BtnClearDiscordCache.Add_Click({ ClearDiscordCache })
 $BtnPerfFX.Add_Click({ VisualFxPerformance })
 $BtnVisualFX.Add_Click({ VisualFxApperance })
 $BtnRunAsAdmin.Add_Click({ RunAsAdmin })
+$BtnInstallCheckedChoco.Add_Click({ InstallCheckedChoco })
 
 #region Logic 
+
 function RunAsAdmin { 
     if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
     	Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
@@ -1030,30 +1007,6 @@ function GetAppList {
         Write-Host '------------------'
     }
 
-}
-
-function InstEverything { 
-    ShowConsole
-    Write-Host "Installing Voidtools Everything Search"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing Voidtools Everything Search... Please Wait" 
-    winget install -e voidtools.Everything --source winget | Out-Host
-    if ($?) { Write-Host "Installed Everything Search" }
-    $ResultText.text = "Finished Installing Voidtools Everything Search" + "`r`n" + "Ready for Next Task"
-    HideConsole
-}
-
-function Inst7Zip { 
-    ShowConsole
-    Write-Host "Installing 7-Zip Compression Tool"
-    $ResultText.text = "`r`n" +"`r`n" + "Installing 7-Zip Compression Tool... Please Wait" 
-    winget install -e 7zip.7zip | Out-Host
-    if ($?) { Write-Host "Installed 7-Zip Compression Tool" }
-    $ResultText.text = "Finished Installing 7-Zip Compression Tool" + "`r`n" + "Ready for Next Task"
-    HideConsole
-}
-
-function InstWinTerminal { 
-    Write-Host "Unimplemented"
 }
 
 function ChkDskCFX {

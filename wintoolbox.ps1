@@ -1130,14 +1130,9 @@ function MoveConsole {
 
 #endregion
 
-#region Greetings
-Write-Host "Hello! You're welcome to learn from the code here but if you use the toolbox or any scripts from it, please ask permission and at the very least, give credit where credit is due."
-Write-Host ""
-#endregion
-
 #region Winget
-Write-Host ""
-Write-Host "----------------------"
+Write-Host ''
+Write-Host '----------------------'
 Write-Host "Checking to see if WinGet is installed..."
 
 if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
@@ -1151,8 +1146,8 @@ if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe){
 	Write-Host 'Winget has been installed.'
 }
 
-Write-Host "----------------------"
-Write-Host ""
+Write-Host '----------------------'
+Write-Host ''
 
 function InstallWinGetPackage($package, $packageFullName) {
     Write-Host "Installing $packageFullName"
@@ -1172,6 +1167,7 @@ $ErrorActionPreference = 'SilentlyContinue'
 $wshell = New-Object -ComObject Wscript.Shell
 $Button = [System.Windows.MessageBoxButton]::YesNoCancel
 $ErrorIco = [System.Windows.MessageBoxImage]::Error
+
 #if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
 	#Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
 	#Exit
@@ -1189,8 +1185,8 @@ if (-not (Test-Path 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-fun
     New-Item -Path C:\winpstoolboxgui\winpstoolboxgui-repo -Name winpstoolboxgui-functions -ItemType Directory
 }
 
-Write-Host ""
-Write-Host "----------------------"
+Write-Host ''
+Write-Host '----------------------'
 Write-Host "Downloading functions file..."
 
 Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/slydelv/windows-ps-toolbox-gui/main/winpstoolboxgui-functions/winpstoolboxgui-functions.psd1' -OutFile 'C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functions\winpstoolboxgui-functions.psd1'
@@ -1201,14 +1197,16 @@ Copy-Item -Path "C:\winpstoolboxgui\winpstoolboxgui-repo\winpstoolboxgui-functio
 Write-Host "Functions module copied to C:\Program Files\WindowsPowerShell\Modules"
 
 Import-Module winpstoolboxgui-functions
+
 Write-Host "Functions module registered."
-Write-Host "----------------------"
-Write-Host ""
+Write-Host '----------------------'
+Write-Host ''
+
 #endregion
 
 #region Choco
-Write-Host ""
-Write-Host "----------------------"
+Write-Host ''
+Write-Host '----------------------'
 Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
 
 $testchoco = powershell choco -v
@@ -1224,8 +1222,8 @@ if(-not($testchoco)){
     Write-Output "Chocolatey Version $testchoco is already installed."
 }
 
-Write-Host "----------------------"
-Write-Host ""
+Write-Host '----------------------'
+Write-Host ''
 
 function InstallChoco {
     SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")

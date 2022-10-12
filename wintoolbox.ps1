@@ -1168,7 +1168,6 @@ if(-not($testchoco)){
     if(Test-Path "C:\ProgramData\chocolatey\choco.exe"){
         Write-Output "It looks like there was an error installing Chocolatey."
     }
-
 } else {
     Write-Output "Chocolatey Version $testchoco is already installed."
 }
@@ -1177,7 +1176,8 @@ Write-Host '----------------------'
 Write-Host ''
 
 function InstallChoco {
-    SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
+    #SpawnPSCommand("Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))")
+    powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 }
 
 function InstallChocoPackage($package, $packageFullName) {

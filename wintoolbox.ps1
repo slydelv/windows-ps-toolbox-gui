@@ -1159,7 +1159,8 @@ Write-Host ''
 Write-Host '----------------------'
 Write-Host 'Checking to see if Chocolatey is installed (Chocolatey.org)...'
 
-$testchoco = powershell choco -v
+#$testchoco = powershell choco -v
+$testchoco = Test-Path "C:\ProgramData\chocolatey\choco.exe"
 if(-not($testchoco)){
     Write-Output "Seems Chocolatey is not installed, installing now..."
     InstallChoco
